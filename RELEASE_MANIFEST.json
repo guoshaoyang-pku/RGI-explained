@@ -15,6 +15,11 @@
       "sha256": "d86e034fc04d38bc2c9bb04a8a2771c07279b8e5877d7688f4143391b6bc1e15"
     },
     {
+      "path": ".github/workflows/pages.yml",
+      "size": 1088,
+      "sha256": "8c0445cad6a8f0b7994860ce080fae39ac2b727e29ebfefed06a2de6b6813134"
+    },
+    {
       "path": ".gitignore",
       "size": 115,
       "sha256": "4450729eb9139db574061223fffbe6c96576ab561edf30f62464185648ae080a"
@@ -26,8 +31,8 @@
     },
     {
       "path": "AGENTS.md",
-      "size": 1274,
-      "sha256": "31e60431c1672995469bcd3597ddd6aff6ec48951122644baef43cb3c212c1f2"
+      "size": 1492,
+      "sha256": "4796097a1d4d4d757119fb53f29fd390cf3d8b96bf054a03f7dc706d0e164d8b"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -46,13 +51,58 @@
     },
     {
       "path": "README.md",
-      "size": 2801,
-      "sha256": "b646d1cfa9900b50513d5bf460871568d2f8ebb020000c16d8bfdbaff74aa9e8"
+      "size": 4396,
+      "sha256": "a9ebacdd0b8e2176b552b4c1beb08022567e87c14c4410b975b63863987ee257"
     },
     {
       "path": "arxiv-metadata.txt",
       "size": 1956,
       "sha256": "5877c5685d59e830da80e83120251f245f42c4c44fe5f3ac2dff4824a196fbd1"
+    },
+    {
+      "path": "docs/assets/build_visual_abstract.py",
+      "size": 12912,
+      "sha256": "c5e79088f5480d7f0933c6ae7529c8f1542c6da52dc594d6aa7bd5cbee7919f0"
+    },
+    {
+      "path": "docs/assets/visual-abstract-data.json",
+      "size": 3540,
+      "sha256": "bafd15cc6c28fc376ff5e8bd2a06564b62f25c155e789004e2f48c60d1e25913"
+    },
+    {
+      "path": "docs/assets/visual-abstract-en.pdf",
+      "size": 61549,
+      "sha256": "0c05e337fe100d28d274d32654e4d2f199cb6efab2b4fc7ff8bfa165466137fa"
+    },
+    {
+      "path": "docs/assets/visual-abstract-en.png",
+      "size": 258849,
+      "sha256": "45296c8ed24a39b35dac9afe0b34f108e45432d7ea0a0e46791dded2aa94c57c"
+    },
+    {
+      "path": "docs/assets/visual-abstract-en.svg",
+      "size": 417916,
+      "sha256": "743112b7e29f91ad4acf321f212984f93eeeac5e92bd67f57b174821211097d9"
+    },
+    {
+      "path": "docs/assets/visual-abstract-zh.pdf",
+      "size": 86796,
+      "sha256": "05af63cb4f3d1e59e9815d8e9466e46e2b28f7d8361b9d07c563e792004fb8ae"
+    },
+    {
+      "path": "docs/assets/visual-abstract-zh.png",
+      "size": 264703,
+      "sha256": "88bf07ebb65e7b55e5f1fd6ab742b70c2d1224f26d6ef49e4ef0f8b5f9f92f86"
+    },
+    {
+      "path": "docs/assets/visual-abstract-zh.svg",
+      "size": 568727,
+      "sha256": "bd551a04d78c33bd3a3d0c23667b6c40bbc7c79879754df58542e57a0ade376a"
+    },
+    {
+      "path": "docs/index.html",
+      "size": 24841,
+      "sha256": "f725eb180223bcca1a5b4f4e734f8e99734f78d213127731b2b7b66b6b0a947a"
     },
     {
       "path": "docs/reports/figs/numerical-theory.pdf",
@@ -266,8 +316,8 @@
     },
     {
       "path": "verify_evidence.py",
-      "size": 3974,
-      "sha256": "1dbc5f73f587628cf5d3ca714ab4e3ef39a6039eff2eeee84e7c7229ef6dfda1"
+      "size": 6850,
+      "sha256": "380f821e646e4e71406b659f06cd03d2a95ac80bfc9b4e17997ad0fd589790a3"
     }
   ],
   "verified_build": {

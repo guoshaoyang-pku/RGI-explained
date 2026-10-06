@@ -1,10 +1,18 @@
-# Beyond Relative Generalization Invariance
+# RGI-explained
 
-**Shared Difficulty and Local Learning Response in Language Model Training**
+**Beyond Relative Generalization Invariance: Shared Difficulty and Local Learning Response in Language Model Training**
 
 Shaoyang Guo and Ziming Liu are the core contributors. Ziming Liu is the corresponding author.
 
 This release contains the MetaCircle manuscript, Chinese report, interactive panel and bounded aggregate evidence. It studies a finite teacher-forced Pythia-70M continuation with SGD and Adam.
+
+[English webpage](https://guoshaoyang-pku.github.io/RGI-explained/?lang=en) · [中文网页](https://guoshaoyang-pku.github.io/RGI-explained/?lang=zh) · [Paper PDF](main.pdf)
+
+![Four measured terms: frozen difficulty, parameter work, curvature, and remainder](docs/assets/visual-abstract-en.png)
+
+The visual abstract centers on L = D + A + Q₂ + ε. The table separates measurement definitions from standard deviation, mean, and RMS. Its ranges use the full 512-batch window and three permutations of one shared data pool; they are not confidence intervals.
+
+中文：冻结难度 D 主导原始 loss 的波动；扣除 D 后，负的一阶作用 A 与正的曲率项 Q₂ 共同解释局部响应。主图逐项给出测量公式、SGD/Adam 数量级和实测余项，并保留优化器差值检验的失败结果。
 
 ## Result and scope
 
@@ -14,6 +22,9 @@ The response analysis is retrospective. A+Q₂ uses the displacement that actual
 
 ## Read
 
+- [Bilingual visual abstract page](docs/index.html): English and Chinese explanations; desktop and mobile layouts.
+- [English SVG](docs/assets/visual-abstract-en.svg) / [PDF](docs/assets/visual-abstract-en.pdf) · [中文 SVG](docs/assets/visual-abstract-zh.svg) / [PDF](docs/assets/visual-abstract-zh.pdf).
+- [Exact visual-abstract values](docs/assets/visual-abstract-data.json), generated from the included analyses by [build_visual_abstract.py](docs/assets/build_visual_abstract.py).
 - [Manuscript PDF](main.pdf)
 - [Chinese report](docs/reports/rgi-followup.md)
 - [Interactive panel](docs/reports/rgi-followup-panel.html): open in a browser, switch real trajectories, and export CSV.
@@ -29,6 +40,8 @@ Prerequisites: Python 3.9+, XeLaTeX and latexmk with the packages used by metaci
     latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
 
 The arXiv zip includes main.bbl and a XeLaTeX compiler declaration. references.bib is included for local edits.
+
+The static webpage needs no application dependencies. Open docs/index.html directly, or run python3 -m http.server from the repository. The Pages workflow checks release evidence before publishing; it exposes the manuscript and evidence links together with the website.
 
 ## Evidence availability
 

@@ -1,0 +1,40 @@
+name: Publish research page
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check release evidence
+        run: python3 verify_evidence.py
+      - name: Assemble static site
+        run: |
+          mkdir _site
+          git archive HEAD | tar -x -C _site
+          python3 - <<'PYTHON'
+          from pathlib import Path
+          page = Path('docs/index.html').read_text()
+          page = page.replace('<head>', '<head>\n<base href="docs/">', 1)
+          Path('_site/index.html').write_text(page)
+          Path('_site/.nojekyll').touch()
+          PYTHON
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

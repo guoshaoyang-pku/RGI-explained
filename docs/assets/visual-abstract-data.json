@@ -1,0 +1,131 @@
+{
+  "schema": "rgi-visual-abstract-v1",
+  "equation": "L = D + A + Q2 + epsilon",
+  "scope": "Pythia-70M / FineWeb sample-10BT; retrospective local continuation",
+  "table_window": [
+    0,
+    512
+  ],
+  "range_scope": "Three permutations of one shared data pool; not confidence intervals",
+  "statistics": {
+    "D": "standard deviation",
+    "A": "mean",
+    "Q2": "mean",
+    "epsilon": "RMS"
+  },
+  "epsilon_definition": "L - D - A - Q2 = R + Q - Q2; not R alone",
+  "records": [
+    {
+      "run": "arrival-r0-sgd",
+      "algorithm": "sgd",
+      "replica": 0,
+      "D_std_nats": 0.18430918265024063,
+      "A_mean_nats": -0.003954130955984559,
+      "Q2_mean_nats": 0.0019421375172482052,
+      "epsilon_rms_nats": 0.00028634792863193334
+    },
+    {
+      "run": "arrival-r0-adam",
+      "algorithm": "adam",
+      "replica": 0,
+      "D_std_nats": 0.18428322776082726,
+      "A_mean_nats": -0.00327171317876013,
+      "Q2_mean_nats": 0.0006215522520392656,
+      "epsilon_rms_nats": 8.384341963630071e-05
+    },
+    {
+      "run": "arrival-r1-sgd",
+      "algorithm": "sgd",
+      "replica": 1,
+      "D_std_nats": 0.19311219179607192,
+      "A_mean_nats": -0.004010612723591057,
+      "Q2_mean_nats": 0.001991726636129048,
+      "epsilon_rms_nats": 0.0002708989182760158
+    },
+    {
+      "run": "arrival-r1-adam",
+      "algorithm": "adam",
+      "replica": 1,
+      "D_std_nats": 0.19332615404219347,
+      "A_mean_nats": -0.0032896112286798325,
+      "Q2_mean_nats": 0.0006339536929528183,
+      "epsilon_rms_nats": 7.846560492524854e-05
+    },
+    {
+      "run": "arrival-r2-sgd",
+      "algorithm": "sgd",
+      "replica": 2,
+      "D_std_nats": 0.1937289520581403,
+      "A_mean_nats": -0.0035516401149433647,
+      "Q2_mean_nats": 0.001743572255611724,
+      "epsilon_rms_nats": 0.00019086987425907524
+    },
+    {
+      "run": "arrival-r2-adam",
+      "algorithm": "adam",
+      "replica": 2,
+      "D_std_nats": 0.19358785406826198,
+      "A_mean_nats": -0.0032777128797998748,
+      "Q2_mean_nats": 0.000633120113437363,
+      "epsilon_rms_nats": 7.537440183007777e-05
+    }
+  ],
+  "ranges": {
+    "sgd": {
+      "D_std_nats": [
+        0.18430918265024063,
+        0.1937289520581403
+      ],
+      "A_mean_nats": [
+        -0.004010612723591057,
+        -0.0035516401149433647
+      ],
+      "Q2_mean_nats": [
+        0.001743572255611724,
+        0.001991726636129048
+      ],
+      "epsilon_rms_nats": [
+        0.00019086987425907524,
+        0.00028634792863193334
+      ],
+      "response_relative_rms": [
+        0.04967381202241493,
+        0.09728831294722311
+      ]
+    },
+    "adam": {
+      "D_std_nats": [
+        0.18428322776082726,
+        0.19358785406826198
+      ],
+      "A_mean_nats": [
+        -0.0032896112286798325,
+        -0.00327171317876013
+      ],
+      "Q2_mean_nats": [
+        0.0006215522520392656,
+        0.0006339536929528183
+      ],
+      "epsilon_rms_nats": [
+        7.537440183007777e-05,
+        8.384341963630071e-05
+      ],
+      "response_relative_rms": [
+        0.011885743540002379,
+        0.02821790890932152
+      ]
+    }
+  },
+  "common_reference_variance_explained": [
+    0.9665697332555258,
+    0.975823944117514
+  ],
+  "paired_optimizer_difference_relative_rms": [
+    0.1033758277137228,
+    0.16682877328781007
+  ],
+  "sources": {
+    "evidence/arrival-analysis.json": "328354ad3d2ac905d38fc15aa492b5486d8f0788436c431691de347f2033eb8a",
+    "evidence/numerical-theory-summary.json": "1b4d02fbc5c88bff31ba3f56cadfa9c07e08ff4c371b5e3c9351b54dbcd9471a"
+  }
+}

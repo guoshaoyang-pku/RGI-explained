@@ -3,6 +3,7 @@ import hashlib
 import json
 import math
 import re
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -54,6 +55,50 @@ def main():
             ref = next(row for row in summary['slow_response'] if row['run'] == 'arrival-' + key and row['window'] == window)
             require(abs(relative - ref['relative_rms']) < 5e-8, key + ' ' + window + ' RMS')
             require(relative <= .1, key + ' ' + window + ' finite-response gate')
+    visual = json.loads((ROOT / 'docs/assets/visual-abstract-data.json').read_text())
+    require(visual['table_window'] == [0, 512], 'visual table window')
+    require(len(visual['records']) == 6, 'visual table run count')
+    for path, digest in visual['sources'].items():
+        require(hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest, 'visual source ' + path)
+    for record in visual['records']:
+        key = record['run'].removeprefix('arrival-')
+        rows = panel['series'][key]
+        mean = lambda values: sum(values) / len(values)
+        difficulty = [row[2] for row in rows]
+        difficulty_mean = mean(difficulty)
+        measured = {
+            'D_std_nats': math.sqrt(mean([(value - difficulty_mean) ** 2 for value in difficulty])),
+            'A_mean_nats': mean([row[4] for row in rows]),
+            'Q2_mean_nats': mean([row[5] for row in rows]),
+            'epsilon_rms_nats': math.sqrt(mean([(row[1] - row[2] - row[4] - row[5]) ** 2 for row in rows])),
+        }
+        for metric, actual in measured.items():
+            require(abs(actual - record[metric]) < 5e-10, key + ' visual ' + metric)
+    webpage = (ROOT / 'docs/index.html').read_text()
+    labels = {
+        'D_std': ('D_std_nats', 4, False),
+        'A_mean': ('A_mean_nats', 6, True),
+        'Q2_mean': ('Q2_mean_nats', 6, True),
+        'epsilon_rms': ('epsilon_rms_nats', 3, False),
+    }
+    for algorithm in ['sgd', 'adam']:
+        selected = [record for record in visual['records'] if record['algorithm'] == algorithm]
+        for label, (metric, digits, signed) in labels.items():
+            interval = [min(record[metric] for record in selected), max(record[metric] for record in selected)]
+            require(interval == visual['ranges'][algorithm][metric], algorithm + ' visual range ' + metric)
+            if label == 'epsilon_rms':
+                exponent = -4 if algorithm == 'sgd' else -5
+                suffix = ' × 10⁻⁴' if algorithm == 'sgd' else ' × 10⁻⁵'
+                expected = '–'.join(f'{value / 10**exponent:.3f}' for value in interval) + suffix
+            else:
+                formatter = '{:+.' + str(digits) + 'f}' if signed else '{:.' + str(digits) + 'f}'
+                separator = ' to ' if signed else '–'
+                expected = separator.join(formatter.format(value).replace('-', '−') for value in interval)
+            match = re.search(r'data-stat="' + re.escape(algorithm + '.' + label) + r'">([^<]+)<', webpage)
+            require(match is not None and match.group(1) == expected, algorithm + ' webpage display ' + label)
+    for language in ['en', 'zh']:
+        svg = ET.parse(ROOT / ('docs/assets/visual-abstract-' + language + '.svg')).getroot()
+        require(svg.find('{http://www.w3.org/2000/svg}title') is not None, language + ' visual SVG title')
     paired = summary['paired_incremental_failure']
     require(len(paired) == 3 and all(row['relative_rms'] > .1 for row in paired), 'optimizer-difference failure retained')
     for record in summary['verification']:
