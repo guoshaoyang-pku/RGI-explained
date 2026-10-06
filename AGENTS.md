@@ -1,0 +1,26 @@
+# RGI follow-up
+
+## Commands
+
+    ./setup.sh
+    python3 verify_evidence.py
+    latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+
+## Files
+
+- main.tex and sections/: manuscript.
+- references.bib and main.bbl: bibliography.
+- figures/: manuscript figure.
+- evidence/: bounded aggregates, provenance, claims and verifier scope.
+- docs/reports/: Chinese report and self-contained panel.
+- RELEASE_MANIFEST.json: final file hashes.
+
+## Scientific boundaries
+
+Preserve exact W+Q arithmetic versus observed-displacement A+Q₂ approximation. Do not call a natural checkpoint reference the Bayes distribution. Three permutations share one pool. Arrival-work uses completed trajectories and does not forecast unknown future updates. Algorithm starts are already distinct.
+
+Keep scalar-probe, high-pass, optimizer-difference and known-teacher failures. The data term coefficient one does not prove equal optimizer dynamics coefficients. The aggregate checker does not reproduce training.
+
+## Editing
+
+Build after LaTeX edits. Check numerical claims against included aggregates. Regenerate figure data rather than editing numbers by hand. Update RELEASE_MANIFEST.json after intended release-file changes. Local audit reports and logs stay outside the committed tree.

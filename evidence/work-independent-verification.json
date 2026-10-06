@@ -1,0 +1,10 @@
+{
+  "completed": true,
+  "verification_passed": true,
+  "available_runs_passed": true,
+  "checks": 4159,
+  "failures": {},
+  "incomplete": [],
+  "code_sha256": "4d4cb21ab5280c7d0d7b36d54589a88659e53e71981e90ce6de9ea35a9c9ab7d",
+  "scope": "NumPy full-vocabulary eight-token pulse fixture reconstruction; all recorded work-response and full total arrays/readout arithmetic checked. Does not independently recompute logits, training, gradients, or full32-doc W/Q from logits because those raw logits are not saved."
+}

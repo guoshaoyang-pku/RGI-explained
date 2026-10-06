@@ -1,0 +1,291 @@
+{
+  "schema": "rgi-public-release-v1",
+  "date": "2026-10-06",
+  "scope": "Manuscript and bounded aggregate evidence; raw training reproduction not included.",
+  "license": "MIT for original code/documentation; third-party brand scope in NOTICE.md",
+  "files": [
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "size": 309,
+      "sha256": "aef95c11986d2df0f088a6277a4345e77c3c68f231dcf89b4173784bb0c86cc9"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "size": 214,
+      "sha256": "d86e034fc04d38bc2c9bb04a8a2771c07279b8e5877d7688f4143391b6bc1e15"
+    },
+    {
+      "path": ".gitignore",
+      "size": 115,
+      "sha256": "4450729eb9139db574061223fffbe6c96576ab561edf30f62464185648ae080a"
+    },
+    {
+      "path": "00README.json",
+      "size": 37,
+      "sha256": "1681ab476205e87386c556a6936102d6e4e8fe528cb758d926a628f7fde85679"
+    },
+    {
+      "path": "AGENTS.md",
+      "size": 1274,
+      "sha256": "31e60431c1672995469bcd3597ddd6aff6ec48951122644baef43cb3c212c1f2"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "size": 574,
+      "sha256": "ab7fcc49c1834173f82b4817d7eb2b23c8dff25e87ebdbc49686cb6be799f7d5"
+    },
+    {
+      "path": "LICENSE",
+      "size": 1084,
+      "sha256": "a708d778b27389e0077de57ef27a74f352773e69fd2e1c8b76d656ab15bc78eb"
+    },
+    {
+      "path": "NOTICE.md",
+      "size": 733,
+      "sha256": "439dc338022e13bf950b63227ed2ea9e366c4af2222abe03b900712f731b837f"
+    },
+    {
+      "path": "README.md",
+      "size": 2801,
+      "sha256": "b646d1cfa9900b50513d5bf460871568d2f8ebb020000c16d8bfdbaff74aa9e8"
+    },
+    {
+      "path": "arxiv-metadata.txt",
+      "size": 1956,
+      "sha256": "5877c5685d59e830da80e83120251f245f42c4c44fe5f3ac2dff4824a196fbd1"
+    },
+    {
+      "path": "docs/reports/figs/numerical-theory.pdf",
+      "size": 32802,
+      "sha256": "9e3043e20e1e1d62fab920cd0dfa29bf3fd1384df10d8fe795d87d9ca2c47fe5"
+    },
+    {
+      "path": "docs/reports/figs/numerical-theory.png",
+      "size": 262620,
+      "sha256": "04877bb3e2656db9d4c5750d50cad5d546ac3445e8c5e10bb1a70d78a41a51c7"
+    },
+    {
+      "path": "docs/reports/rgi-followup-panel.html",
+      "size": 438908,
+      "sha256": "5313ebe1f5bf4253ca4c9b8c411cb2c34d4a262da3eb9e469e9dbba00452c1f9"
+    },
+    {
+      "path": "docs/reports/rgi-followup.md",
+      "size": 9518,
+      "sha256": "9b1b3c7bfa38c0679c7fed1ea0c12c9ecf4bf88c1a08f1d689c78904acc4e0ae"
+    },
+    {
+      "path": "evidence/arrival-analysis.json",
+      "size": 2644066,
+      "sha256": "328354ad3d2ac905d38fc15aa492b5486d8f0788436c431691de347f2033eb8a"
+    },
+    {
+      "path": "evidence/arrival-independent-verification.json",
+      "size": 571,
+      "sha256": "809980109e5454ad25ff1a67f5a5d28687d3c7ff869f7406ddb99ab26e058fe8"
+    },
+    {
+      "path": "evidence/citation-provenance.json",
+      "size": 4444,
+      "sha256": "1071b7d40fd0d71e151e202eb4bb303ce5efd831f4ef2f8c6bb3b940f95d88da"
+    },
+    {
+      "path": "evidence/claim-audit.json",
+      "size": 4552,
+      "sha256": "e9da6c9418052be247c20bccd4e68d96ee7d4f653beab86148e035c6f0200505"
+    },
+    {
+      "path": "evidence/claims.json",
+      "size": 9803,
+      "sha256": "133eb7d54782ba7aea8e04f8e0070db2f5ce7cc0674099e609d99cb7891ce80a"
+    },
+    {
+      "path": "evidence/data-provenance-summary.json",
+      "size": 1528,
+      "sha256": "a2bd9d902638d9bd18832244e0ed0910e3bb64366247d601d6966680fb720b0f"
+    },
+    {
+      "path": "evidence/experiment-summary.md",
+      "size": 4082,
+      "sha256": "86ec2baaa3859d3d89762997e4c19ee13728d65253d2bd2a451f92891b728188"
+    },
+    {
+      "path": "evidence/extension-analysis-fullpair-separability.json",
+      "size": 6517189,
+      "sha256": "723b2d6d1eb4ab1c2671101d8a8c29bbf1ce2f2adc661cdff346ba27bb2bc38e"
+    },
+    {
+      "path": "evidence/extension-independent-verification.json",
+      "size": 447,
+      "sha256": "740723af9ad552ea51bffb7d9025893157664970e979cce9df2643983ab660d6"
+    },
+    {
+      "path": "evidence/numerical-theory-summary.json",
+      "size": 8643,
+      "sha256": "1b4d02fbc5c88bff31ba3f56cadfa9c07e08ff4c371b5e3c9351b54dbcd9471a"
+    },
+    {
+      "path": "evidence/numerical-theory-values.json",
+      "size": 39288,
+      "sha256": "a1960c6834768b84ba3dfb9a19c1e4750ccbcea37c6ecf8c36d2f8bdd7836111"
+    },
+    {
+      "path": "evidence/source-provenance.json",
+      "size": 3743,
+      "sha256": "22986675d2a850d787d56756c6d9cef76557f17067d1e649c45a1a869f6506df"
+    },
+    {
+      "path": "evidence/theory-review.md",
+      "size": 2158,
+      "sha256": "37f5091996a1d319feb5a1f2174aba6f2b60278d95a0b847debb46e987e6f772"
+    },
+    {
+      "path": "evidence/work-analysis.json",
+      "size": 4052955,
+      "sha256": "9f14b92d8e75644a20b5af9fc411b3213b42d53c07c37fddd4beff195c5cdfb8"
+    },
+    {
+      "path": "evidence/work-independent-verification.json",
+      "size": 516,
+      "sha256": "dd57a581013889c7393fdfda2f58b9579e0495adfad9c6f905a3f8435dd9d31f"
+    },
+    {
+      "path": "figures/numerical-theory.pdf",
+      "size": 32802,
+      "sha256": "9e3043e20e1e1d62fab920cd0dfa29bf3fd1384df10d8fe795d87d9ca2c47fe5"
+    },
+    {
+      "path": "figures/numerical-theory.png",
+      "size": 262620,
+      "sha256": "04877bb3e2656db9d4c5750d50cad5d546ac3445e8c5e10bb1a70d78a41a51c7"
+    },
+    {
+      "path": "main.bbl",
+      "size": 2177,
+      "sha256": "883f00734839be9bf801db444b2c14005b2cbc0360aadd8921a4166feecd43e4"
+    },
+    {
+      "path": "main.pdf",
+      "size": 291361,
+      "sha256": "3b489ca9ff6b549f23f482d728357e484c4a66013f4e99c5d0e562522ea29a2a"
+    },
+    {
+      "path": "main.tex",
+      "size": 1698,
+      "sha256": "d40449cf0a809316584ea43e33d4cc2c6f44241f22aa667f23087063caeb09b8"
+    },
+    {
+      "path": "metacircle.sty",
+      "size": 4020,
+      "sha256": "41233ecfc22722e121706c1d300a4521c48e729b675f729833aca6b1aa2baa77"
+    },
+    {
+      "path": "metacircle_wordmark.pdf",
+      "size": 3133,
+      "sha256": "13e0870d7afdb6cb4f50ce4a0caf2d0a2c45ac957f5c5b22810d5e9d4780941c"
+    },
+    {
+      "path": "metacircle_zh_gloss.pdf",
+      "size": 3223,
+      "sha256": "da6ababfe52f16d1ffe078c94338132c4921e5e7f1014a5dcade5a1ec6a909a2"
+    },
+    {
+      "path": "references.bib",
+      "size": 2312,
+      "sha256": "b1233f6ec3baaa22349781d483e76f3e9c1141ffa385d655595d5876aace0959"
+    },
+    {
+      "path": "rgi-followup-arxiv.zip",
+      "size": 211426,
+      "sha256": "0b71b776b28c4992f15cf7996040d28534fb0bae3b2509f0002829c475aae251"
+    },
+    {
+      "path": "sections/01_introduction.tex",
+      "size": 3107,
+      "sha256": "8b8300cfda0beee2b5fb110bc2f9b261df14acf4abc9f223f2a2988b87e70aae"
+    },
+    {
+      "path": "sections/02_relation_scope.tex",
+      "size": 1664,
+      "sha256": "619ff46e875b033d77b0f0d3442c8725ec00a01be4293658a6c8f8f12b9c99cb"
+    },
+    {
+      "path": "sections/03_decomposition.tex",
+      "size": 2680,
+      "sha256": "c2cf9587826c7fc5f988fb46c2e553e6cb9c3ac60b770c9f99e3067702f439be"
+    },
+    {
+      "path": "sections/04_experimental_protocol.tex",
+      "size": 3095,
+      "sha256": "bd59b097eb550bcb7d920eeeaa563bda9c2ebf38a2b66440f472cc3a1491a7b4"
+    },
+    {
+      "path": "sections/05_frozen_difficulty.tex",
+      "size": 5062,
+      "sha256": "7572a3e1b9e10039917aa56c327e830504990db091a7ea89b85ca847edbb2f15"
+    },
+    {
+      "path": "sections/06_local_response.tex",
+      "size": 2163,
+      "sha256": "c77ee2d24f5ba0025d94a9e885050f685ae3adea5858d2edc0202a86cdecb6ea"
+    },
+    {
+      "path": "sections/07_known_teacher.tex",
+      "size": 1811,
+      "sha256": "aebc6b053162e2bbe1bd71f84a9dda689ed338e4a62b0d0ec27b51201e3d4c12"
+    },
+    {
+      "path": "sections/08_support_gate.tex",
+      "size": 1237,
+      "sha256": "e037d7b5324a13970d92957656c5febb65a5ade688f079c6d89b5bd17da1a7a3"
+    },
+    {
+      "path": "sections/09_limitations_conclusion.tex",
+      "size": 2104,
+      "sha256": "39abb04e938dab2523ba449ed38dab7cb1fa9b58a5297fdeae4a49d2811c8022"
+    },
+    {
+      "path": "sections/abstract.tex",
+      "size": 1837,
+      "sha256": "530ca2e013984d54d5b4b1b181ad079c95826b56f2016178297e964b97611cb6"
+    },
+    {
+      "path": "sections/appendix.tex",
+      "size": 2462,
+      "sha256": "21ff90b84582c7fdd337d0d8035d5d1f9b856575f4441a8cface3fc6593f2274"
+    },
+    {
+      "path": "setup.sh",
+      "size": 576,
+      "sha256": "93661d62a0c9c159aab0e33281b8a035f5793d871d201eb628887961ae718750"
+    },
+    {
+      "path": "tsinghua_badge_color_official.pdf",
+      "size": 156420,
+      "sha256": "2de4a9827c52f0b20440bc3faceac0d6014a311ed9bc39e24f26cdb572684ee5"
+    },
+    {
+      "path": "verify_evidence.py",
+      "size": 3974,
+      "sha256": "1dbc5f73f587628cf5d3ca714ab4e3ef39a6039eff2eeee84e7c7229ef6dfda1"
+    }
+  ],
+  "verified_build": {
+    "engine": "XeLaTeX",
+    "pages": 8,
+    "arxiv_zip_entries": 19,
+    "standalone_build": true,
+    "undefined_reference_or_citation_warnings": false
+  },
+  "safety_audit": "Same-agent pattern scan; task dispatch to subagents returned empty assignments.",
+  "ui_verification": {
+    "browser": "Chromium via headless Chrome CDP",
+    "configuration_switches": 18,
+    "response_term_toggle": true,
+    "hard_soft_teacher_toggle": true,
+    "viewport_mobile_px": 390,
+    "horizontal_overflow": false,
+    "javascript_exceptions": 0,
+    "raw_data_readouts": true
+  }
+}

@@ -1,0 +1,39 @@
+\section{A finite-update decomposition}
+
+Consider one prefix--target pair \((x,y)\), with logits \(z_0(x)\) at the frozen start \(\theta_0\), probabilities \(p_0=\operatorname{softmax}(z_0)\), and logits \(z_t\) after the observed continuation.  Write \(\Delta z=z_t-z_0\), \(p_t=\operatorname{softmax}(z_t)\), and \(e_y\) for the one-hot target.  For a batch, all quantities below are averaged over the same target positions.
+
+The frozen difficulty is
+\begin{equation}
+  D(B)=\operatorname{mean}_{(x,y)\in B}\left[-\log p_0(y\mid x)\right].
+  \label{eq:difficulty}
+\end{equation}
+The exact change in cross-entropy has a useful logit-space identity,
+\begin{align}
+  L_t(B)-D(B)&=W(B)+Q(B),\\
+  W(B)&=\operatorname{mean}\left[(p_0-e_y)^\top\Delta z\right],\\
+  Q(B)&=\operatorname{mean}\left[\KL(p_0\Vert p_t)\right]\geq 0.
+  \label{eq:exact}
+\end{align}
+The equality follows from the log-partition identity and is used as an arithmetic check.  It is not a forecast because it uses the observed final logits.
+
+To connect the loss change to parameter motion, recompute the batch gradient at \(\theta_0\) and define
+\begin{equation}
+  A(B)=\nabla_\theta\ell_{\theta_0}(B)^\top(\theta_t-\theta_0),
+  \qquad R(B)=W(B)-A(B).
+  \label{eq:work}
+\end{equation}
+The exact change can then be written \(L_t-D=A+R+Q\).  The residual \(R\) includes the nonlinearity of the parameter-to-logit map along the observed displacement, as well as any replay or numerical error; we do not identify it with a single unmeasured Hessian term.
+
+The second-order logit approximation to the convex log-partition term is
+\begin{equation}
+  Q_2(B)=\frac12\operatorname{mean}_{(x,y)\in B}\left[\operatorname{Var}_{v\sim p_0(\cdot\mid x)}\left(\Delta z_v(x)\right)\right].
+  \label{eq:q2}
+\end{equation}
+Our primary local closure is therefore \(L_t-D\approx A+Q_2\).  Both \(A\) and \(Q_2\) use the displacement that actually occurred: \(A\) uses \(\theta_t-\theta_0\), and \(Q_2\) uses \(\Delta z\).  The test explains a realized finite response; it does not predict a future response from a frozen gradient alone.
+
+For a fixed teacher distribution \(q(\cdot\mid x)\), the same algebra replaces \(e_y\) by \(q\).  With \(p_t=\operatorname{softmax}(z_q+v)\), the teacher-forced hard-target loss decomposes as
+\begin{equation}
+  \ell=S+C+E,\qquad S=-\log q_y,\quad C=(q-e_y)^\top v,\quad E=\KL(q\Vert p_t).
+  \label{eq:teacher}
+\end{equation}
+Under a target drawn from \(q\), \(\mathbb{E}_q[C\mid x]=0\), and the population cross-entropy is \(H(q)+E\).  We use this controlled population objective to separate label sampling from the natural-text case, where the unknown conditional distribution is not observed.

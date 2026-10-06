@@ -1,0 +1,30 @@
+{
+  "scope": "Selection contract extract, not the full document/token manifest.",
+  "original_artifact": "new-provenance.json",
+  "original_sha256": "f9c6d825976de6c071031c6992bd37bd3aa7b05471de8d4c02e6b124e93d3027",
+  "registered_utc": "2026-10-05T16:58:14Z",
+  "dataset": "HuggingFaceFW/fineweb",
+  "config": "sample-10BT",
+  "revision": "9bb295ddab0e05d785b879661af7260fed5140fc",
+  "shard": "sample/10BT/001_00000.parquet",
+  "skipped_prefix_rows": 65536,
+  "maximum_source_row": 196607,
+  "context_length": 256,
+  "selection_seed": 610000,
+  "split_seed": 610001,
+  "pool_sizes": {
+    "training": 4096,
+    "calibration": 64,
+    "evaluation": 512
+  },
+  "selection": "First4672 unique length-qualified documents from source row65536 onward; one random256-token span from each.",
+  "split_rule": "Fixed610001 permutation: first4096 training, next64 calibration, final512 evaluation.",
+  "exclusions": "R31 IDs/fulltext hashes/exact256-token spans; also R29 IDs/fulltext hashes/every256-token span; within-pool duplicate IDs/fulltext/spans.",
+  "tokenizer_commit": "a39f36b100fe8a5377810d56c3f4789b9c53ac42",
+  "tokenizer_sha256": {
+    "tokenizer_config.json": "70e38394e494931c6f773ba41e19460dd4436526b852207367f04341b4066d3f",
+    "special_tokens_map.json": "6f50ab5a5a509a1c309d6171f339b196a900dc9c99ad0408ff23bb615fdae7ad",
+    "tokenizer.json": "c24618a1b3e6a38167beff1c72cffd126c3a66254347304b50547d12c5f25624"
+  },
+  "extension_contract_sha256": "1ba3815160bab685792896761adce433d7bfe2017b8586d324dfa943278e6e38"
+}

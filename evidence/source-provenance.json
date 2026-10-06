@@ -1,0 +1,69 @@
+{
+  "scope": "Public aggregate release; raw training reproduction is not supplied.",
+  "sources": [
+    {
+      "artifact": "numerical-theory-summary.json",
+      "included": true,
+      "public_file": "evidence/numerical-theory-summary.json",
+      "original_sha256": "1b4d02fbc5c88bff31ba3f56cadfa9c07e08ff4c371b5e3c9351b54dbcd9471a",
+      "public_sha256": "1b4d02fbc5c88bff31ba3f56cadfa9c07e08ff4c371b5e3c9351b54dbcd9471a",
+      "transformation": "Removed hardware identifiers and absolute infrastructure paths; numerical fields preserved."
+    },
+    {
+      "artifact": "arrival-analysis.json",
+      "included": true,
+      "public_file": "evidence/arrival-analysis.json",
+      "original_sha256": "86496ba8e70a1548851dfd833329ac75cdaede2dd7f084f11245d0a0524cd44b",
+      "public_sha256": "328354ad3d2ac905d38fc15aa492b5486d8f0788436c431691de347f2033eb8a",
+      "transformation": "Removed hardware identifiers and absolute infrastructure paths; numerical fields preserved."
+    },
+    {
+      "artifact": "work-analysis.json",
+      "included": true,
+      "public_file": "evidence/work-analysis.json",
+      "original_sha256": "63d04915cc5951cad82d70c8cf54fdfc55cb1f2ae4560eac77c9620e38b0d5d5",
+      "public_sha256": "9f14b92d8e75644a20b5af9fc411b3213b42d53c07c37fddd4beff195c5cdfb8",
+      "transformation": "Removed hardware identifiers and absolute infrastructure paths; numerical fields preserved."
+    },
+    {
+      "artifact": "extension-analysis-fullpair-separability.json",
+      "included": true,
+      "public_file": "evidence/extension-analysis-fullpair-separability.json",
+      "original_sha256": "6158c2851b913acceb6ebb563a1f928fee2d27ae7b906253697effc468fd1b0f",
+      "public_sha256": "723b2d6d1eb4ab1c2671101d8a8c29bbf1ce2f2adc661cdff346ba27bb2bc38e",
+      "transformation": "Removed hardware identifiers and absolute infrastructure paths; numerical fields preserved."
+    },
+    {
+      "artifact": "numerical-theory-values.json",
+      "included": true,
+      "public_file": "evidence/numerical-theory-values.json",
+      "original_sha256": "a1960c6834768b84ba3dfb9a19c1e4750ccbcea37c6ecf8c36d2f8bdd7836111",
+      "public_sha256": "a1960c6834768b84ba3dfb9a19c1e4750ccbcea37c6ecf8c36d2f8bdd7836111",
+      "transformation": "Removed hardware identifiers and absolute infrastructure paths; numerical fields preserved."
+    },
+    {
+      "artifact": "extension-independent-verification.json",
+      "included": true,
+      "public_file": "evidence/extension-independent-verification.json",
+      "original_sha256": "e9e655fcb4ba469201e24cd6e6712510b4dfee0cf68b1166df652fcf2f9ecdd2",
+      "public_sha256": "740723af9ad552ea51bffb7d9025893157664970e979cce9df2643983ab660d6",
+      "transformation": "Verification verdict/count/scope extract; raw fixtures and input manifests omitted."
+    },
+    {
+      "artifact": "work-independent-verification.json",
+      "included": true,
+      "public_file": "evidence/work-independent-verification.json",
+      "original_sha256": "86fc91536ee89518576e653a7b16ca7a6b74b21edfc46e1ccb8bc9426066ba2c",
+      "public_sha256": "dd57a581013889c7393fdfda2f58b9579e0495adfad9c6f905a3f8435dd9d31f",
+      "transformation": "Verification verdict/count/scope extract; raw fixtures and input manifests omitted."
+    },
+    {
+      "artifact": "arrival-independent-verification.json",
+      "included": true,
+      "public_file": "evidence/arrival-independent-verification.json",
+      "original_sha256": "289f929fa725959448e20f3629127d2e9291a81780151b5e501f9ddb4c6cc55b",
+      "public_sha256": "809980109e5454ad25ff1a67f5a5d28687d3c7ff869f7406ddb99ab26e058fe8",
+      "transformation": "Verification verdict/count/scope extract; raw fixtures and input manifests omitted."
+    }
+  ]
+}

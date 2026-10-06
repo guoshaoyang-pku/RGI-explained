@@ -1,0 +1,49 @@
+\section{Frozen difficulty explains the fast variation}
+
+The first question is whether the large variation of arriving-batch loss is already present in a model that is not updated.  Figure~\ref{fig:numerical-theory}a compares each arriving loss with the score from the corresponding frozen start, without fitting an offset or slope.  Across the three permutations and two algorithms, the frozen start explains 99.9943--99.9974\% of near-window variance and 99.9400--99.9713\% of far-window variance.  The frozen-start RMSE is 0.000916--0.001330 nats near and 0.003663--0.004736 nats far.  The standard deviation of \(D\) is 0.1761--0.2165 nats, much larger than the slow response.
+
+To test whether this is an artifact of choosing a separate reference for each optimizer, we use the single official step-32,000 reference \(q\) for both trajectories.  It explains 96.657--97.578\% of near-window variance and 96.745--97.582\% of far-window variance.  Thus the shared data term remains the dominant source of raw loss variation even under a common reference.
+
+This result is a scale statement, not an independence theorem.  If \(\sigma_D=\operatorname{std}(D)\), \(m=\RMS(M)\), and \(\rho=m/\sigma_D<1\), the reverse triangle inequality gives
+\begin{equation}
+  1-\frac{\operatorname{MSE}(L,D)}{\operatorname{Var}(L)}
+  \geq 1-\left(\frac{\rho}{1-\rho}\right)^2.
+  \label{eq:scale-bound}
+\end{equation}
+The observed far-window \(\rho\) is at most 0.024482, which alone gives a conservative 99.937\% lower bound.  The bound does not say that difficulty and response are statistically independent, and it only applies to teacher-forced targets whose labels are already known.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{numerical-theory.pdf}
+  \caption{Four views of the measured decomposition.  (a) Frozen start difficulty versus arriving loss.  (b) Measured slow response and the observed-displacement \(A+Q_2\) closure.  (c) In the known-teacher task, negative linear work and positive curvature cancel.  (d) Local closure error across response horizons.  Ranges and gates are summarized in the text; the plotted trajectories are finite measurements, not confidence intervals.}
+  \label{fig:numerical-theory}
+\end{figure}
+
+\section{What closes the slow response?}
+
+Table~\ref{tab:arrival} reports the primary arrival-batch test on \(M=L-D\), rather than hiding the response under the much larger variance of \(L\).  All six natural trajectories pass both gates in all three windows.  SGD has 4.97--9.73\% relative RMS error and 96.87--99.71\% explained variance; Adam has 1.19--2.82\% and 99.27--99.96\%, respectively.  The result is strongest for Adam and remains within the predeclared RMS gate for SGD in the far window.
+
+\begin{table}[t]
+\centering
+\caption{Relative RMS error and variance explained for \(A+Q_2\) on the slow response \(L-D\).  Each range spans three permutations.}
+\label{tab:arrival}
+\small
+\begin{tabular}{llcc|cc}
+\toprule
+ & & \multicolumn{2}{c|}{SGD} & \multicolumn{2}{c}{Adam}\\
+Window & signal & RMS & explained & RMS & explained\\
+\midrule
+Near & raw & 4.97--9.12\% & 98.95--99.71\% & 1.19--1.69\% & 99.924--99.963\%\\
+Far & raw & 6.53--9.33\% & 96.87--98.55\% & 2.49--2.82\% & 99.273--99.377\%\\
+Full & raw & 7.13--9.73\% & 98.04--98.98\% & 2.38--2.59\% & 99.780--99.799\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The term means identify the direction of the response.  Across full 512-step arrival batches, SGD has mean \(A=-0.004011\) to \(-0.003552\) nats, \(Q=+0.001740\) to \(+0.001981\), and \(L-D=-0.002153\) to \(-0.001892\).  Adam has \(A=-0.003290\) to \(-0.003272\), \(Q=+0.000609\) to \(+0.000621\), and \(L-D=-0.002699\) to \(-0.002690\).  On 64-step block means, the signed covariance shares of \(A\) are 1.51--1.62 for SGD and 1.25--1.26 for Adam, while the shares of \(Q\) are -0.66 to -0.54 and -0.28 to -0.27.  Negative work creates improvement; positive curvature cancels part of it.  The optimizer changes both terms.
+
+The closure is local and has measurable failure modes.  After removing 64-step block means, SGD's high-pass relative RMS error is 10.75--16.68\% in the far window; the remaining error is mainly \(R=W-A\), while \(Q-Q_2\) is below 1\% of the response.  The optimizer-difference response, tested as \(\Delta A+\Delta Q_2\), has 10.34--16.68\% full-window error in all three replicas, despite 96.74--98.57\% variance explained.  Subtracting two small responses magnifies the representation residual.
+
+\section{A global scalar probe is not enough}
+
+An independent 64-document probe produces a scalar \(U(t)\).  It tracks the raw loss well because the frozen difficulty is large, but its relative RMS error on \(M\) is 45.1--90.0\% near, 29.5--55.2\% far, and 31.7--62.8\% over the full continuation.  Interpolating with the next checkpoint, which is a deliberately noncausal diagnostic, leaves 29.1--54.7\% far-window error.  The missing information is batch-specific sensitivity: \(A(B)\) uses the arriving batch's frozen gradient, whereas a single global score does not.

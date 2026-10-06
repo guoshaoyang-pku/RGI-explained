@@ -1,0 +1,16 @@
+\section{Reproducibility details}
+
+\paragraph{Data and model hashes.}
+The FineWeb source is \texttt{HuggingFaceFW/fineweb}, configuration \texttt{sample-10BT}, revision prefix \texttt{9bb295dd}, shard \texttt{sample/10BT/001\_00000.parquet}.  The pool selection starts after source row 65,536 and uses selection seed 610000 and split seed 610001.  The verified tokenizer commit begins \texttt{a39f36b1}.  The public release includes a bounded selection-contract extract and artifact hashes in its evidence directory; raw document/token manifests are not included.
+
+\paragraph{Evaluation units.}
+Natural batches contain 8 documents and 223 scored next-token targets per document (query positions 32 through 254).  Difficulty and response statistics are computed from document-level means; token positions within a document are not treated as independent documents.  The known-teacher continuation uses 33 natural seed tokens followed by 63 sampled tokens and evaluates 63 targets per generated document.
+
+\paragraph{Verification scope.}
+The extension, logit-work, and arrival verifiers report 23,220, 4,159, and 341 passed checks, respectively, with maximum reported arithmetic errors of \(8.88\times10^{-15}\), \(3.17\times10^{-14}\), and \(3.56\times10^{-15}\).  These checks cover trace parity, hashes, document aggregation, exact identities, and saved full-vocabulary fixtures.  They do not independently recompute the full network gradients, the optimizer trajectory, or every saved logit from raw checkpoints.  The arrival and work analyses are therefore numerical audits of recorded runs, not independent training replications.
+
+\paragraph{Additional diagnostics.}
+The registered 64-step block analysis uses signed covariance shares; these shares are attribution coefficients and may exceed one or be negative because terms cancel.  High-pass SGD failures and the optimizer-difference failure are retained in the main text rather than averaged away.  The three permutations reuse one data pool and are not independent datasets.
+
+\paragraph{Code and artifacts.}
+The arXiv source package contains the main manuscript, the MetaCircle style assets, the numerical-theory figure, and the compiled bibliography.  The public release additionally contains machine-readable aggregate analyses, chart values, and provenance hashes. It excludes raw checkpoints, full logits, producer traces, and training-data text; it is not a complete training reproduction package.

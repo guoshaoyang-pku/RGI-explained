@@ -1,0 +1,202 @@
+{
+  "schema": "rgi-followup-claims-v1",
+  "paper_scope": "Finite local Pythia-70M continuation; teacher-forced losses; observed-displacement response diagnostics.",
+  "claim_policy": "Numbers are bounded to the cited analysis artifacts. Identities are algebraic checks, not future-update forecasts.",
+  "claims": [
+    {
+      "id": "difficulty.common_reference",
+      "statement": "The shared official step-32000 reference explains 96.657-97.578 percent of raw arriving-loss variance in the near window and 96.745-97.582 percent in the far window.",
+      "status": "verified",
+      "source": "evidence/numerical-theory-summary.json",
+      "scope": "three permutations x SGD/Adam; near 0:128, far 384:512; finite trajectories",
+      "sources": [
+        {
+          "artifact": "numerical-theory-summary.json",
+          "included": true,
+          "sha256": "1b4d02fbc5c88bff31ba3f56cadfa9c07e08ff4c371b5e3c9351b54dbcd9471a",
+          "public_file": "evidence/numerical-theory-summary.json"
+        }
+      ]
+    },
+    {
+      "id": "difficulty.frozen_start",
+      "statement": "Each algorithm-specific frozen start explains 99.9943-99.9974 percent near and 99.9400-99.9713 percent far; frozen-start RMSE is 0.000916-0.001330 nats near and 0.003663-0.004736 nats far.",
+      "status": "verified",
+      "source": "evidence/numerical-theory-summary.json",
+      "scope": "three permutations x SGD/Adam; no fitted slope or intercept",
+      "sources": [
+        {
+          "artifact": "numerical-theory-summary.json",
+          "included": true,
+          "sha256": "1b4d02fbc5c88bff31ba3f56cadfa9c07e08ff4c371b5e3c9351b54dbcd9471a",
+          "public_file": "evidence/numerical-theory-summary.json"
+        }
+      ]
+    },
+    {
+      "id": "response.arrival_closure",
+      "statement": "For slow response M=L-D, observed-displacement A+Q2 has raw relative RMS 4.97-9.73 percent for SGD and 1.19-2.82 percent for Adam across near, far, and full windows, with at least 96.87 percent variance explained.",
+      "status": "verified",
+      "source": "evidence/arrival-analysis.json",
+      "scope": "six arrival replays; A uses frozen batch gradient and observed parameter displacement; Q2 uses observed logit displacement",
+      "sources": [
+        {
+          "artifact": "arrival-analysis.json",
+          "included": true,
+          "sha256": "86496ba8e70a1548851dfd833329ac75cdaede2dd7f084f11245d0a0524cd44b",
+          "public_file": "evidence/arrival-analysis.json"
+        }
+      ]
+    },
+    {
+      "id": "response.signed_terms",
+      "statement": "Full-window mean A is negative, Q and Q2 are positive, and signed block covariance shares are A=1.51-1.62 and Q=-0.66 to -0.54 for SGD, versus A=1.25-1.26 and Q=-0.28 to -0.27 for Adam.",
+      "status": "verified",
+      "source": "evidence/arrival-analysis.json",
+      "scope": "signed shares are cancellation-sensitive attribution coefficients, not nonnegative variance fractions",
+      "sources": [
+        {
+          "artifact": "arrival-analysis.json",
+          "included": true,
+          "sha256": "86496ba8e70a1548851dfd833329ac75cdaede2dd7f084f11245d0a0524cd44b",
+          "public_file": "evidence/arrival-analysis.json"
+        }
+      ]
+    },
+    {
+      "id": "response.scalar_probe_failure",
+      "statement": "A single global probe scalar has 45.1-90.0 percent near, 29.5-55.2 percent far, and 31.7-62.8 percent full relative RMS error for M; future-checkpoint interpolation does not remove the failure.",
+      "status": "verified",
+      "source": "Original artifacts identified by name and hash in sources; not included.",
+      "scope": "batch-specific response diagnostic; interpolation is noncausal",
+      "sources": [
+        {
+          "artifact": "rgi-extension-theory-audit-20261006.md",
+          "included": false,
+          "sha256": "5d9fbeec3730fd726a8ce2bbdfd284643a29c2ff4c2d96ee0952c30d5d091bb9"
+        }
+      ]
+    },
+    {
+      "id": "response.incremental_optimizer_failure",
+      "statement": "For the paired optimizer response, Delta A plus Delta Q2 has 10.34-16.68 percent full-window raw error in all three permutations, although variance explained is 96.74-98.57 percent.",
+      "status": "verified",
+      "source": "evidence/numerical-theory-summary.json",
+      "scope": "incremental response after subtracting each algorithm frozen difficulty",
+      "sources": [
+        {
+          "artifact": "numerical-theory-summary.json",
+          "included": true,
+          "sha256": "1b4d02fbc5c88bff31ba3f56cadfa9c07e08ff4c371b5e3c9351b54dbcd9471a",
+          "public_file": "evidence/numerical-theory-summary.json"
+        }
+      ]
+    },
+    {
+      "id": "teacher.known_distribution",
+      "statement": "The known-teacher experiment uses a fixed official step-32000 teacher, 33-token seeds plus 63 autoregressive samples, full vocabulary 50304, and a student initialized at step 16000; population H(q)+KL(q||p) is directly measurable.",
+      "status": "verified",
+      "source": "Original artifacts identified by name and hash in sources; not included.",
+      "scope": "synthetic known-teacher conditional task, not natural Bayes risk",
+      "sources": [
+        {
+          "artifact": "generation.json",
+          "included": false,
+          "sha256": "a0b338fe82e1be348eac7e29c82ba84c526502830688e83c222689539486e9d2"
+        },
+        {
+          "artifact": "extension-contract.md",
+          "included": false,
+          "sha256": "1ba3815160bab685792896761adce433d7bfe2017b8586d324dfa943278e6e38"
+        }
+      ]
+    },
+    {
+      "id": "teacher.local_closure",
+      "statement": "Known-teacher population A+Q2 average response error is at most 2.795 percent across tested hard/soft objectives, SGD/Adam, permutations, and horizons.",
+      "status": "verified",
+      "source": "Original artifacts identified by name and hash in sources; not included.",
+      "scope": "observed displacement; average response, not token-wise unknown-update prediction",
+      "sources": [
+        {
+          "artifact": "rgi-work-analysis-20261006.md",
+          "included": false,
+          "sha256": "bc95e1e3dd623b693ae4a2c092527723ada135a2b30e70157f7fbce8051769fc"
+        }
+      ]
+    },
+    {
+      "id": "teacher.strong_rgi_failure",
+      "statement": "After exact teacher-population integration, optimizer-gap prefix standard deviation divided by absolute mean is 3.59-3.69 for hard targets and 10.69-11.89 for soft targets, failing the 0.1 constant-offset gate.",
+      "status": "verified",
+      "source": "evidence/extension-analysis-fullpair-separability.json",
+      "scope": "fixed-teacher prefixes; strong constant-offset test",
+      "sources": [
+        {
+          "artifact": "rgi-numerical-theory-20261006.md",
+          "included": false,
+          "sha256": "b14cd89103cdf7c1a69c7c9432e0d5ebad419c8a47c85dfd899f3123bd472630"
+        },
+        {
+          "artifact": "extension-analysis-fullpair-separability.json",
+          "included": true,
+          "sha256": "6158c2851b913acceb6ebb563a1f928fee2d27ae7b906253697effc468fd1b0f",
+          "public_file": "evidence/extension-analysis-fullpair-separability.json"
+        }
+      ]
+    },
+    {
+      "id": "identity.scope",
+      "statement": "L-D=W+Q is exact, while A+Q2 is an observed-displacement finite-response approximation and R=W-A contains parameter-to-logit nonlinearity.",
+      "status": "verified",
+      "source": "Original artifacts identified by name and hash in sources; not included.",
+      "scope": "algebraic identity versus retrospective response explanation",
+      "sources": [
+        {
+          "artifact": "rgi-numerical-theory-20261006.md",
+          "included": false,
+          "sha256": "b14cd89103cdf7c1a69c7c9432e0d5ebad419c8a47c85dfd899f3123bd472630"
+        },
+        {
+          "artifact": "arrival-work-contract.md",
+          "included": false,
+          "sha256": "4dcaac71b38fbbb67b6ac4de18635688a1092569109cde6647567964c4c9a2ea"
+        }
+      ]
+    },
+    {
+      "id": "verification.scope",
+      "statement": "Extension, logit-work, and arrival verifiers report 23220, 4159, and 341 passed checks, with maximum reported errors 8.88e-15, 3.17e-14, and 3.56e-15; they do not independently recompute full gradients or full trajectories.",
+      "status": "verified",
+      "source": "Original artifacts identified by name and hash in sources; not included.",
+      "scope": "saved traces, hashes, identities, aggregation, and fixtures",
+      "sources": [
+        {
+          "artifact": "rgi-numerical-theory-20261006.md",
+          "included": false,
+          "sha256": "b14cd89103cdf7c1a69c7c9432e0d5ebad419c8a47c85dfd899f3123bd472630"
+        },
+        {
+          "artifact": "rgi-arrival-work-analysis-20261006.md",
+          "included": false,
+          "sha256": "81024c5ae6a5a2a151022721748ff185a11f4ba8d59da2bfea0f6ef8bd2358f3"
+        }
+      ]
+    },
+    {
+      "id": "support_gate.sufficient_only",
+      "statement": "A support-normalized shape with a shared scalar mass gate yields an exact constant target offset; the dog/cat numerical check has gap 0.5901707965 and standard deviation 1.05e-16.",
+      "status": "verified",
+      "source": "Original artifacts identified by name and hash in sources; not included.",
+      "scope": "sufficient construction only; not evidence that natural LLMs implement it",
+      "sources": [
+        {
+          "artifact": "rgi-support-gate-sufficient-theorem-20261006.md",
+          "included": false,
+          "sha256": "fccea0e8f15c787d95519d8fd3558347c2105f4733ea053f0cae76dec2f06c2b"
+        }
+      ]
+    }
+  ],
+  "provenance_boundary": "Aggregate analyzer outputs and chart values are included. Raw checkpoints, full logits, producer traces, and omitted notes are not included."
+}

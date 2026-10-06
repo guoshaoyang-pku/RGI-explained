@@ -1,0 +1,107 @@
+{
+  "audited_at": "2026-10-06",
+  "method": "Manual cross-check of every manuscript numerical range against the local evidence notes and JSON summary files; no new experiment.",
+  "result": "pass_with_scope_limits",
+  "checks": [
+    {
+      "claim": "96.657--97.582% and 96.745--97.582% common-reference raw variance",
+      "source": "Original artifact names and hashes are recorded in source_artifacts; included summaries are indexed by source-provenance.json.",
+      "status": "pass",
+      "source_artifacts": [
+        {
+          "artifact": "numerical-theory-summary.json",
+          "sha256": "1b4d02fbc5c88bff31ba3f56cadfa9c07e08ff4c371b5e3c9351b54dbcd9471a"
+        }
+      ]
+    },
+    {
+      "claim": "99.9943--99.9974% near and 99.9400--99.9713% far frozen-start explained variance",
+      "source": "Original artifact names and hashes are recorded in source_artifacts; included summaries are indexed by source-provenance.json.",
+      "status": "pass",
+      "source_artifacts": [
+        {
+          "artifact": "numerical-theory-summary.json",
+          "sha256": "1b4d02fbc5c88bff31ba3f56cadfa9c07e08ff4c371b5e3c9351b54dbcd9471a"
+        }
+      ]
+    },
+    {
+      "claim": "A+Q2 raw slow-response ranges and explained variance",
+      "source": "Original artifact names and hashes are recorded in source_artifacts; included summaries are indexed by source-provenance.json.",
+      "status": "pass",
+      "source_artifacts": [
+        {
+          "artifact": "arrival-analysis.json",
+          "sha256": "86496ba8e70a1548851dfd833329ac75cdaede2dd7f084f11245d0a0524cd44b"
+        }
+      ]
+    },
+    {
+      "claim": "Signed work/curvature means and covariance shares",
+      "source": "Original artifact names and hashes are recorded in source_artifacts; included summaries are indexed by source-provenance.json.",
+      "status": "pass",
+      "source_artifacts": [
+        {
+          "artifact": "rgi-arrival-work-analysis-20261006.md",
+          "sha256": "81024c5ae6a5a2a151022721748ff185a11f4ba8d59da2bfea0f6ef8bd2358f3"
+        }
+      ]
+    },
+    {
+      "claim": "Scalar probe, high-pass, and optimizer-difference failures",
+      "source": "Original artifact names and hashes are recorded in source_artifacts; included summaries are indexed by source-provenance.json.",
+      "status": "pass",
+      "source_artifacts": [
+        {
+          "artifact": "rgi-extension-theory-audit-20261006.md",
+          "sha256": "5d9fbeec3730fd726a8ce2bbdfd284643a29c2ff4c2d96ee0952c30d5d091bb9"
+        },
+        {
+          "artifact": "numerical-theory-summary.json",
+          "sha256": "1b4d02fbc5c88bff31ba3f56cadfa9c07e08ff4c371b5e3c9351b54dbcd9471a"
+        }
+      ]
+    },
+    {
+      "claim": "Known-teacher population protocol, KL ranges, local closure, and constant-offset failure",
+      "source": "Original artifact names and hashes are recorded in source_artifacts; included summaries are indexed by source-provenance.json.",
+      "status": "pass",
+      "source_artifacts": [
+        {
+          "artifact": "generation.json",
+          "sha256": "a0b338fe82e1be348eac7e29c82ba84c526502830688e83c222689539486e9d2"
+        },
+        {
+          "artifact": "rgi-work-analysis-20261006.md",
+          "sha256": "bc95e1e3dd623b693ae4a2c092527723ada135a2b30e70157f7fbce8051769fc"
+        },
+        {
+          "artifact": "rgi-numerical-theory-20261006.md",
+          "sha256": "b14cd89103cdf7c1a69c7c9432e0d5ebad419c8a47c85dfd899f3123bd472630"
+        }
+      ]
+    },
+    {
+      "claim": "Verifier counts, maximum errors, and independent-recompute boundary",
+      "source": "Original artifact names and hashes are recorded in source_artifacts; included summaries are indexed by source-provenance.json.",
+      "status": "pass",
+      "source_artifacts": [
+        {
+          "artifact": "rgi-numerical-theory-20261006.md",
+          "sha256": "b14cd89103cdf7c1a69c7c9432e0d5ebad419c8a47c85dfd899f3123bd472630"
+        },
+        {
+          "artifact": "rgi-arrival-work-analysis-20261006.md",
+          "sha256": "81024c5ae6a5a2a151022721748ff185a11f4ba8d59da2bfea0f6ef8bd2358f3"
+        }
+      ]
+    }
+  ],
+  "scope_limits": [
+    "observed-displacement diagnostics are not future-update forecasts",
+    "natural checkpoint reference is not Bayes risk",
+    "three permutations share one pool",
+    "full gradients and complete trajectories were not independently rerun"
+  ],
+  "scope": "Inherited manuscript numerical audit; current public build and file checks are recorded in RELEASE_MANIFEST.json."
+}

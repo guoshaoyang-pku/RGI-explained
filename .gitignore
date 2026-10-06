@@ -1,0 +1,11 @@
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.xdv
+__pycache__/
+FORK_REPORT.md
+SANITIZATION_REPORT.md
+STAGING_READY

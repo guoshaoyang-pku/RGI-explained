@@ -1,0 +1,9 @@
+\section{Known-teacher continuation}
+
+The natural experiment has no observed conditional distribution, so its reference decomposition cannot decide whether the target residual is label noise or a systematic model mismatch.  The known-teacher experiment removes that ambiguity.  For the fixed teacher \(q\), the population objective is exactly \(H(q)+\KL(q\Vert p)\), while hard targets additionally expose the sampled terms \(S\) and \(C\) in Eq.~\eqref{eq:teacher}.
+
+The teacher entropy averages 4.1798397 nats, the sampled teacher surprisal averages 4.1723279 nats, and the initial teacher KL of the student probe is 0.2593348 nats.  After 128 updates, teacher KL ranges are 0.229442--0.229879 for hard SGD, 0.241563--0.241657 for hard Adam, 0.228137--0.228251 for soft SGD, and 0.229840--0.229902 for soft Adam.  The population \(A+Q_2\) closure error is at most 2.795\% across the tested horizons, objectives, and permutations.
+
+The term means show why a KL-only explanation is incomplete.  In hard-teacher SGD at 128 updates, the mean linear work is about \(-0.057\) nats, curvature is about \(+0.027\), and the net risk change is about \(-0.030\).  In hard-teacher Adam the corresponding values are about \(-0.022\), \(+0.004\), and \(-0.018\).  Soft targets change both magnitudes.  The cancellation is a finite-displacement observation and does not establish that two optimizers share a common first-order coefficient.
+
+The same control also tests strong RGI.  After exact teacher-population integration, the cross-prefix standard deviation of the hard optimizer gap divided by its absolute mean is 3.59--3.69; the soft value is 10.69--11.89.  Both are far above a strict 0.1 constant-offset threshold.  Removing sampled-label noise therefore does not recover a uniform optimizer shift across prefixes.

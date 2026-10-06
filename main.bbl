@@ -1,0 +1,45 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Biderman et~al.(2023)Biderman, Schoelkopf, Anthony, Bradley, O'Brien,
+  Hallahan, Khan, Purohit, Prashanth, Raff, Skowron, Sutawika, and van~der
+  Wal]{biderman2023pythiasuiteanalyzinglarge}
+Stella Biderman, Hailey Schoelkopf, Quentin Anthony, Herbie Bradley, Kyle
+  O'Brien, Eric Hallahan, Mohammad~Aflah Khan, Shivanshu Purohit, USVSN~Sai
+  Prashanth, Edward Raff, Aviya Skowron, Lintang Sutawika, and Oskar van~der
+  Wal.
+\newblock Pythia: A suite for analyzing large language models across training
+  and scaling, 2023.
+\newblock URL \url{https://arxiv.org/abs/2304.01373}.
+
+\bibitem[Hinton et~al.(2015)Hinton, Vinyals, and
+  Dean]{hinton2015distillingknowledgeneuralnetwork}
+Geoffrey Hinton, Oriol Vinyals, and Jeff Dean.
+\newblock Distilling the knowledge in a neural network, 2015.
+\newblock URL \url{https://arxiv.org/abs/1503.02531}.
+
+\bibitem[Kingma and Ba(2017)]{kingma2017adammethodstochasticoptimization}
+Diederik~P. Kingma and Jimmy Ba.
+\newblock Adam: A method for stochastic optimization, 2017.
+\newblock URL \url{https://arxiv.org/abs/1412.6980}.
+
+\bibitem[Penedo et~al.(2024)Penedo, Kydlíček, allal, Lozhkov, Mitchell,
+  Raffel, Werra, and Wolf]{penedo2024finewebdatasetsdecantingweb}
+Guilherme Penedo, Hynek Kydlíček, Loubna~Ben allal, Anton Lozhkov, Margaret
+  Mitchell, Colin Raffel, Leandro~Von Werra, and Thomas Wolf.
+\newblock The fineweb datasets: Decanting the web for the finest text data at
+  scale, 2024.
+\newblock URL \url{https://arxiv.org/abs/2406.17557}.
+
+\bibitem[Zhang et~al.(2026)Zhang, Wang, Li, Ruan, He, Tsang, Pang, Du, Zhang,
+  and Yang]{zhang2026relativegeneralizationinvariancellm}
+Fengzhuo Zhang, Shuche Wang, Shenggui Li, Tianyu Ruan, Jianliang He, Ivor
+  Tsang, Tianyu Pang, Chao Du, Tianwei Zhang, and Zhuoran Yang.
+\newblock Relative generalization invariance of llm pretraining, 2026.
+\newblock URL \url{https://arxiv.org/abs/2609.33016}.
+
+\end{thebibliography}

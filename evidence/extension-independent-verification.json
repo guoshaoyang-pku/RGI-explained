@@ -1,0 +1,9 @@
+{
+  "completed": true,
+  "verification_passed": true,
+  "checks": 23220,
+  "failures": {},
+  "incomplete": [],
+  "code_sha256": "9787c7b172e39d11a3c0551fd203996840073ab362715d949a36e10c5e48a9bf",
+  "scope": "Independent NumPy full-vocabulary fixture statistics and all recorded algebra/readout consistency. No network or training rerun, no frozen-gradient recomputation; response checks verify recorded before/after/dot/remainder algebra only."
+}

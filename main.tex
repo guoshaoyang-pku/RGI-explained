@@ -1,0 +1,59 @@
+% !TeX program = xelatex
+% MetaCircle arXiv source. Build with: latexmk -xelatex main.tex
+\documentclass[11pt]{article}
+\usepackage[round,authoryear]{natbib}
+\PassOptionsToPackage{no-math}{fontspec}
+\usepackage{metacircle}
+\usepackage{float}
+\usepackage{array}
+\usepackage{multirow}
+
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.5}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.8}
+\graphicspath{{figures/}}
+
+\newcommand{\KL}{\operatorname{KL}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\RMS}{\operatorname{RMS}}
+\newcommand{\q}{q}
+\newcommand{\p}{p}
+\newcommand{\pt}{p_t}
+\newcommand{\pzero}{p_0}
+
+\title{Beyond Relative Generalization Invariance: Shared Difficulty and Local Learning Response\\in Language Model Training}
+\author{
+  Shaoyang Guo$^{*}$ and Ziming Liu$^{*,\dagger}$\\
+  \small $^*$Core contributors, equal contribution \quad $^\dagger$Corresponding author
+}
+\date{}
+\paperdate{October 6, 2026}
+\papertype{Meta Circle Research}
+\projecturl{}
+
+\begin{document}
+\maketitle
+
+\begin{metaabstract}
+\input{sections/abstract}
+\keywords{language model training, teacher forcing, optimization dynamics, relative generalization invariance, cross-entropy}
+\end{metaabstract}
+
+\input{sections/01_introduction}
+\input{sections/02_relation_scope}
+\input{sections/03_decomposition}
+\input{sections/04_experimental_protocol}
+\input{sections/05_frozen_difficulty}
+\input{sections/06_local_response}
+\input{sections/07_known_teacher}
+\input{sections/08_support_gate}
+\input{sections/09_limitations_conclusion}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\appendix
+\input{sections/appendix}
+\end{document}

@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-10-06",
+  "policy": "Every BibTeX record was retrieved from the arXiv BibTeX endpoint and cross-checked against the corresponding arXiv abstract metadata saved locally. No citation was generated from memory.",
+  "bib_file": "../references.bib",
+  "entries": [
+    {
+      "key": "zhang2026relativegeneralizationinvariancellm",
+      "title": "Relative Generalization Invariance of LLM Pretraining",
+      "arxiv_id": "2609.33016",
+      "version_used": "v1",
+      "bibtex_source": "https://arxiv.org/bibtex/2609.33016",
+      "metadata_source": "https://arxiv.org/abs/2609.33016v1",
+      "local_metadata_sha256": "e9d3470ad8454237f9e6c9b5d2b6a91c96dce3886c2db010870d6c4bfdfb5e4c",
+      "local_bibtex_sha256": "0c84396e1c94c6653bb1d7f7109b5563b63b83c90582b7263833a3143ec4f641",
+      "use": "Definition and empirical claims about RGI in the prior paper; cited for comparison and scope.",
+      "metadata_file_included": false
+    },
+    {
+      "key": "biderman2023pythiasuiteanalyzinglarge",
+      "title": "Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling",
+      "arxiv_id": "2304.01373",
+      "version_used": "v1",
+      "bibtex_source": "https://arxiv.org/bibtex/2304.01373",
+      "metadata_source": "https://arxiv.org/abs/2304.01373v1",
+      "local_metadata_sha256": "a4ed5e7d70ff9ae90237a5421aabea072396346e2f70406e23257078d28eddf1",
+      "local_bibtex_sha256": "c32203ab0adca430383e9fab552932a6e941b95b1fd663025e941f612bead1e7",
+      "use": "Pythia checkpoint family used for the local continuation.",
+      "metadata_file_included": false
+    },
+    {
+      "key": "penedo2024finewebdatasetsdecantingweb",
+      "title": "The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale",
+      "arxiv_id": "2406.17557",
+      "version_used": "v1 metadata",
+      "bibtex_source": "https://arxiv.org/bibtex/2406.17557",
+      "metadata_source": "https://arxiv.org/abs/2406.17557",
+      "local_metadata_sha256": "a12bfcd47f835ad4a2c5630a228778370ed54509afa65bed1c6dfc264f2182da",
+      "local_bibtex_sha256": "b2e7accb9b422769e1c21848efbcdbe424af1a37eb46f395dcbe7beaad90c0e4",
+      "use": "FineWeb source and dataset description for the natural continuation.",
+      "metadata_file_included": false
+    },
+    {
+      "key": "kingma2017adammethodstochasticoptimization",
+      "title": "Adam: A Method for Stochastic Optimization",
+      "arxiv_id": "1412.6980",
+      "version_used": "arXiv metadata year 2017",
+      "bibtex_source": "https://arxiv.org/bibtex/1412.6980",
+      "metadata_source": "https://arxiv.org/abs/1412.6980",
+      "local_metadata_sha256": "4129fc8bd4e092ed19a5b924569a3a4a1f85dbd1930af973262d755672bcd458",
+      "local_bibtex_sha256": "2a5922b25643454f7a1e2f2fe9a4ebdba1daacdc18c4f6c0e68e4bb09f220201",
+      "use": "Adam optimizer baseline and hyperparameter comparison.",
+      "metadata_file_included": false
+    },
+    {
+      "key": "hinton2015distillingknowledgeneuralnetwork",
+      "title": "Distilling the Knowledge in a Neural Network",
+      "arxiv_id": "1503.02531",
+      "version_used": "v1",
+      "bibtex_source": "https://arxiv.org/bibtex/1503.02531",
+      "metadata_source": "https://arxiv.org/abs/1503.02531v1",
+      "local_metadata_sha256": "fb175c757837377b7f00c50cbed6e9af27f625e4d66e4f9d20e67857fac6e84c",
+      "local_bibtex_sha256": "a3d7ba4842dbd93632be2a968be99bb7c6f193408051a7cec0184741ec5868d8",
+      "use": "Known-teacher soft-target objective context; not cited as evidence for the natural-data mechanism.",
+      "metadata_file_included": false
+    },
+    {
+      "key": "vaswani2023attentionneed",
+      "title": "Attention Is All You Need",
+      "arxiv_id": "1706.03762",
+      "version_used": "v1 metadata",
+      "bibtex_source": "https://arxiv.org/bibtex/1706.03762",
+      "metadata_source": "https://arxiv.org/abs/1706.03762",
+      "local_metadata_sha256": "29e42a996471db9c019f1122825cdac0e6d64c96767d9ee5c0b8891de6204bee",
+      "local_bibtex_sha256": "aca1dacd15160b302a6ef776d3331357a4f2c93b5a93a8ead1e4a5c28ed40fc1",
+      "use": "Transformer model context only; no causal claim about the decomposition.",
+      "metadata_file_included": false
+    }
+  ],
+  "not_included": "No unverified citations were added for Pythia implementation details, logit/Bregman identities, or optimizer theory; those statements are either elementary derivations or tied to local experiment contracts."
+}

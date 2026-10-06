@@ -1,0 +1,11 @@
+{
+  "completed": true,
+  "verification_passed": true,
+  "available_runs_passed": true,
+  "checks": 341,
+  "max_error": 3.561387296180385e-15,
+  "failures": {},
+  "incomplete": [],
+  "code_sha256": "b4233040294e7d141aa0c320e10dd7142b87c44e3b530392ff0a2fb2f5caa94e",
+  "scope": "NumPy full-vocabulary final-arrival eight-token fixture arithmetic; all trace/document means and identities and original trace L/D parity. Producer bitwise final-parameter replay equality is recorded, not independently rerun. No independent gradients or full-batch raw-logit reconstruction."
+}

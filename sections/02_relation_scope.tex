@@ -1,0 +1,13 @@
+\section{Relation to RGI and scope of the claim}
+
+RGI compares a pair of models on the same teacher-forced target and asks whether their loss difference is approximately independent of the token.  We retain that paired evaluation, but separate two notions that are easy to conflate.  A weak statement is that two loss vectors have high correlation or a small relative-difference statistic.  A strong statement is that
+\begin{equation}
+  \ell_A(x,y)-\ell_B(x,y) \approx c
+  \quad\text{for every evaluated prefix--target pair,}
+  \label{eq:strong-rgi}
+\end{equation}
+with a residual small relative to \(|c|\).  The latter is the constant-offset mechanism that would make the optimizer choice nearly irrelevant to token ranking.
+
+Our experiment is designed to locate terms before testing Eq.~\eqref{eq:strong-rgi}.  On a natural target, an arbitrary checkpoint reference \(q\) is not the unknown conditional data distribution.  Therefore a reference KL is a measurable comparison to \(q\), not a natural Bayes excess risk.  For a fixed teacher distribution we can remove this ambiguity, but that changes the task to a known-teacher continuation.  We report the two settings separately.
+
+The prior quadratic construction is a sufficient example in a different model class.  It does not by itself identify the representation term or optimizer response of a Transformer.  Our evidence likewise does not claim that natural LLMs satisfy the sufficient conditions of that construction.  Instead, it tests whether the more concrete finite-displacement terms below account for the observed slow response and then checks whether the remaining paired gap is actually constant.

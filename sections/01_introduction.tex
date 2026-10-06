@@ -1,0 +1,17 @@
+\section{Introduction}
+
+The loss of a language model mixes two sources of variation that are usually reported together.  A batch can be intrinsically difficult under a fixed predictor, while the predictor can also move during training.  The first source changes when the next batch changes; the second accumulates through the optimizer and the model's local geometry.  A useful explanation of training loss should identify these terms on the same teacher-forced targets and should say which term dominates at the scale being measured.
+
+Zhang et al.~\citep{zhang2026relativegeneralizationinvariancellm} introduced Relative Generalization Invariance (RGI): the validation-loss difference between two models is approximately preserved across tokens.  Their experiments show strong empirical similarity across optimizers and moderate architectural changes, while their quadratic example gives a sufficient stylized construction.  The result leaves open a more local question: when a real Transformer receives one arriving batch, which terms create the common fast variation, and which terms create the slower optimizer-dependent response?  This distinction matters because high correlation of two loss curves does not imply a constant token-wise gap.
+
+We test the following concrete version of the question.  Let \(D(B)\) be the teacher-forced cross-entropy of a fixed start model on batch \(B\), let \(L_t(B)\) be the same score after an observed continuation, and write \(M_t(B)=L_t(B)-D(B)\).  We ask whether \(D\) explains the large batch-to-batch variation, and whether \(M\) is explained by a frozen gradient acting on the observed parameter displacement plus softmax curvature.  We do not fit a slope or intercept on the evaluation window, and we do not treat an identity using the final logits as a forecast of an unknown future update.
+
+Our contributions are:
+\begin{itemize}
+  \item We give a teacher-forced, batch-level decomposition that separates frozen difficulty from finite local response and measures each term directly.
+  \item In a registered Pythia-70M continuation, a common frozen reference explains 96.657--97.582\% of raw arriving-loss variance, while the algorithm-specific frozen starts explain at least 99.940\% in the far window.
+  \item On the slow signal itself, \(A+Q_2\) closes all six natural near, far, and full windows at the registered 10\% RMS and 90\% variance thresholds.  The signed terms show that linear learning gain and positive curvature cost both matter.
+  \item We document the boundary of this explanation: a scalar global probe is insufficient, the optimizer-difference response fails the 10\% gate, and a known-teacher population test does not yield a constant token-wise optimizer offset.
+\end{itemize}
+
+The claims are deliberately local.  We study finite Pythia-70M continuations with reset optimizer state, not a reproduction of the original paper's 124M and 0.7B pretraining runs.  The main conclusion is a measured response mechanism for these trajectories, together with a substantive obstruction to promoting it to a universal explanation of strong RGI.

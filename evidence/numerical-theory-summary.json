@@ -1,0 +1,272 @@
+{
+  "completed": true,
+  "experiment_runs": 9,
+  "arrival_replay_runs": 6,
+  "scope": "Finite local Pythia70M continuation; actual-displacement response, with explicit stronger RGI failures",
+  "frozen_difficulty": [
+    {
+      "run": "r0-natural-hard",
+      "algorithm": "sgd",
+      "window": "near",
+      "common_reference_explained": 0.9667319483139096,
+      "frozen_start_explained": 0.9999429830717835,
+      "frozen_start_rmse_nats": 0.0013304388166986037
+    },
+    {
+      "run": "r0-natural-hard",
+      "algorithm": "sgd",
+      "window": "far",
+      "common_reference_explained": 0.9674512509607,
+      "frozen_start_explained": 0.9995755922245749,
+      "frozen_start_rmse_nats": 0.0039794316262614865
+    },
+    {
+      "run": "r0-natural-hard",
+      "algorithm": "adam",
+      "window": "near",
+      "common_reference_explained": 0.9689315909921307,
+      "frozen_start_explained": 0.9999729737083232,
+      "frozen_start_rmse_nats": 0.0009156358550440217
+    },
+    {
+      "run": "r0-natural-hard",
+      "algorithm": "adam",
+      "window": "far",
+      "common_reference_explained": 0.9680958959531525,
+      "frozen_start_explained": 0.9993998524025437,
+      "frozen_start_rmse_nats": 0.004736127366444455
+    },
+    {
+      "run": "r1-natural-hard",
+      "algorithm": "sgd",
+      "window": "near",
+      "common_reference_explained": 0.9738806386816427,
+      "frozen_start_explained": 0.9999543937090883,
+      "frozen_start_rmse_nats": 0.001317434588989468
+    },
+    {
+      "run": "r1-natural-hard",
+      "algorithm": "sgd",
+      "window": "far",
+      "common_reference_explained": 0.9682077218834977,
+      "frozen_start_explained": 0.9995616985929986,
+      "frozen_start_rmse_nats": 0.004116028634112047
+    },
+    {
+      "run": "r1-natural-hard",
+      "algorithm": "adam",
+      "window": "near",
+      "common_reference_explained": 0.975776653514826,
+      "frozen_start_explained": 0.9999735922412473,
+      "frozen_start_rmse_nats": 0.0010029269334990167
+    },
+    {
+      "run": "r1-natural-hard",
+      "algorithm": "adam",
+      "window": "far",
+      "common_reference_explained": 0.9686117796295989,
+      "frozen_start_explained": 0.9994333841699484,
+      "frozen_start_rmse_nats": 0.004682097939121193
+    },
+    {
+      "run": "r2-natural-hard",
+      "algorithm": "sgd",
+      "window": "near",
+      "common_reference_explained": 0.9665697332555258,
+      "frozen_start_explained": 0.9999456171125208,
+      "frozen_start_rmse_nats": 0.0013078632689601827
+    },
+    {
+      "run": "r2-natural-hard",
+      "algorithm": "sgd",
+      "window": "far",
+      "common_reference_explained": 0.9757858372636076,
+      "frozen_start_explained": 0.9997129004886721,
+      "frozen_start_rmse_nats": 0.00366295473844979
+    },
+    {
+      "run": "r2-natural-hard",
+      "algorithm": "adam",
+      "window": "near",
+      "common_reference_explained": 0.9695078529886508,
+      "frozen_start_explained": 0.9999699765568403,
+      "frozen_start_rmse_nats": 0.000972616958825951
+    },
+    {
+      "run": "r2-natural-hard",
+      "algorithm": "adam",
+      "window": "far",
+      "common_reference_explained": 0.975823944117514,
+      "frozen_start_explained": 0.9995756225771348,
+      "frozen_start_rmse_nats": 0.004455840854511216
+    }
+  ],
+  "slow_response": [
+    {
+      "run": "arrival-r0-sgd",
+      "window": "near",
+      "relative_rms": 0.04967381202241493,
+      "explained": 0.9971023641722809,
+      "absolute_rmse_nats": 6.608796768801153e-05
+    },
+    {
+      "run": "arrival-r0-sgd",
+      "window": "far",
+      "relative_rms": 0.09325446238506711,
+      "explained": 0.9686941081922885,
+      "absolute_rmse_nats": 0.00037109975690515005
+    },
+    {
+      "run": "arrival-r0-sgd",
+      "window": "full",
+      "relative_rms": 0.09728831294722311,
+      "explained": 0.9803816455295121,
+      "absolute_rmse_nats": 0.00028634792863193334
+    },
+    {
+      "run": "arrival-r0-adam",
+      "window": "near",
+      "relative_rms": 0.012853312967905725,
+      "explained": 0.9995847766905739,
+      "absolute_rmse_nats": 1.176895420951675e-05
+    },
+    {
+      "run": "arrival-r0-adam",
+      "window": "far",
+      "relative_rms": 0.02821790890932152,
+      "explained": 0.9929995935510474,
+      "absolute_rmse_nats": 0.00013364361060927307
+    },
+    {
+      "run": "arrival-r0-adam",
+      "window": "full",
+      "relative_rms": 0.025925559429099767,
+      "explained": 0.997795965397891,
+      "absolute_rmse_nats": 8.384341963630071e-05
+    },
+    {
+      "run": "arrival-r1-sgd",
+      "window": "near",
+      "relative_rms": 0.09121073025274164,
+      "explained": 0.9894868956616881,
+      "absolute_rmse_nats": 0.00012016417092194866
+    },
+    {
+      "run": "arrival-r1-sgd",
+      "window": "far",
+      "relative_rms": 0.08821461946217109,
+      "explained": 0.9721507824018112,
+      "absolute_rmse_nats": 0.0003630938996535931
+    },
+    {
+      "run": "arrival-r1-sgd",
+      "window": "full",
+      "relative_rms": 0.09034058472689765,
+      "explained": 0.9831471853197836,
+      "absolute_rmse_nats": 0.0002708989182760158
+    },
+    {
+      "run": "arrival-r1-adam",
+      "window": "near",
+      "relative_rms": 0.011885743540002379,
+      "explained": 0.9996259854846318,
+      "absolute_rmse_nats": 1.19205323209304e-05
+    },
+    {
+      "run": "arrival-r1-adam",
+      "window": "far",
+      "relative_rms": 0.025953669204719004,
+      "explained": 0.9927273173293745,
+      "absolute_rmse_nats": 0.00012151762109604701
+    },
+    {
+      "run": "arrival-r1-adam",
+      "window": "full",
+      "relative_rms": 0.024482813987317643,
+      "explained": 0.9979396265379022,
+      "absolute_rmse_nats": 7.846560492524854e-05
+    },
+    {
+      "run": "arrival-r2-sgd",
+      "window": "near",
+      "relative_rms": 0.0682872972717004,
+      "explained": 0.994538408384474,
+      "absolute_rmse_nats": 8.93104478382198e-05
+    },
+    {
+      "run": "arrival-r2-sgd",
+      "window": "far",
+      "relative_rms": 0.06529535329856442,
+      "explained": 0.9854769438070492,
+      "absolute_rmse_nats": 0.00023917392376373081
+    },
+    {
+      "run": "arrival-r2-sgd",
+      "window": "full",
+      "relative_rms": 0.0713262747985901,
+      "explained": 0.989822512794469,
+      "absolute_rmse_nats": 0.00019086987425907524
+    },
+    {
+      "run": "arrival-r2-adam",
+      "window": "near",
+      "relative_rms": 0.016876009056313205,
+      "explained": 0.9992355645766776,
+      "absolute_rmse_nats": 1.641389260547122e-05
+    },
+    {
+      "run": "arrival-r2-adam",
+      "window": "far",
+      "relative_rms": 0.024868108610051398,
+      "explained": 0.993766048319218,
+      "absolute_rmse_nats": 0.00011080833431909009
+    },
+    {
+      "run": "arrival-r2-adam",
+      "window": "full",
+      "relative_rms": 0.023762584586476603,
+      "explained": 0.9979892370954015,
+      "absolute_rmse_nats": 7.537440183007777e-05
+    }
+  ],
+  "paired_incremental_failure": [
+    {
+      "replica": 0,
+      "relative_rms": 0.16682877328781007,
+      "explained": 0.9674437260983761
+    },
+    {
+      "replica": 1,
+      "relative_rms": 0.15267468185577424,
+      "explained": 0.9732258315366573
+    },
+    {
+      "replica": 2,
+      "relative_rms": 0.1033758277137228,
+      "explained": 0.9856710992222513
+    }
+  ],
+  "verification": [
+    {
+      "path": "extension-independent-verification.json",
+      "checks": 23220,
+      "passed": true,
+      "max_error": 8.881784197001252e-15,
+      "scope": "Independent NumPy full-vocabulary fixture statistics and all recorded algebra/readout consistency. No network or training rerun, no frozen-gradient recomputation; response checks verify recorded before/after/dot/remainder algebra only."
+    },
+    {
+      "path": "work-independent-verification.json",
+      "checks": 4159,
+      "passed": true,
+      "max_error": 3.16646665485254e-14,
+      "scope": "NumPy full-vocabulary eight-token pulse fixture reconstruction; all recorded work-response and full total arrays/readout arithmetic checked. Does not independently recompute logits, training, gradients, or full32-doc W/Q from logits because those raw logits are not saved."
+    },
+    {
+      "path": "arrival-independent-verification.json",
+      "checks": 341,
+      "passed": true,
+      "max_error": 3.561387296180385e-15,
+      "scope": "NumPy full-vocabulary final-arrival eight-token fixture arithmetic; all trace/document means and identities and original trace L/D parity. Producer bitwise final-parameter replay equality is recorded, not independently rerun. No independent gradients or full-batch raw-logit reconstruction."
+    }
+  ]
+}

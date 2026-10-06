@@ -1,0 +1,17 @@
+\section{A sufficient support-gate construction}
+
+For completeness, consider a prefix \(x\) with a known support \(S_x\), a normalized shape \(p_x\) on that support, and a reject token.  Let
+\begin{equation}
+ q_h(y\mid x)=\alpha(h)p_x(y)\quad (y\in S_x),\qquad
+ q_h(\mathrm{reject}\mid x)=1-\alpha(h),
+ \label{eq:support-gate}
+\end{equation}
+where \(\alpha(h)=\operatorname{sigmoid}(h)\).  For every target in the support,
+\begin{equation}
+ \ell_h(x,y)=-\log p_x(y)-\log\alpha(h),
+ \qquad \partial_h\ell_h=\alpha(h)-1.
+ \label{eq:gate-loss}
+\end{equation}
+Thus all target losses share the same algorithm-dependent offset, even though the common target surprise varies with \(p_x(y)\).  A dog/cat numerical check gives a gap 0.5901707965 with standard deviation \(1.05\times10^{-16}\) across five prefixes and both targets.
+
+This is a sufficient support-gate mechanism, not evidence about natural LLMs.  It relies on a common normalized shape inside a prefix-dependent support and on a shared scalar mass gate.  Full-support language distributions have no reject mass with which to implement this exact construction.  Measuring whether natural models have an approximate candidate support and a common mass gate is a separate experiment.
