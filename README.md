@@ -41,7 +41,7 @@ Prerequisites: Python 3.9+, XeLaTeX and latexmk with the packages used by metaci
 
 The arXiv zip includes main.bbl and a XeLaTeX compiler declaration. references.bib is included for local edits.
 
-The static webpage needs no application dependencies. Open docs/index.html directly, or run python3 -m http.server from the repository. The Pages workflow checks release evidence before publishing; it exposes the manuscript and evidence links together with the website.
+The static webpage needs no application dependencies. Open docs/index.html directly, or run python3 -m http.server from the repository. GitHub Pages can serve main at the repository root using index.html and .nojekyll. The optional manual Pages workflow checks release evidence before publishing; it exposes the manuscript and evidence links together with the website.
 
 ## Evidence availability
 

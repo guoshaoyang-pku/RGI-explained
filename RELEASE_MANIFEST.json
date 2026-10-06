@@ -16,13 +16,18 @@
     },
     {
       "path": ".github/workflows/pages.yml",
-      "size": 1088,
-      "sha256": "8c0445cad6a8f0b7994860ce080fae39ac2b727e29ebfefed06a2de6b6813134"
+      "size": 1059,
+      "sha256": "1dc8293b4225cdde3edd745bee77650bc8fdff130aee77fd665495f5fc09a426"
     },
     {
       "path": ".gitignore",
       "size": 115,
       "sha256": "4450729eb9139db574061223fffbe6c96576ab561edf30f62464185648ae080a"
+    },
+    {
+      "path": ".nojekyll",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "path": "00README.json",
@@ -31,8 +36,8 @@
     },
     {
       "path": "AGENTS.md",
-      "size": 1492,
-      "sha256": "4796097a1d4d4d757119fb53f29fd390cf3d8b96bf054a03f7dc706d0e164d8b"
+      "size": 1556,
+      "sha256": "2cece6a32cbd0f314f1bcd13a14382d386c453f578f88172384956e703359cb4"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -51,8 +56,8 @@
     },
     {
       "path": "README.md",
-      "size": 4396,
-      "sha256": "a9ebacdd0b8e2176b552b4c1beb08022567e87c14c4410b975b63863987ee257"
+      "size": 4495,
+      "sha256": "104f3784e093101d406236ae166d475efb4e487d1d5f6ede2ffb93d9586d163b"
     },
     {
       "path": "arxiv-metadata.txt",
@@ -101,8 +106,8 @@
     },
     {
       "path": "docs/index.html",
-      "size": 24841,
-      "sha256": "f725eb180223bcca1a5b4f4e734f8e99734f78d213127731b2b7b66b6b0a947a"
+      "size": 24902,
+      "sha256": "ef4d7e6cc7e3fc7348c4f5882e8fd12b9c425d579054362ac3f2d65093adc8b5"
     },
     {
       "path": "docs/reports/figs/numerical-theory.pdf",
@@ -116,8 +121,8 @@
     },
     {
       "path": "docs/reports/rgi-followup-panel.html",
-      "size": 438908,
-      "sha256": "5313ebe1f5bf4253ca4c9b8c411cb2c34d4a262da3eb9e469e9dbba00452c1f9"
+      "size": 439396,
+      "sha256": "04811c36e58c75db07c46614f5f7e5771d65abb81aaccd519f1fe1caa322a670"
     },
     {
       "path": "docs/reports/rgi-followup.md",
@@ -208,6 +213,11 @@
       "path": "figures/numerical-theory.png",
       "size": 262620,
       "sha256": "04877bb3e2656db9d4c5750d50cad5d546ac3445e8c5e10bb1a70d78a41a51c7"
+    },
+    {
+      "path": "index.html",
+      "size": 964,
+      "sha256": "f06581135badba251d16aefedf454c72d5965c87706abb6a949228dab1e88eda"
     },
     {
       "path": "main.bbl",

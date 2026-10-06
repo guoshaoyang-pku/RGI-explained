@@ -14,8 +14,9 @@
 - evidence/: bounded aggregates, provenance, claims and verifier scope.
 - docs/reports/: Chinese report and self-contained panel.
 - docs/index.html: bilingual visual abstract and explanation.
+- index.html and .nojekyll: static GitHub Pages entry.
 - docs/assets/: exported figures, exact table values, and figure generator.
-- .github/workflows/pages.yml: checked static publication of the research page.
+- .github/workflows/pages.yml: optional manual checked publication of the research page.
 - RELEASE_MANIFEST.json: final file hashes.
 
 ## Scientific boundaries
