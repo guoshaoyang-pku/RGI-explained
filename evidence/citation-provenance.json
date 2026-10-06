@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-10-06",
   "policy": "Every BibTeX record was retrieved from the arXiv BibTeX endpoint and cross-checked against the corresponding arXiv abstract metadata saved locally. No citation was generated from memory.",
-  "bib_file": "../references.bib",
+  "bib_file": "../paper/references.bib",
   "entries": [
     {
       "key": "zhang2026relativegeneralizationinvariancellm",

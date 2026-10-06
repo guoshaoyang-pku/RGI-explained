@@ -30,14 +30,9 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "path": "00README.json",
-      "size": 37,
-      "sha256": "1681ab476205e87386c556a6936102d6e4e8fe528cb758d926a628f7fde85679"
-    },
-    {
       "path": "AGENTS.md",
-      "size": 1556,
-      "sha256": "2cece6a32cbd0f314f1bcd13a14382d386c453f578f88172384956e703359cb4"
+      "size": 1773,
+      "sha256": "e6a3dad2334340598df7bb0ef6cfe52a88c4db85aff4bd3a1e2cf45c29673adc"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -51,18 +46,13 @@
     },
     {
       "path": "NOTICE.md",
-      "size": 733,
-      "sha256": "439dc338022e13bf950b63227ed2ea9e366c4af2222abe03b900712f731b837f"
+      "size": 772,
+      "sha256": "6a5dfcbc83421340803dadcbb5e58c2c1adf7f652916ec0df922474628869d82"
     },
     {
       "path": "README.md",
-      "size": 4495,
-      "sha256": "104f3784e093101d406236ae166d475efb4e487d1d5f6ede2ffb93d9586d163b"
-    },
-    {
-      "path": "arxiv-metadata.txt",
-      "size": 1956,
-      "sha256": "5877c5685d59e830da80e83120251f245f42c4c44fe5f3ac2dff4824a196fbd1"
+      "size": 5823,
+      "sha256": "24ba8620c19ce3513964d64c1855d7424d14e60dde244f237b42b4a237919d1f"
     },
     {
       "path": "docs/assets/build_visual_abstract.py",
@@ -106,8 +96,8 @@
     },
     {
       "path": "docs/index.html",
-      "size": 24902,
-      "sha256": "ef4d7e6cc7e3fc7348c4f5882e8fd12b9c425d579054362ac3f2d65093adc8b5"
+      "size": 25470,
+      "sha256": "3b88e91fbec380413d27bda7bab315f488b79ce2e0ffb826734119a7ddb09f6a"
     },
     {
       "path": "docs/reports/figs/numerical-theory.pdf",
@@ -121,13 +111,13 @@
     },
     {
       "path": "docs/reports/rgi-followup-panel.html",
-      "size": 439396,
-      "sha256": "04811c36e58c75db07c46614f5f7e5771d65abb81aaccd519f1fe1caa322a670"
+      "size": 439394,
+      "sha256": "8a1b39a8bb739077b13ff001dbf06f2426d00f1884b9699163fd1dbab78cefa2"
     },
     {
       "path": "docs/reports/rgi-followup.md",
-      "size": 9518,
-      "sha256": "9b1b3c7bfa38c0679c7fed1ea0c12c9ecf4bf88c1a08f1d689c78904acc4e0ae"
+      "size": 9535,
+      "sha256": "90c16972000422b95e531abe37927518165905a8d5c35412e38903d34eb795c0"
     },
     {
       "path": "evidence/arrival-analysis.json",
@@ -141,8 +131,8 @@
     },
     {
       "path": "evidence/citation-provenance.json",
-      "size": 4444,
-      "sha256": "1071b7d40fd0d71e151e202eb4bb303ce5efd831f4ef2f8c6bb3b940f95d88da"
+      "size": 4450,
+      "sha256": "4962b684f54573e611324c8d1a1e3d77a06dcef8144b31ef15e65915572bd071"
     },
     {
       "path": "evidence/claim-audit.json",
@@ -205,124 +195,134 @@
       "sha256": "dd57a581013889c7393fdfda2f58b9579e0495adfad9c6f905a3f8435dd9d31f"
     },
     {
-      "path": "figures/numerical-theory.pdf",
-      "size": 32802,
-      "sha256": "9e3043e20e1e1d62fab920cd0dfa29bf3fd1384df10d8fe795d87d9ca2c47fe5"
-    },
-    {
-      "path": "figures/numerical-theory.png",
-      "size": 262620,
-      "sha256": "04877bb3e2656db9d4c5750d50cad5d546ac3445e8c5e10bb1a70d78a41a51c7"
-    },
-    {
       "path": "index.html",
       "size": 964,
       "sha256": "f06581135badba251d16aefedf454c72d5965c87706abb6a949228dab1e88eda"
     },
     {
-      "path": "main.bbl",
+      "path": "paper/00README.json",
+      "size": 37,
+      "sha256": "1681ab476205e87386c556a6936102d6e4e8fe528cb758d926a628f7fde85679"
+    },
+    {
+      "path": "paper/arxiv-metadata.txt",
+      "size": 1956,
+      "sha256": "5877c5685d59e830da80e83120251f245f42c4c44fe5f3ac2dff4824a196fbd1"
+    },
+    {
+      "path": "paper/figures/numerical-theory.pdf",
+      "size": 32802,
+      "sha256": "9e3043e20e1e1d62fab920cd0dfa29bf3fd1384df10d8fe795d87d9ca2c47fe5"
+    },
+    {
+      "path": "paper/figures/numerical-theory.png",
+      "size": 262620,
+      "sha256": "04877bb3e2656db9d4c5750d50cad5d546ac3445e8c5e10bb1a70d78a41a51c7"
+    },
+    {
+      "path": "paper/main.bbl",
       "size": 2177,
       "sha256": "883f00734839be9bf801db444b2c14005b2cbc0360aadd8921a4166feecd43e4"
     },
     {
-      "path": "main.pdf",
-      "size": 291361,
-      "sha256": "3b489ca9ff6b549f23f482d728357e484c4a66013f4e99c5d0e562522ea29a2a"
+      "path": "paper/main.pdf",
+      "size": 291323,
+      "sha256": "bd97f6381b0e1cd56e9fa40736456fcdd6f3ce6fd64d3f96e897a56193194960"
     },
     {
-      "path": "main.tex",
-      "size": 1698,
-      "sha256": "d40449cf0a809316584ea43e33d4cc2c6f44241f22aa667f23087063caeb09b8"
+      "path": "paper/main.tex",
+      "size": 1670,
+      "sha256": "5dd9552748952099a344be6dbb6a9fdad480f553a7de571f0269c7e072277252"
     },
     {
-      "path": "metacircle.sty",
+      "path": "paper/metacircle.sty",
       "size": 4020,
       "sha256": "41233ecfc22722e121706c1d300a4521c48e729b675f729833aca6b1aa2baa77"
     },
     {
-      "path": "metacircle_wordmark.pdf",
+      "path": "paper/metacircle_wordmark.pdf",
       "size": 3133,
       "sha256": "13e0870d7afdb6cb4f50ce4a0caf2d0a2c45ac957f5c5b22810d5e9d4780941c"
     },
     {
-      "path": "metacircle_zh_gloss.pdf",
+      "path": "paper/metacircle_zh_gloss.pdf",
       "size": 3223,
       "sha256": "da6ababfe52f16d1ffe078c94338132c4921e5e7f1014a5dcade5a1ec6a909a2"
     },
     {
-      "path": "references.bib",
+      "path": "paper/references.bib",
       "size": 2312,
       "sha256": "b1233f6ec3baaa22349781d483e76f3e9c1141ffa385d655595d5876aace0959"
     },
     {
-      "path": "rgi-followup-arxiv.zip",
-      "size": 211426,
-      "sha256": "0b71b776b28c4992f15cf7996040d28534fb0bae3b2509f0002829c475aae251"
+      "path": "paper/rgi-followup-arxiv.zip",
+      "size": 211412,
+      "sha256": "a866fe2ae9ae3d7173477e5893f354ece2946bc7ecf3cc2dd2c34bbf8b0c7478"
     },
     {
-      "path": "sections/01_introduction.tex",
+      "path": "paper/sections/01_introduction.tex",
       "size": 3107,
       "sha256": "8b8300cfda0beee2b5fb110bc2f9b261df14acf4abc9f223f2a2988b87e70aae"
     },
     {
-      "path": "sections/02_relation_scope.tex",
+      "path": "paper/sections/02_relation_scope.tex",
       "size": 1664,
       "sha256": "619ff46e875b033d77b0f0d3442c8725ec00a01be4293658a6c8f8f12b9c99cb"
     },
     {
-      "path": "sections/03_decomposition.tex",
+      "path": "paper/sections/03_decomposition.tex",
       "size": 2680,
       "sha256": "c2cf9587826c7fc5f988fb46c2e553e6cb9c3ac60b770c9f99e3067702f439be"
     },
     {
-      "path": "sections/04_experimental_protocol.tex",
+      "path": "paper/sections/04_experimental_protocol.tex",
       "size": 3095,
       "sha256": "bd59b097eb550bcb7d920eeeaa563bda9c2ebf38a2b66440f472cc3a1491a7b4"
     },
     {
-      "path": "sections/05_frozen_difficulty.tex",
+      "path": "paper/sections/05_frozen_difficulty.tex",
       "size": 5062,
       "sha256": "7572a3e1b9e10039917aa56c327e830504990db091a7ea89b85ca847edbb2f15"
     },
     {
-      "path": "sections/06_local_response.tex",
+      "path": "paper/sections/06_local_response.tex",
       "size": 2163,
       "sha256": "c77ee2d24f5ba0025d94a9e885050f685ae3adea5858d2edc0202a86cdecb6ea"
     },
     {
-      "path": "sections/07_known_teacher.tex",
+      "path": "paper/sections/07_known_teacher.tex",
       "size": 1811,
       "sha256": "aebc6b053162e2bbe1bd71f84a9dda689ed338e4a62b0d0ec27b51201e3d4c12"
     },
     {
-      "path": "sections/08_support_gate.tex",
+      "path": "paper/sections/08_support_gate.tex",
       "size": 1237,
       "sha256": "e037d7b5324a13970d92957656c5febb65a5ade688f079c6d89b5bd17da1a7a3"
     },
     {
-      "path": "sections/09_limitations_conclusion.tex",
+      "path": "paper/sections/09_limitations_conclusion.tex",
       "size": 2104,
       "sha256": "39abb04e938dab2523ba449ed38dab7cb1fa9b58a5297fdeae4a49d2811c8022"
     },
     {
-      "path": "sections/abstract.tex",
+      "path": "paper/sections/abstract.tex",
       "size": 1837,
       "sha256": "530ca2e013984d54d5b4b1b181ad079c95826b56f2016178297e964b97611cb6"
     },
     {
-      "path": "sections/appendix.tex",
+      "path": "paper/sections/appendix.tex",
       "size": 2462,
       "sha256": "21ff90b84582c7fdd337d0d8035d5d1f9b856575f4441a8cface3fc6593f2274"
     },
     {
-      "path": "setup.sh",
-      "size": 576,
-      "sha256": "93661d62a0c9c159aab0e33281b8a035f5793d871d201eb628887961ae718750"
-    },
-    {
-      "path": "tsinghua_badge_color_official.pdf",
+      "path": "paper/tsinghua_badge_color_official.pdf",
       "size": 156420,
       "sha256": "2de4a9827c52f0b20440bc3faceac0d6014a311ed9bc39e24f26cdb572684ee5"
+    },
+    {
+      "path": "setup.sh",
+      "size": 586,
+      "sha256": "9029e6bf5709ea8000c10bcf10e357f137791f0ad67ec21293f6327062a286a5"
     },
     {
       "path": "verify_evidence.py",

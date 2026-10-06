@@ -4,13 +4,15 @@
 
     ./setup.sh
     python3 verify_evidence.py
-    latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+    latexmk -cd -xelatex -interaction=nonstopmode -halt-on-error paper/main.tex
 
 ## Files
 
-- main.tex and sections/: manuscript.
-- references.bib and main.bbl: bibliography.
-- figures/: manuscript figure.
+- paper/main.tex and paper/sections/: manuscript.
+- paper/references.bib and paper/main.bbl: bibliography.
+- paper/figures/: manuscript figure.
+- paper/main.pdf and paper/rgi-followup-arxiv.zip: manuscript PDF and arXiv source package.
+- paper/: compiler declaration, submission metadata, and MetaCircle template assets.
 - evidence/: bounded aggregates, provenance, claims and verifier scope.
 - docs/reports/: Chinese report and self-contained panel.
 - docs/index.html: bilingual visual abstract and explanation.

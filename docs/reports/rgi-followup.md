@@ -4,7 +4,7 @@
 
 **本次研究完成了有限局部动力学的检验。** 同一批真实前缀和目标 token 上，共同 frozen reference 解释了大部分 arriving-loss 波动。去掉 frozen difficulty 后，负的一阶 work 与正的 softmax curvature 解释了大部分慢响应。两项会抵消，优化器会同时改变两项。实验尚未支持“不同算法共享同一个一阶系数”，也没有证明自然 Transformer 的普遍 strong RGI。
 
-论文为 *Beyond Relative Generalization Invariance: Shared Difficulty and Local Learning Response in Language Model Training*。作者是 Shaoyang Guo、Ziming Liu，Ziming Liu 为通讯作者。单位尚未提供。
+论文为 *Beyond Relative Generalization Invariance: Shared Difficulty and Local Learning Response in Language Model Training*。Shaoyang Guo 为唯一核心作者，Ziming Liu 为通讯作者。单位尚未提供。
 
 ## 把用户的直觉变成可测量的项
 
@@ -83,9 +83,9 @@ Extension、logit-work、arrival verifiers 分别通过 `23,220`、`4,159`、`34
 
 ## 论文与证据
 
-- [论文 PDF](../../main.pdf)
-- [论文 LaTeX](../../main.tex)
-- [arXiv source zip](../../rgi-followup-arxiv.zip)
+- [论文 PDF](../../paper/main.pdf)
+- [论文 LaTeX](../../paper/main.tex)
+- [arXiv source zip](../../paper/rgi-followup-arxiv.zip)
 - [机器可读 claims](../../evidence/claims.json)
 - [实验证据范围](../../evidence/experiment-summary.md)
 - [理论审查](../../evidence/theory-review.md)

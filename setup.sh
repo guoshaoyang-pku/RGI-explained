@@ -12,4 +12,4 @@ python3 -m json.tool evidence/claims.json >/dev/null
 python3 -m json.tool evidence/numerical-theory-summary.json >/dev/null
 echo "Prerequisites and JSON checks passed."
 echo "Verify: python3 verify_evidence.py"
-echo "Build: latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex"
+echo "Build: latexmk -cd -xelatex -interaction=nonstopmode -halt-on-error paper/main.tex"
