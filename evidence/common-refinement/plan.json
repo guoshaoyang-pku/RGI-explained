@@ -1,0 +1,76 @@
+{
+  "registered_utc": "2026-10-08T05:53:46Z",
+  "checkpoint": {
+    "step": 143000,
+    "revision": "de3e4e2d6cbb3b1a51f90fe153ea51fcd8c7c852",
+    "sha256": "6b81e9cca49e921014e68e3bdc1400a2c3e69e46b46bace57814ce110ee17467",
+    "source_safetensors_sha256": "737de0ce1e32a9559925b452921cdea0b12d3932133b6b0b70b61a351b9f6272",
+    "half_roundtrip_error": 0.0,
+    "model": "EleutherAI/pythia-70m",
+    "content_sha256": "455a8e2d0db4b5ec428130e269f125ace865c2323fb47fb3750f63b26859f530",
+    "remote_serialization_sha256": "bfd88d1bc9756b69c1f8f939357dca4cd151239c927a5856f4c8d4514048e62c",
+    "remote_cached_source_sha256": "9e15e51d3a5e5d6bae56adc06e6959115f745a7c30a2f8e5708e289060d660f5"
+  },
+  "tokens_sha256": "1c650ae0558a3daf598ecf9048177edb78ecdddef645601980c6d50f99f6625c",
+  "order_sha256": "d03feefd9eb65bd0fc7f7909e80d11ca326aa6f6dcc96a35cbac1b3400fd843e",
+  "provenance_sha256": "f9c6d825976de6c071031c6992bd37bd3aa7b05471de8d4c02e6b124e93d3027",
+  "producer_sha256": "5cbb3351cba3d96846e90e9bde44242963085cd099fcb12e977e49f56e5f7eae",
+  "forward_sha256": "7af67c2770ba58f93a7c66167449598a91223bf25f9fa791b78e6a19b9cf9137",
+  "contract_sha256": "d36c2876fdd713d06da50fae25e2fb31b977401f790e6f987e133e52a985e53a",
+  "updates": 512,
+  "batch_size": 8,
+  "warmup": 32,
+  "permutation_seeds": [
+    202610081,
+    202610082,
+    202610083
+  ],
+  "dtype": "float64",
+  "job_budget_seconds": 900,
+  "methods": [
+    "sgd_low",
+    "momentum_low",
+    "adam_low",
+    "sgd_high",
+    "momentum_high",
+    "head_low"
+  ],
+  "rates": {
+    "sgd_low": 3e-06,
+    "momentum_low": 3e-06,
+    "sgd_high": 3e-05,
+    "momentum_high": 3e-05,
+    "head_low": 3e-06
+  },
+  "readouts": [
+    0,
+    16,
+    32,
+    64,
+    128,
+    192,
+    256,
+    320,
+    384,
+    448,
+    512
+  ],
+  "measurement": {
+    "prefix_tokens": 33,
+    "target_tokens": 223,
+    "vocabulary": 50304,
+    "fixed_probe_documents": 32,
+    "arrival": "pre-update batch",
+    "Q2": "full vocabulary"
+  },
+  "gates": {
+    "difficulty_prediction_fraction": 0.9,
+    "response_relative_rms": 0.1,
+    "paired_relative_rms": 0.1,
+    "token_constant_gap_ratio": 0.1
+  },
+  "scope": "Late Pile checkpoint continued on reused FineWeb pool; common start and paired streams; realized response, not a forecast.",
+  "adaptive_parent_plan_sha256": "d68cbc9f539d62d184432ddeda2314a89932d1c673b894ca12aeba913a50b660",
+  "refinement_contract_sha256": "01cfe2f62a404295bbbf7123b160cd660373a8176f5d71b4aee56ca739affa5f",
+  "adaptive_reason": "Original replica0 nominal-low SGD/momentum closure failed at129%/200% response-relative RMS. Preserve those results; prospectively test all3permutations at100x/10x lower rates. No evaluation- or permutation-based selection."
+}

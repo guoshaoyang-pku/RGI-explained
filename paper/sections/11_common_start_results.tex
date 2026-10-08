@@ -1,0 +1,75 @@
+\section{The four measured curves and their validity range}
+\label{sec:common-results}
+
+Table~\ref{tab:core} is the central result.  It separates the shared batch scale from each training setting's signed linear work, positive variance cost, and measured remainder.  The terminal local-scale protocol is shown first; the earlier failed rate protocols remain in Table~\ref{tab:rate-validity} and the supplementary four-term figures.  Each range spans three paired permutations of one reused data pool, not a confidence interval or independent dataset replications.
+
+\begin{table}[t]
+\centering
+\caption{Core four-term table for common step-143,000 starts and 512 arrivals.  SGD/HB and head-only use effective rate $3\times10^{-8}$; Adam's calibrated rate is $3.02668\times10^{-9}$.  HB denotes normalized Heavy Ball.  Scaled nats are explicit in each row.  The statistics deliberately differ: batch standard deviation for $D$, signed means for $A,Q_2$, and RMS for $\varepsilon$.  Six-setting tables, including the tenfold larger rate, are retained in the supplement.}
+\label{tab:core}
+\setlength{\tabcolsep}{3.5pt}
+\small
+\input{figures/common-core-table.tex}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{common-local-arriving.pdf}
+\caption{Four terms on the common arriving-batch stream, with permutation zero fixed before results.  The shared frozen $D$ is drawn once.  Thin raw traces and prespecified 64-step block means are retained; all panels use nats with independent vertical scales.  Shading marks the 32-update warmup.  $A,Q_2,\varepsilon$ begin at zero; $D$ varies because the arriving batch changes.  Full six-setting curves are shown, including the tenfold larger rates.}
+\label{fig:four-arrival}
+\end{figure}
+
+\paragraph{Shared difficulty dominates raw loss at the local scale.}
+For the terminal protocol, every setting's frozen prediction fraction exceeds 99.9926\%.  The shared batch standard deviation of $D$ is 0.18530--0.18634 nats, while mean work and variance are orders of magnitude smaller.  This establishes dominance of frozen batch difficulty in these raw arriving losses.  It does not establish stochastic independence, a natural Bayes entropy, or a common optimizer-response coefficient.
+
+\paragraph{Response closure is conditional, even at small rates.}
+Adam passes the full-window response gate at 0.3387--0.3748\% relative RMS.  The affine head-only control passes at 0.002410--0.002470\%.  SGD and normalized HB narrowly fail at 10.51--14.96\% and 10.56--15.21\%, respectively.  Their near windows pass (SGD 1.89--7.13\%, HB 1.82--7.12\%), but far windows fail (SGD 12.14--18.44\%, HB 12.15--18.77\%).  Thus small update size is not sufficient for a uniformly small remainder across an accumulated 512-update displacement.  These failures are retained rather than treating the raw loss's near-perfect agreement as a passed mechanism test.
+
+In all terminal settings, $A$ has a negative mean and $Q_2$ a positive mean.  On the full raw response, the signed covariance shares for low SGD are 1.007--1.033 for $A$, $-0.0457$ to $-0.0347$ for $Q_2$, and 0.0131--0.0322 for $\varepsilon$.  For Adam they are 1.020--1.021, $-0.0235$ to $-0.0230$, and 0.00263--0.00279.  Linear work dominates response variation and curvature offsets some of it.  These descriptive signed shares account for cancellation and do not identify independent causal percentages.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{common-local-fixed.pdf}
+\caption{The same decomposition on a fixed 32-document held-out probe.  Frozen $D$ is a horizontal line: its arriving-stream fluctuation in Fig.~\ref{fig:four-arrival} is batch composition, not a time-varying frozen predictor.  The other terms are scored at the prespecified readouts.  No curve is aligned by a fitted time warp.}
+\label{fig:four-fixed}
+\end{figure}
+
+\paragraph{The output-head control identifies the network remainder.}
+In the terminal protocol, full-model SGD's $\RMS(R)$ is $2.419\times10^{-5}$--$3.480\times10^{-5}$ nats, versus only $1.349\times10^{-7}$--$2.588\times10^{-7}$ for $\RMS(Q-Q_2)$.  HB has the same ordering.  Head-only $R$ is below $1.91\times10^{-14}$ nats in both smaller-rate protocols, as predicted by its affine logit map.  In the intermediate protocol, head-only closure passes at 2.24--2.42\%, while full SGD/HB fail at 33.83--44.66\% and 34.50--37.96\%.  The contrast separates network nonlinearity from the softmax approximation error using a function-preserving initial intervention.
+
+\begin{table}[t]
+\centering
+\caption{Full-window response error $100\,\RMS(\varepsilon)/\RMS(L-D)$, in percent.  Ranges span all three permutations.  The registered gate is 10\%; rates label controlled interventions, not measured stability regimes.  The second and third protocols were adaptively registered after failures of the preceding smaller-rate pair.}
+\label{tab:rate-validity}
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lrrr}
+\toprule
+Setting & Original & Intermediate & Terminal\\
+\midrule
+SGD, smaller rate &129.5--150.7 &33.83--44.66 &10.51--14.96\\
+HB, smaller rate &200.3--222.7 &34.50--37.96 &10.56--15.21\\
+Adam, calibrated &178.0--178.7 &19.97--20.39 &0.3387--0.3748\\
+SGD, larger rate &862.3--1011.3 &47.68--48.97 &25.54--29.24\\
+HB, larger rate &113.8--127.9 &47.82--50.89 &26.13--30.04\\
+Head-only SGD &21.49--22.16 &2.24--2.42 &0.002410--0.002470\\
+\midrule
+Smaller effective rate & $3\!\times\!10^{-4}$ & $3\!\times\!10^{-6}$ & $3\!\times\!10^{-8}$\\
+Larger effective rate & $1.2\!\times\!10^{-3}$ & $3\!\times\!10^{-5}$ & $3\!\times\!10^{-7}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The original large-rate settings also expose the probability-curvature boundary.  High SGD has mean $Q_2=11.33$--$13.10$ nats and a softmax-remainder RMS of 15.72--19.27 nats.  Calibrated Adam has a softmax-remainder RMS of 0.3140--0.3154 nats.  In these cases $Q_2$ is not an accurate substitute for the exact nonnegative $Q$.  This does not violate Eq.~\eqref{eq:exact}; it falsifies the useful quadratic approximation in that displacement regime.
+
+\paragraph{Parameter alignment does not establish a constant token gap.}
+At the terminal smaller rate, SGD/HB endpoint displacement cosine is 0.999706--0.999809 and relative distance 2.00--2.43\%.  At the intermediate smaller rate the cosine is 0.99107--0.99500; at the original smaller rate it is 0.73536--0.75361.  This supports better finite-time alignment as the registered rate decreases, at a fixed update count.  It is an endpoint displacement comparison, not a claim that every point on the trajectory coincides.
+
+Even at the terminal smaller rate, paired arrival response closure fails at 22.18--28.30\%.  On the final probe, SGD/HB token gap has centered RMS $1.460\times10^{-4}$--$2.936\times10^{-4}$ nats and mean magnitude $1.569\times10^{-6}$--$3.141\times10^{-6}$.  The std/absolute-mean ratio is 46.49--163.48, far above 0.1.  The SGD/Adam ratio is 8.362--8.470.  Nearly aligned parameter motion and near-identical raw losses therefore coexist with a heterogeneous small paired gap.  These continuations do not establish the stronger nonzero constant-offset RGI property.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{common-local-paired.pdf}
+\caption{Paired response and measured remaining discrepancy after the exactly shared $D$ cancels.  Raw values and prespecified block means are retained.  This scale reveals sample-conditioned differences that a raw-loss plot can hide.}
+\label{fig:paired-response}
+\end{figure}

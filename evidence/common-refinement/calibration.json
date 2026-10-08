@@ -1,0 +1,53 @@
+{
+  "completed": true,
+  "method": "reset one-step Q2 scale, first16 calibration documents only",
+  "adam_rate": 2.8994061505339026e-07,
+  "target_Q2": 1.4339382374909943e-05,
+  "rows": [
+    {
+      "method": "sgd_low",
+      "rate": 3e-06,
+      "update_norm": 5.1145394253377563e-05,
+      "loss": 3.6665637420074777,
+      "difficulty": 3.667443679182031,
+      "work": -0.0008942717864158613,
+      "cost": 1.433461186270644e-05,
+      "quadratic": 1.4339382374909943e-05,
+      "identity_maxerror": 1.5704668468452532e-15
+    },
+    {
+      "method": "adam_low",
+      "rate": 1e-06,
+      "update_norm": 0.006630024813870237,
+      "loss": 3.647057061086686,
+      "difficulty": 3.667443679182031,
+      "work": -0.020555829586746843,
+      "cost": 0.00016921149140167418,
+      "quadratic": 0.00016928924260468798,
+      "identity_maxerror": 1.6063539387545234e-15
+    },
+    {
+      "method": "adam_low",
+      "rate": 2.910385660336402e-07,
+      "update_norm": 0.00192959291459625,
+      "loss": 3.6614549876328235,
+      "difficulty": 3.667443679182031,
+      "work": -0.0060031420453724865,
+      "cost": 1.4450496165235919e-05,
+      "quadratic": 1.4448189129083123e-05,
+      "identity_maxerror": 1.7003542671090166e-15
+    },
+    {
+      "method": "adam_low",
+      "rate": 2.8994061505339026e-07,
+      "update_norm": 0.0019223134723527651,
+      "loss": 3.661477517967838,
+      "difficulty": 3.667443679182031,
+      "work": -0.005980503067916202,
+      "cost": 1.4341853723289284e-05,
+      "quadratic": 1.4339560572245313e-05,
+      "identity_maxerror": 1.6187680536294824e-15
+    }
+  ],
+  "plan_sha256": "b98a3f88519c4cb18d4ed77b96c1382387c99bc20203e9a0523e2fdeff893b08"
+}

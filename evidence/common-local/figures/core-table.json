@@ -1,0 +1,584 @@
+{
+  "units": "nats",
+  "partial": false,
+  "records": [
+    {
+      "metric": "difficulty_std",
+      "method": "sgd_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.18634003412959965
+        },
+        {
+          "replica": 1,
+          "value": 0.1856574944519553
+        },
+        {
+          "replica": 2,
+          "value": 0.18529692301203898
+        }
+      ],
+      "minimum": 0.18529692301203898,
+      "maximum": 0.18634003412959965,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-08,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "difficulty_std",
+      "method": "momentum_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.18634003412959965
+        },
+        {
+          "replica": 1,
+          "value": 0.1856574944519553
+        },
+        {
+          "replica": 2,
+          "value": 0.18529692301203898
+        }
+      ],
+      "minimum": 0.18529692301203898,
+      "maximum": 0.18634003412959965,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-08,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "difficulty_std",
+      "method": "adam_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.18634003412959965
+        },
+        {
+          "replica": 1,
+          "value": 0.1856574944519553
+        },
+        {
+          "replica": 2,
+          "value": 0.18529692301203898
+        }
+      ],
+      "minimum": 0.18529692301203898,
+      "maximum": 0.18634003412959965,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3.02668013023587e-09,
+      "rate_kind": "raw"
+    },
+    {
+      "metric": "difficulty_std",
+      "method": "sgd_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.18634003412959965
+        },
+        {
+          "replica": 1,
+          "value": 0.1856574944519553
+        },
+        {
+          "replica": 2,
+          "value": 0.18529692301203898
+        }
+      ],
+      "minimum": 0.18529692301203898,
+      "maximum": 0.18634003412959965,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-07,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "difficulty_std",
+      "method": "momentum_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.18634003412959965
+        },
+        {
+          "replica": 1,
+          "value": 0.1856574944519553
+        },
+        {
+          "replica": 2,
+          "value": 0.18529692301203898
+        }
+      ],
+      "minimum": 0.18529692301203898,
+      "maximum": 0.18634003412959965,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-07,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "difficulty_std",
+      "method": "head_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.18634003412959965
+        },
+        {
+          "replica": 1,
+          "value": 0.1856574944519553
+        },
+        {
+          "replica": 2,
+          "value": 0.18529692301203898
+        }
+      ],
+      "minimum": 0.18529692301203898,
+      "maximum": 0.18634003412959965,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-08,
+      "rate_kind": "raw"
+    },
+    {
+      "metric": "parameter_work_mean",
+      "method": "sgd_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": -0.00017613493456768256
+        },
+        {
+          "replica": 1,
+          "value": -0.0001767696346306065
+        },
+        {
+          "replica": 2,
+          "value": -0.00017782745928715364
+        }
+      ],
+      "minimum": -0.00017782745928715364,
+      "maximum": -0.00017613493456768256,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-08,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "parameter_work_mean",
+      "method": "momentum_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": -0.00017481103928648835
+        },
+        {
+          "replica": 1,
+          "value": -0.00017562258522847826
+        },
+        {
+          "replica": 2,
+          "value": -0.0001759316098198954
+        }
+      ],
+      "minimum": -0.0001759316098198954,
+      "maximum": -0.00017481103928648835,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-08,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "parameter_work_mean",
+      "method": "adam_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": -0.0006563166617177661
+        },
+        {
+          "replica": 1,
+          "value": -0.000659593690155489
+        },
+        {
+          "replica": 2,
+          "value": -0.0006569229495281997
+        }
+      ],
+      "minimum": -0.000659593690155489,
+      "maximum": -0.0006563166617177661,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3.02668013023587e-09,
+      "rate_kind": "raw"
+    },
+    {
+      "metric": "parameter_work_mean",
+      "method": "sgd_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": -0.0014469251256848982
+        },
+        {
+          "replica": 1,
+          "value": -0.0014446141469343866
+        },
+        {
+          "replica": 2,
+          "value": -0.0014754058770462583
+        }
+      ],
+      "minimum": -0.0014754058770462583,
+      "maximum": -0.0014446141469343866,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-07,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "parameter_work_mean",
+      "method": "momentum_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": -0.0014461133093636707
+        },
+        {
+          "replica": 1,
+          "value": -0.0014394112090127884
+        },
+        {
+          "replica": 2,
+          "value": -0.0014730194317648443
+        }
+      ],
+      "minimum": -0.0014730194317648443,
+      "maximum": -0.0014394112090127884,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-07,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "parameter_work_mean",
+      "method": "head_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": -9.393229379231871e-05
+        },
+        {
+          "replica": 1,
+          "value": -9.457801390128388e-05
+        },
+        {
+          "replica": 2,
+          "value": -9.474831305695646e-05
+        }
+      ],
+      "minimum": -9.474831305695646e-05,
+      "maximum": -9.393229379231871e-05,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-08,
+      "rate_kind": "raw"
+    },
+    {
+      "metric": "quadratic_mean",
+      "method": "sgd_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 1.0800783744544803e-05
+        },
+        {
+          "replica": 1,
+          "value": 1.1196778290854777e-05
+        },
+        {
+          "replica": 2,
+          "value": 1.2628777624157398e-05
+        }
+      ],
+      "minimum": 1.0800783744544803e-05,
+      "maximum": 1.2628777624157398e-05,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-08,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "quadratic_mean",
+      "method": "momentum_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 1.0746059540682125e-05
+        },
+        {
+          "replica": 1,
+          "value": 1.1252533277112695e-05
+        },
+        {
+          "replica": 2,
+          "value": 1.2551732918435553e-05
+        }
+      ],
+      "minimum": 1.0746059540682125e-05,
+      "maximum": 1.2551732918435553e-05,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-08,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "quadratic_mean",
+      "method": "adam_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 1.1175459802489927e-05
+        },
+        {
+          "replica": 1,
+          "value": 1.1244810992014461e-05
+        },
+        {
+          "replica": 2,
+          "value": 1.1332725490671938e-05
+        }
+      ],
+      "minimum": 1.1175459802489927e-05,
+      "maximum": 1.1332725490671938e-05,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3.02668013023587e-09,
+      "rate_kind": "raw"
+    },
+    {
+      "metric": "quadratic_mean",
+      "method": "sgd_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.0003817961126940704
+        },
+        {
+          "replica": 1,
+          "value": 0.0003417780215827906
+        },
+        {
+          "replica": 2,
+          "value": 0.000397576835233571
+        }
+      ],
+      "minimum": 0.0003417780215827906,
+      "maximum": 0.000397576835233571,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-07,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "quadratic_mean",
+      "method": "momentum_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.0003838479004075558
+        },
+        {
+          "replica": 1,
+          "value": 0.00034408427532562925
+        },
+        {
+          "replica": 2,
+          "value": 0.0004068226006282554
+        }
+      ],
+      "minimum": 0.00034408427532562925,
+      "maximum": 0.0004068226006282554,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-07,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "quadratic_mean",
+      "method": "head_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 1.434981768573475e-06
+        },
+        {
+          "replica": 1,
+          "value": 1.45459818686649e-06
+        },
+        {
+          "replica": 2,
+          "value": 1.4481843277078226e-06
+        }
+      ],
+      "minimum": 1.434981768573475e-06,
+      "maximum": 1.45459818686649e-06,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-08,
+      "rate_kind": "raw"
+    },
+    {
+      "metric": "epsilon_rms",
+      "method": "sgd_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 2.4217237833558114e-05
+        },
+        {
+          "replica": 1,
+          "value": 2.651143387644707e-05
+        },
+        {
+          "replica": 2,
+          "value": 3.487955841834705e-05
+        }
+      ],
+      "minimum": 2.4217237833558114e-05,
+      "maximum": 3.487955841834705e-05,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-08,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "epsilon_rms",
+      "method": "momentum_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 2.4265491012653302e-05
+        },
+        {
+          "replica": 1,
+          "value": 2.697695855894786e-05
+        },
+        {
+          "replica": 2,
+          "value": 3.530317630984109e-05
+        }
+      ],
+      "minimum": 2.4265491012653302e-05,
+      "maximum": 3.530317630984109e-05,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-08,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "epsilon_rms",
+      "method": "adam_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 2.646885042247641e-06
+        },
+        {
+          "replica": 1,
+          "value": 2.6141436818370562e-06
+        },
+        {
+          "replica": 2,
+          "value": 2.872019688058037e-06
+        }
+      ],
+      "minimum": 2.6141436818370562e-06,
+      "maximum": 2.872019688058037e-06,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3.02668013023587e-09,
+      "rate_kind": "raw"
+    },
+    {
+      "metric": "epsilon_rms",
+      "method": "sgd_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.0004386386667209388
+        },
+        {
+          "replica": 1,
+          "value": 0.00039843354835847284
+        },
+        {
+          "replica": 2,
+          "value": 0.00046482129641621295
+        }
+      ],
+      "minimum": 0.00039843354835847284,
+      "maximum": 0.00046482129641621295,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-07,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "epsilon_rms",
+      "method": "momentum_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.00043611579221747684
+        },
+        {
+          "replica": 1,
+          "value": 0.0004071338223812978
+        },
+        {
+          "replica": 2,
+          "value": 0.0004780216816523954
+        }
+      ],
+      "minimum": 0.0004071338223812978,
+      "maximum": 0.0004780216816523954,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-07,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "epsilon_rms",
+      "method": "head_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 2.7624581258160805e-09
+        },
+        {
+          "replica": 1,
+          "value": 2.7774929631322956e-09
+        },
+        {
+          "replica": 2,
+          "value": 2.8631692681441926e-09
+        }
+      ],
+      "minimum": 2.7624581258160805e-09,
+      "maximum": 2.8631692681441926e-09,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-08,
+      "rate_kind": "raw"
+    }
+  ],
+  "protocol": "Terminal local-scale protocol (adaptive)",
+  "scope": "Full 512-update arriving-batch means; ranges across paired permutations of one reused pool."
+}

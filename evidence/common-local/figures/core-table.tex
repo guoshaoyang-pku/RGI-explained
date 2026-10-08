@@ -1,0 +1,15 @@
+% Generated from independently verified batch records; every value is in nats.
+\begin{tabular}{lrrrrrr}
+\hline
+Term and statistic & SGD$_{\rm low}$ & HB$_{\rm low}$ & Adam & SGD$_{\rm high}$ & HB$_{\rm high}$ & Head only \\
+\hline
+Batch difficulty $D$: std. & 0.1853--0.18634 & 0.1853--0.18634 & 0.1853--0.18634 & 0.1853--0.18634 & 0.1853--0.18634 & 0.1853--0.18634 \\
+Linear response $A$: mean & -0.00017783---0.00017613 & -0.00017593---0.00017481 & -0.00065959---0.00065632 & -0.0014754---0.0014446 & -0.001473---0.0014394 & -9.4748e-05---9.3932e-05 \\
+Logit variance $Q_2$: mean & 1.0801e-05--1.2629e-05 & 1.0746e-05--1.2552e-05 & 1.1175e-05--1.1333e-05 & 0.00034178--0.00039758 & 0.00034408--0.00040682 & 1.435e-06--1.4546e-06 \\
+Remaining response $\varepsilon$: RMS & 2.4217e-05--3.488e-05 & 2.4265e-05--3.5303e-05 & 2.6141e-06--2.872e-06 & 0.00039843--0.00046482 & 0.00040713--0.00047802 & 2.7625e-09--2.8632e-09 \\
+\hline
+\end{tabular}
+% Ranges span the three paired permutations of one reused data pool; they are not confidence intervals.
+% Terminal local-scale protocol (adaptive). Method low/high names are relative rates, not established stability regimes.
+% Rates: SGD (smaller rate): effective h=3e-08, Heavy Ball (smaller rate): effective h=3e-08, Adam (calibrated): raw η=3.03e-09, SGD (larger rate): effective h=3e-07, Heavy Ball (larger rate): effective h=3e-07, Head only: raw η=3e-08
+

@@ -103,5 +103,6 @@
     "three permutations share one pool",
     "full gradients and complete trajectories were not independently rerun"
   ],
-  "scope": "Inherited manuscript numerical audit; current public build and file checks are recorded in RELEASE_MANIFEST.json."
+  "scope": "Historical 2026-10-06 audit; current paper build uses paper/source-manifest.json and common-start stats/verification.",
+  "historical": true
 }

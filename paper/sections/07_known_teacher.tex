@@ -1,5 +1,8 @@
 \section{Known-teacher continuation}
 
+\paragraph{Historical protocol.}
+This supporting experiment predates the common step-143,000 study.  The teacher is official Pythia-70M step 32,000, and each student starts at official step 16,000.  From 33 natural seed tokens, the teacher samples 63 tokens at temperature one over the full 50,304-token vocabulary.  The document split is 1,024/64/128 for training/calibration/evaluation.  Hard sampled targets and full soft teacher distributions are compared over three paired permutations, 128 updates, and batch size eight.  Optimizer states are reset; SGD uses rate $10^{-3}$ and Adam uses $10^{-6}$ with $\beta=(0.9,0.95)$ and $\epsilon=10^{-8}$.  These settings and starts are distinct from the new late-checkpoint main experiment.
+
 The natural experiment has no observed conditional distribution, so its reference decomposition cannot decide whether the target residual is label noise or a systematic model mismatch.  The known-teacher experiment removes that ambiguity.  For the fixed teacher \(q\), the population objective is exactly \(H(q)+\KL(q\Vert p)\), while hard targets additionally expose the sampled terms \(S\) and \(C\) in Eq.~\eqref{eq:teacher}.
 
 The teacher entropy averages 4.1798397 nats, the sampled teacher surprisal averages 4.1723279 nats, and the initial teacher KL of the student probe is 0.2593348 nats.  After 128 updates, teacher KL ranges are 0.229442--0.229879 for hard SGD, 0.241563--0.241657 for hard Adam, 0.228137--0.228251 for soft SGD, and 0.229840--0.229902 for soft Adam.  The population \(A+Q_2\) closure error is at most 2.795\% across the tested horizons, objectives, and permutations.

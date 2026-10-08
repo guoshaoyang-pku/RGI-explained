@@ -11,3 +11,14 @@ with a residual small relative to \(|c|\).  The latter is the constant-offset me
 Our experiment is designed to locate terms before testing Eq.~\eqref{eq:strong-rgi}.  On a natural target, an arbitrary checkpoint reference \(q\) is not the unknown conditional data distribution.  Therefore a reference KL is a measurable comparison to \(q\), not a natural Bayes excess risk.  For a fixed teacher distribution we can remove this ambiguity, but that changes the task to a known-teacher continuation.  We report the two settings separately.
 
 The prior quadratic construction is a sufficient example in a different model class.  It does not by itself identify the representation term or optimizer response of a Transformer.  Our evidence likewise does not claim that natural LLMs satisfy the sufficient conditions of that construction.  Instead, it tests whether the more concrete finite-displacement terms below account for the observed slow response and then checks whether the remaining paired gap is actually constant.
+
+\paragraph{Relation to normalized gradient flow.}
+Lee and Lee~\citep{lee2026journeyedgestability} report nearly coincident low-learning-rate loss and sharpness traces for fixed linear gradient filters on CIFAR-10, after normalizing the effective step \(h=\eta\mathcal{Q}(1)\) and progress \(\tau=th\) by the filter's dc gain.  Their local modified-flow expansion, for a smooth objective and stable filter with slowly varying gradients through its memory, is
+\begin{equation}
+  \frac{d\theta}{d\tau}=-g-h\alpha_{\mathcal{Q}}Hg+O(h^2),
+  \qquad \alpha_{\mathcal{Q}}=\frac12-\frac{\mathcal{Q}'(1)}{\mathcal{Q}(1)}.
+  \label{eq:filterflow}
+\end{equation}
+The leading flow is shared while the filter shape changes the next correction.  Their consecutive-gradient cosine compares adjacent iterations inside a run, not parameters across optimizers.  Preconditioning is outside that study's scope; Adam is consequently an additional empirical intervention here, rather than an instance of its scalar dc normalization.
+
+Shared leading flow does not imply a nonzero constant token-wise loss offset.  Even nearby points on one flow have a first-order loss difference proportional to \(g_i^\top g_{\mathrm{train}}\), which depends on the scored token \(i\).  The proposed connection is therefore precise: low-step alignment may constrain the response differences in Eq.~\eqref{eq:paired}, while their centered sample structure still requires direct measurement.  Our rate labels describe a controlled rate contrast; without measured stability geometry they do not identify an edge-of-stability regime.

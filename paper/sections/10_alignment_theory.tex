@@ -1,0 +1,29 @@
+\section{Same-stream momentum alignment and its limits}
+\label{sec:alignment-theory}
+
+The common-checkpoint design admits an exact comparison that does not require slowly varying stochastic batch gradients.  Let \(s_{t+1}=s_t-h_tg_t(s_t)\) be SGD and \(m_{t+1}=m_t-h_tv_t\) normalized Heavy Ball on the same prescribed sequence of batch objectives, with
+\(v_t=\beta v_{t-1}+(1-\beta)g_t(m_t)\), \(v_{-1}=0\), and \(s_0=m_0\).
+Writing \(e_t=m_t-s_t\) and \(k=\beta/(1-\beta)\), summation by parts gives the exact finite-time identity
+\begin{align}
+ e_T={}&-\sum_{t<T}h_t\{g_t(m_t)-g_t(s_t)\} \nonumber\\
+ &+k\left[h_{T-1}v_{T-1}-\sum_{t<T-1}(h_{t+1}-h_t)v_t\right].
+ \label{eq:memory-defect}
+\end{align}
+The first term is gradient feedback from the divergent parameters; the second is an explicit memory and warmup contribution.  In particular, reset momentum has a genuine startup transient even at matched dc gain.  We preserve it in the measured curves.
+
+If every batch gradient is \(\Lambda\)-Lipschitz on a common region containing both paths and \(\|g_t(m_t)\|\le G\), a nondecreasing warmup to \(h_{\max}\) gives
+\begin{equation}
+ \|e_T\|\le 2\frac{\beta}{1-\beta}h_{\max}G
+   \exp\!\left(\Lambda\sum_{t<T}h_t\right).
+ \label{eq:momentum-bound}
+\end{equation}
+Indeed \(\|v_t\|\le G\), the bracket in Eq.~\eqref{eq:memory-defect} has norm at most \(2h_{\max}G\), and discrete Gronwall yields the result.  With a constant rate the leading two can be replaced by one.  This establishes an alignment limit as \(h_{\max}\to0\) at fixed integrated progress under uniform regularity.  The bound can be loose, and our measurements do not estimate \(\Lambda\) or \(G\); a same-update-count rate contrast is not a numerical proof of the fixed-progress asymptotic statement.
+
+On a fixed probe, \(|\Delta A|\le\|g_B(\theta_0)\|\|e_T\|\).
+For the frozen categorical covariance seminorm \(\|\cdot\|_{C_B}\),
+\begin{equation}
+ |\Delta Q_2|\le\tfrac12\|\Delta z_a-\Delta z_b\|_{C_B}
+    (\|\Delta z_a\|_{C_B}+\|\Delta z_b\|_{C_B}).
+ \label{eq:variance-bound}
+\end{equation}
+Actual function alignment consequently constrains the first two response differences; \(\Delta\varepsilon\) and centered token gaps must still be checked.  These equations do not cover Adam or imply a sample-independent nonzero offset.

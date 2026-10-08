@@ -1,0 +1,15 @@
+{
+  "completed": true,
+  "method": "adam_low",
+  "replica": 1,
+  "updates": 512,
+  "seconds": 105.70057098008692,
+  "identity_maxerror": 4.237669243289943e-14,
+  "token_A_gradient_dot_maxerror": 2.220446049250313e-15,
+  "displacement_norm": 0.29181530599089167,
+  "torch": "2.9.1+cu128",
+  "max_memory_bytes": 5495283712,
+  "plan_sha256": "b98a3f88519c4cb18d4ed77b96c1382387c99bc20203e9a0523e2fdeff893b08",
+  "producer_sha256": "5cbb3351cba3d96846e90e9bde44242963085cd099fcb12e977e49f56e5f7eae",
+  "scope": "Common checkpoint, shared arrival stream, observed finite response"
+}

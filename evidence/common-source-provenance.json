@@ -1,0 +1,117 @@
+{
+  "records": [
+    {
+      "protocol": "initial",
+      "artifact": "plan.json",
+      "original_sha256": "d68cbc9f539d62d184432ddeda2314a89932d1c673b894ca12aeba913a50b660",
+      "public_sha256": "d68cbc9f539d62d184432ddeda2314a89932d1c673b894ca12aeba913a50b660",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    },
+    {
+      "protocol": "initial",
+      "artifact": "calibration.json",
+      "original_sha256": "ea7ca06f0ddb387e4e092e9ca6b7a5d302bd30df7bf53b60e3a5c6f39b5280b1",
+      "public_sha256": "5bcd37edf5ce3a6e6f5835d29185ed2bbca75ad10dcf7bfcb40e1a7995b7973f",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    },
+    {
+      "protocol": "initial",
+      "artifact": "stats.json",
+      "original_sha256": "8165d64e0e459d746d253ac9fb46206a5b2b4398be8b072c06aed4ae334ed963",
+      "public_sha256": "8165d64e0e459d746d253ac9fb46206a5b2b4398be8b072c06aed4ae334ed963",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    },
+    {
+      "protocol": "initial",
+      "artifact": "verification.json",
+      "original_sha256": "8dbeaeca884103b50d4c261d8d72a4273c3f15bb0a05cef7498b121135469575",
+      "public_sha256": "8dbeaeca884103b50d4c261d8d72a4273c3f15bb0a05cef7498b121135469575",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    },
+    {
+      "protocol": "initial",
+      "artifact": "parameter-alignment.json",
+      "original_sha256": "cc47f30088c3495c1f8ba8749075fec3a4ea8227aa707a7f4d39965bb040aec0",
+      "public_sha256": "cc47f30088c3495c1f8ba8749075fec3a4ea8227aa707a7f4d39965bb040aec0",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    },
+    {
+      "protocol": "refinement",
+      "artifact": "plan.json",
+      "original_sha256": "b98a3f88519c4cb18d4ed77b96c1382387c99bc20203e9a0523e2fdeff893b08",
+      "public_sha256": "d81497380892da704c69ba9d789b63ee14833de4f2179d5f197a8eea31c5e841",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    },
+    {
+      "protocol": "refinement",
+      "artifact": "calibration.json",
+      "original_sha256": "d6d5bd91be8d3ac7e5a0618386407dcb23cd65c01e4766fb4e8e02cefbf3776f",
+      "public_sha256": "dd5f72145a50d5f5721083e0ba88a8bfcf33ff80f781f4fe6addf085d217f820",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    },
+    {
+      "protocol": "refinement",
+      "artifact": "stats.json",
+      "original_sha256": "1c5dd4542706758c5c0681219a59fe1aae9c2a5a3e4d9434e94212ed52898cae",
+      "public_sha256": "1c5dd4542706758c5c0681219a59fe1aae9c2a5a3e4d9434e94212ed52898cae",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    },
+    {
+      "protocol": "refinement",
+      "artifact": "verification.json",
+      "original_sha256": "cc58a7161e6ec456fc838e54c0b338eafdecfeb9ddf2097728ffa3f182f6680b",
+      "public_sha256": "cc58a7161e6ec456fc838e54c0b338eafdecfeb9ddf2097728ffa3f182f6680b",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    },
+    {
+      "protocol": "refinement",
+      "artifact": "parameter-alignment.json",
+      "original_sha256": "86864b501a9b940ca1d52a3219461dec98a2d4f75c5e8260008e1dbf35ec21b3",
+      "public_sha256": "86864b501a9b940ca1d52a3219461dec98a2d4f75c5e8260008e1dbf35ec21b3",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    },
+    {
+      "protocol": "local",
+      "artifact": "plan.json",
+      "original_sha256": "8ecf5d224e5ef1b45d5f408e41ad20d0b483390e46730bbd7976269ddaf10900",
+      "public_sha256": "fa514a6824641fb059ca8ca83823581d5e8e39b7b38e66ee8cc0f9a37c36dd15",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    },
+    {
+      "protocol": "local",
+      "artifact": "calibration.json",
+      "original_sha256": "e1d7f75abec80cae8b2b86f88e3829056dd8ffc202b72c4d44a6ca478f755856",
+      "public_sha256": "3ef1ab83e0f05e45a7b232789e7666d70a13e72f489b4e779a658e24dbc2b32b",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    },
+    {
+      "protocol": "local",
+      "artifact": "stats.json",
+      "original_sha256": "67f817c1eb6d8ceb19095f86f07676df06f1b83c0ba8e7d0b02dbc76079bcd60",
+      "public_sha256": "67f817c1eb6d8ceb19095f86f07676df06f1b83c0ba8e7d0b02dbc76079bcd60",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    },
+    {
+      "protocol": "local",
+      "artifact": "verification.json",
+      "original_sha256": "aa137a991c854073d056355de797d2316c59d257f76fca8174f6af8393c787bf",
+      "public_sha256": "aa137a991c854073d056355de797d2316c59d257f76fca8174f6af8393c787bf",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    },
+    {
+      "protocol": "local",
+      "artifact": "parameter-alignment.json",
+      "original_sha256": "38067e3a3c7e76d74b391c6ec1bf3444c1e95e8c89df3f1a543414fc274a4fb8",
+      "public_sha256": "38067e3a3c7e76d74b391c6ec1bf3444c1e95e8c89df3f1a543414fc274a4fb8",
+      "transformation": "Hardware/path fields removed; scientific values retained."
+    }
+  ],
+  "completed_runs": 54,
+  "preserved_failed_protocols": true,
+  "omitted": [
+    "raw training text/token spans",
+    "checkpoints",
+    "full logit fixtures"
+  ],
+  "scope": "Compact recorded evidence plus independent source checks; not complete training reproduction."
+}

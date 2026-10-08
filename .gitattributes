@@ -1,0 +1,5 @@
+# Matplotlib emits whitespace inside multiline SVG path attributes.
+docs/assets/common-*.svg whitespace=-blank-at-eol
+evidence/common-*/figures/*.svg whitespace=-blank-at-eol
+evidence/common-*/figures/*.csv whitespace=cr-at-eol
+evidence/common-*/figures/core-table.tex whitespace=-blank-at-eof

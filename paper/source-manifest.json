@@ -1,0 +1,119 @@
+{
+  "pages": 13,
+  "figures": 5,
+  "abstract_characters": 1479,
+  "files": [
+    {
+      "path": "00README.json",
+      "sha256": "1681ab476205e87386c556a6936102d6e4e8fe528cb758d926a628f7fde85679"
+    },
+    {
+      "path": "figures/common-core-table.tex",
+      "sha256": "d6f578484e9b7a5c3c7d2df5a0f8e88846e0815c657e5d0e5e66e7759061fd2b"
+    },
+    {
+      "path": "figures/common-intermediate-arriving.pdf",
+      "sha256": "98d32c613e7183071823f6efabcb76967e8c0ba591c490041cdd0b86ece2bc63"
+    },
+    {
+      "path": "figures/common-intermediate-full-table.tex",
+      "sha256": "565329ae4366358c5bbe8e092b0b4d54e0b22a750c490e6774f7ef2f5926a951"
+    },
+    {
+      "path": "figures/common-local-arriving.pdf",
+      "sha256": "313aee321428f43e6d431c9405a01969b4698319ad1ae2b3292573b68aedf409"
+    },
+    {
+      "path": "figures/common-local-fixed.pdf",
+      "sha256": "4b9f8e6285cb70ca3b6d93bcae4ba5be5e2ef054197c3f0c1bfcca34943d4ac9"
+    },
+    {
+      "path": "figures/common-local-full-table.tex",
+      "sha256": "0a050a047a83c8eb8282f3166ae2917484f363857bcb1cfd5810a2a75c9484a2"
+    },
+    {
+      "path": "figures/common-local-paired.pdf",
+      "sha256": "2e6e361d7fb3201fb26e5af3fa163c09952faff719664f0e343ac0648927cc74"
+    },
+    {
+      "path": "figures/common-original-arriving.pdf",
+      "sha256": "25c809cbc63fa93a30108703cd3a01f1de4c08cba80a2c50e8dd9ea9434ec29b"
+    },
+    {
+      "path": "figures/common-original-full-table.tex",
+      "sha256": "ea2e35c6d20721423adfb41c7e632b8adac95998fb65a7b71b03896bea613b69"
+    },
+    {
+      "path": "main.bbl",
+      "sha256": "951cc64d4e7e8596d283a14996104588865dfcbbb2e5bff412cfac882fd2d7b2"
+    },
+    {
+      "path": "main.tex",
+      "sha256": "5c8cf2e8fb80299894b202a706952f87ae650cc8230aa0fe6b3ae79602cf1c82"
+    },
+    {
+      "path": "metacircle.sty",
+      "sha256": "41233ecfc22722e121706c1d300a4521c48e729b675f729833aca6b1aa2baa77"
+    },
+    {
+      "path": "metacircle_wordmark.pdf",
+      "sha256": "13e0870d7afdb6cb4f50ce4a0caf2d0a2c45ac957f5c5b22810d5e9d4780941c"
+    },
+    {
+      "path": "metacircle_zh_gloss.pdf",
+      "sha256": "da6ababfe52f16d1ffe078c94338132c4921e5e7f1014a5dcade5a1ec6a909a2"
+    },
+    {
+      "path": "sections/01_introduction.tex",
+      "sha256": "abf37104e40dd0c92ecd43d081e1d678fda37c4641341fcdb5f45271a1e0321a"
+    },
+    {
+      "path": "sections/02_relation_scope.tex",
+      "sha256": "abcb4ba167b221fa19980b2b78342e601b1704b18ac8c29a7bc4f354cc9848bb"
+    },
+    {
+      "path": "sections/03_decomposition.tex",
+      "sha256": "ca4e7b10e5b7bceb25ca30d042446a45792561e1a5c92cd1c25df9b6884b9930"
+    },
+    {
+      "path": "sections/04_experimental_protocol.tex",
+      "sha256": "ea81f4840bf685dde3c0f031c877428589c26dc691309d2ed440f7167510a27e"
+    },
+    {
+      "path": "sections/07_known_teacher.tex",
+      "sha256": "bd77fce66f3f6f93c289483c7da8145100ff9abea6a6804238fa698acea31f8d"
+    },
+    {
+      "path": "sections/08_support_gate.tex",
+      "sha256": "c4e060e8e4b18f2a28fafa4d557b45717f890ab0e29a4da6273d3bc6087f3e8b"
+    },
+    {
+      "path": "sections/09_limitations_conclusion.tex",
+      "sha256": "91e08552bcefc24f7ef1e91c0ff0217cc924bc322e0fa6710b13efbf8eef8398"
+    },
+    {
+      "path": "sections/10_alignment_theory.tex",
+      "sha256": "bb34fed63f5fec73e94a5637d6c82ccf29912eb69c8e5ad245b821871b574134"
+    },
+    {
+      "path": "sections/11_common_start_results.tex",
+      "sha256": "03fc17de708be23940a76c7f155041b24116ef80d2975294b7ce25c354d524e5"
+    },
+    {
+      "path": "sections/abstract.tex",
+      "sha256": "07a5826be2bb6d40e239d166c067d2ba4c39a61789782c0e662a46577664d57b"
+    },
+    {
+      "path": "sections/appendix.tex",
+      "sha256": "1198975f6ce2834549d2c209092f694a66e80e41f1ced75ee2f2000b9892a52f"
+    },
+    {
+      "path": "tsinghua_badge_color_official.pdf",
+      "sha256": "2de4a9827c52f0b20440bc3faceac0d6014a311ed9bc39e24f26cdb572684ee5"
+    }
+  ],
+  "archive_sha256": "f99042700e10e1c5bd0fa4d4c02a0c630cf3052f01a387f59d468fb17c8ea03c",
+  "scope": "Source-only XeLaTeX package; no raw fonts, build logs, private weights, training text, or PDF output in zip.",
+  "standalone_returncode": 0,
+  "standalone_pages": 13
+}

@@ -31,6 +31,37 @@ The second-order logit approximation to the convex log-partition term is
 \end{equation}
 Our primary local closure is therefore \(L_t-D\approx A+Q_2\).  Both \(A\) and \(Q_2\) use the displacement that actually occurred: \(A\) uses \(\theta_t-\theta_0\), and \(Q_2\) uses \(\Delta z\).  The test explains a realized finite response; it does not predict a future response from a frozen gradient alone.
 
+We retain the measured remainder as the fourth primary term:
+\begin{equation}
+  \boxed{L_t(B)=D(B)+A_t(B)+Q_{2,t}(B)+\varepsilon_t(B)},
+  \qquad \varepsilon_t=R_t+(Q_t-Q_{2,t}).
+  \label{eq:four}
+\end{equation}
+Adding the observed remainder gives an identity; the substantive approximation is that the remainder is small on the response scale \(L-D\).  Its magnitude and its two components are tested rather than assumed.
+
+\paragraph{Two sources of local curvature.}
+Let \(J_0=D_\theta z(\theta_0)\), \(r=p_0-e_y\), and \(C_0=\operatorname{diag}(p_0)-p_0p_0^\top\).  The exact checkpoint Hessian is
+\begin{equation}
+  H_\ell=J_0^\top C_0J_0+\sum_v r_v H_{z_v}.
+  \label{eq:hessian}
+\end{equation}
+For a small parameter displacement \(\delta\), the leading variance term is
+\(Q_2=\tfrac12\delta^\top J_0^\top C_0J_0\delta+O(\|\delta\|^3)\),
+while \(R=\tfrac12\delta^\top(\sum_v r_vH_{z_v})\delta+O(\|\delta\|^3)\).
+The full loss curvature therefore contains both probability curvature and network curvature.  In particular, \(\varepsilon\) is generally second order in parameter motion, even though \(Q-Q_2\) is third order in the local logit displacement under smoothness and bounded derivatives.  We do not equate \(Q_2\) with the full parameter-Hessian sharpness.
+
+An output-head-only continuation gives an exact control.  Frozen hidden states make logits affine in the changed output matrix, so \(W=A\), \(R=0\), and \(\varepsilon=Q-Q_2\) up to numerical precision.  This separates network nonlinearity from the log-partition approximation without changing the initial predictive function.
+
+\paragraph{A paired criterion for strong RGI.}
+Let \(P\) subtract the mean over a fixed set of prefix--target pairs.  Two branches from the same checkpoint satisfy
+\begin{equation}
+  \Delta\ell=\Delta A+\Delta Q_2+\Delta\varepsilon,
+  \qquad
+  P\Delta\ell=P(\Delta A+\Delta Q_2+\Delta\varepsilon).
+  \label{eq:paired}
+\end{equation}
+The shared \(D\) cancels.  Thus a small raw-loss discrepancy can be dominated by frozen difficulty while a nonzero constant offset still fails: that stronger property requires the centered response in Eq.~\eqref{eq:paired} to be small relative to its mean.  This is a measurable criterion, rather than a consequence of the coefficient one in Eq.~\eqref{eq:four}.
+
 For a fixed teacher distribution \(q(\cdot\mid x)\), the same algebra replaces \(e_y\) by \(q\).  With \(p_t=\operatorname{softmax}(z_q+v)\), the teacher-forced hard-target loss decomposes as
 \begin{equation}
   \ell=S+C+E,\qquad S=-\log q_y,\quad C=(q-e_y)^\top v,\quad E=\KL(q\Vert p_t).

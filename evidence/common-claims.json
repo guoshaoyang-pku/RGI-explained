@@ -1,0 +1,31 @@
+{
+  "completed": true,
+  "checkpoint": 143000,
+  "runs": 54,
+  "checks": 6834,
+  "claims": [
+    {
+      "claim": "D is exactly shared within every protocol and permutation.",
+      "evidence": "Paired trace, document, fixed-probe and token difficulty."
+    },
+    {
+      "claim": "A+Q2 closure depends on rate, method and horizon; terminal full-window SGD/HB fail the 10% gate.",
+      "evidence": "common-local/stats.json"
+    },
+    {
+      "claim": "The affine head-only control removes network R to numerical precision.",
+      "evidence": "All protocols; full-window and fixed-probe measurements."
+    },
+    {
+      "claim": "Smaller-rate SGD/HB endpoint displacements align more closely; 0/45 terminal paired token gaps pass the nonzero constant-gap test.",
+      "evidence": "parameter-alignment.json and common-local/stats.json"
+    }
+  ],
+  "limitations": [
+    "Adaptive rate protocols; all retained.",
+    "One reused FineWeb pool, three paired permutations.",
+    "Late Pile checkpoint continued on FineWeb; not original from-scratch RGI reproduction.",
+    "Actual displacements measured retrospectively.",
+    "No independent full gradient/training replay."
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schema": "rgi-followup-claims-v1",
-  "paper_scope": "Finite local Pythia-70M continuation; teacher-forced losses; observed-displacement response diagnostics.",
+  "paper_scope": "Historical distinct-start continuation and known-teacher diagnostics, retained as supporting evidence; main current claims are common-claims.json.",
   "claim_policy": "Numbers are bounded to the cited analysis artifacts. Identities are algebraic checks, not future-update forecasts.",
   "claims": [
     {
@@ -198,5 +198,7 @@
       ]
     }
   ],
-  "provenance_boundary": "Aggregate analyzer outputs and chart values are included. Raw checkpoints, full logits, producer traces, and omitted notes are not included."
+  "provenance_boundary": "Aggregate analyzer outputs and chart values are included. Raw checkpoints, full logits, producer traces, and omitted notes are not included.",
+  "historical": true,
+  "main_current_claims": "common-claims.json"
 }

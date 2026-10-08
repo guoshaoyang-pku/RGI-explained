@@ -4,64 +4,79 @@
 
 Shaoyang Guo is the sole core author. Ziming Liu is the corresponding author.
 
-This release contains the MetaCircle manuscript, Chinese report, interactive panel and bounded aggregate evidence. It studies a finite teacher-forced Pythia-70M continuation with SGD and Adam.
+From one late Pythia-70M checkpoint, six training settings restart on identical data with a new warmup. Shared frozen difficulty dominates raw loss variation. The measured response and its approximation error depend on the training setting and displacement scale. Low-rate SGD/momentum alignment does not produce a constant nonzero token-loss gap in these continuations.
 
-[English webpage](https://guoshaoyang-pku.github.io/RGI-explained/?lang=en) · [中文网页](https://guoshaoyang-pku.github.io/RGI-explained/?lang=zh) · [Paper PDF](paper/main.pdf)
+[English webpage](https://guoshaoyang-pku.github.io/RGI-explained/?lang=en) · [中文网页](https://guoshaoyang-pku.github.io/RGI-explained/?lang=zh) · [Paper PDF](paper/main.pdf) · [arXiv source zip](paper/rgi-followup-arxiv.zip)
 
 ## Visual abstract
 
 $$L_t(B)=D(B)+A_t(B)+Q_{2,t}(B)+\varepsilon_t(B).$$
 
-Same true prefixes and targets; frozen continuation start θ₀. All values are in nats. The table uses the full 512-batch window; ranges span three permutations of one shared data pool and are not confidence intervals.
+| Term | Measured quantity |
+|---|---|
+| **D · Shared frozen difficulty** | Frozen-checkpoint cross-entropy on the same true prefixes and targets. |
+| **A · Linear parameter response** | Frozen batch gradient dotted with the actual parameter displacement. |
+| **Q₂ · Logit variance cost** | Half the full-vocabulary variance of the observed logit displacement under frozen probabilities. |
+| **ε · Measured remainder** | L − D − A − Q₂, split into network nonlinearity R and softmax error Q − Q₂. |
 
-| Term | Measurement | SGD | Adam |
-|---|---|---|---|
-| **D · Frozen difficulty** | D(B) = L<sub>θ₀</sub>(B): frozen-model cross-entropy on the same batch. | **0.1843–0.1937** (batch std) | **0.1843–0.1936** (batch std) |
-| **A · Parameter work** | A<sub>t</sub>(B) = g<sub>B</sub>(θ₀)ᵀ(θ<sub>t</sub> − θ₀): frozen batch gradient dotted with actual parameter displacement. | **−0.004011 to −0.003552** (mean) | **−0.003290 to −0.003272** (mean) |
-| **Q₂ · Logit curvature** | Q<sub>2,t</sub>(B) = ½ mean Var<sub>p₀</sub>(Δz): full 50,304-token vocabulary, averaged over target positions. | **+0.001744 to +0.001992** (mean) | **+0.000622 to +0.000634** (mean) |
-| **ε · Checked remainder** | ε<sub>t</sub>(B) = L<sub>t</sub>(B) − D(B) − A<sub>t</sub>(B) − Q<sub>2,t</sub>(B): measured residual, without fitting a slope or offset. | **1.909–2.863 × 10⁻⁴** (RMS) | **7.537–8.384 × 10⁻⁵** (RMS) |
+The homepage encodes the visual abstract directly as selectable HTML with normal-size text. The four measured curves show arriving batches and a separate fixed probe; frozen D changes only when the scored batch changes.
 
-Standard deviation, mean, and RMS measure different quantities. The exact response is M = L − D = W + Q = A + R + Q, so ε = R + (Q − Q₂). Negative A lowers loss here, while positive Q₂ offsets part of that improvement; both change with the optimizer.
+![Four measured terms from a common checkpoint](docs/assets/common-local-arriving.svg)
 
-中文：Shaoyang Guo 为唯一核心作者，Ziming Liu 为通讯作者。冻结难度 D 主导原始 loss 的波动；扣除 D 后，负的一阶作用 A 与正的曲率项 Q₂ 共同解释局部响应。原始 loss 的高一致性不能替代优化器差值检验；后者仍未通过 10% 相对 RMS 门槛。
+The terminal protocol uses smaller SGD/normalized-HB effective h = 3 × 10⁻⁸, calibrated Adam η = 3.02668 × 10⁻⁹, and head-only SGD η = 3 × 10⁻⁸. Values below are nats over all 512 arrivals. Ranges span three permutations of one reused pool; they are not confidence intervals. Different rows deliberately use different statistics.
 
-## Result and scope
+| Term/statistic | SGD | Normalized HB | Adam | Head-only SGD |
+|---|---|---|---|---|
+| D · batch standard deviation | 0.18530–0.18634 | shared | shared | shared |
+| A · signed mean | −1.7783 to −1.7613 × 10⁻⁴ | −1.7593 to −1.7481 × 10⁻⁴ | −6.5959 to −6.5632 × 10⁻⁴ | −9.4748 to −9.3932 × 10⁻⁵ |
+| Q₂ · mean | 1.0801–1.2629 × 10⁻⁵ | 1.0746–1.2552 × 10⁻⁵ | 1.1175–1.1333 × 10⁻⁵ | 1.4350–1.4546 × 10⁻⁶ |
+| ε · RMS | 2.4217–3.4880 × 10⁻⁵ | 2.4265–3.5303 × 10⁻⁵ | 2.6141–2.8720 × 10⁻⁶ | 2.7625–2.8632 × 10⁻⁹ |
 
-A common official step-32000 reference explains 96.657–97.578% of near-window and 96.745–97.582% of far-window raw arriving-loss variance. After subtracting each algorithm frozen start, observed-displacement A+Q₂ has 4.97–9.73% relative RMS error for SGD and 1.19–2.82% for Adam.
+The exact response is M = L − D = W + Q = A + R + Q. Thus ε = R + (Q − Q₂). ε generally includes second-order network curvature; it is not generically a cubic remainder. The head-only control makes logits affine in the updated parameters and removes R to numerical precision.
 
-The response analysis is retrospective. A+Q₂ uses the displacement that actually occurred. The experiments do not establish universal strong RGI or equal first-order dynamics coefficients across algorithms. Scalar-probe, optimizer-difference and known-teacher constant-offset failures are retained.
+## Common checkpoint and retained failures
 
-## Read
+Official Pythia-70M step 143000; FineWeb sample-10BT; 256 tokens per document and 223 scored targets; batch 8; 512 updates; optimizer states reset; 32-update warmup. Six settings are SGD and normalized Heavy Ball at two rates, calibrated Adam, and output-head-only SGD. Adam matches the initial single-step Q₂ on calibration documents, not trajectory progress or a scalar dc gain.
 
-- [Bilingual visual abstract page](docs/index.html): English and Chinese explanations; desktop and mobile layouts.
-- [English SVG](docs/assets/visual-abstract-en.svg) / [PDF](docs/assets/visual-abstract-en.pdf) · [中文 SVG](docs/assets/visual-abstract-zh.svg) / [PDF](docs/assets/visual-abstract-zh.pdf).
-- [Exact visual-abstract values](docs/assets/visual-abstract-data.json), generated from the included analyses by [build_visual_abstract.py](docs/assets/build_visual_abstract.py).
-- [Manuscript PDF](paper/main.pdf)
-- [Chinese report](docs/reports/rgi-followup.md)
-- [Interactive panel](docs/reports/rgi-followup-panel.html): open in a browser, switch real trajectories, and export CSV.
-- [Numerical summary](evidence/numerical-theory-summary.json)
-- [Evidence scope](evidence/experiment-summary.md)
+Three rate protocols were registered adaptively as approximation failures became visible. All 54 trajectories are included. The smaller SGD/HB effective rates are 3 × 10⁻⁴, 3 × 10⁻⁶, and 3 × 10⁻⁸. Fixed update counts do not match effective progress, and these rate labels are not measured stability regimes.
 
-## Build and check
+At the terminal scale D explains >99.9926% of raw arriving-loss variation. Full-window RMS(ε)/RMS(L − D) is 10.51–14.96% for SGD and 10.56–15.21% for HB, failing the registered 10% gate. Adam passes at 0.3387–0.3748%, and head-only SGD passes at 0.002410–0.002470%. Earlier, larger-displacement failures remain in the paper and evidence.
 
-Prerequisites: Python 3.9+, XeLaTeX and latexmk with the packages used by paper/metacircle.sty. No credentials or application environment variables are required.
+The terminal smaller-rate SGD/HB endpoint displacement cosine is 0.999706–0.999809. Their paired token-gap standard deviation divided by absolute mean is 46.49–163.48, above the 0.1 gate. None of the 45 terminal paired method/permutation tests passes that constant-gap test. Raw-loss similarity and endpoint alignment therefore do not establish strong RGI here.
+
+中文：所有设置从同一个晚期 checkpoint 出发，重置优化器并重新 warmup。D（冻结模型对当前 batch 的 loss）完全共享，主导原始 loss 波动。A、Q₂ 与 ε 分别显示训练设置的响应和误差。只训练输出头的对照消除了网络非线性项。低率 SGD/HB 的终点位移已高度对齐，但严格的非零常数 token loss 差仍未通过。完整数值、四条曲线和失败范围见[中文网页](https://guoshaoyang-pku.github.io/RGI-explained/?lang=zh)。
+
+## Read and inspect
+
+- [Bilingual native visual abstract](docs/index.html) and [Chinese summary](docs/reports/rgi-followup.md).
+- [Manuscript](paper/main.pdf), [source archive](paper/rgi-followup-arxiv.zip), and [submission metadata](paper/arxiv-metadata.txt). The archive has not been submitted to arXiv.
+- [Terminal compact evidence](evidence/common-local), [intermediate protocol](evidence/common-refinement), and [initial protocol](evidence/common-initial).
+- [Current claims](evidence/common-claims.json), [source provenance](evidence/common-source-provenance.json), and [evidence scope](evidence/experiment-summary.md).
+- [Literature audit](evidence/literature-audit.md) and [same-stream momentum identity](evidence/momentum-alignment-bound.md).
+- [Historical interactive diagnostics](docs/reports/rgi-followup-panel.html): earlier optimizer-specific starts and known-teacher experiments, not the main common-checkpoint experiment. Older visual-abstract exports in docs/assets/ are historical too.
+
+## Check and build
+
+Recorded-evidence verification requires only Python 3.9+ and the standard library. No credentials are required.
 
     ./setup.sh
     python3 verify_evidence.py
+    python3 -m http.server 8000
+
+Open docs/index.html to read the static site. To rebuild the paper, install XeLaTeX and latexmk with the packages required by paper/metacircle.sty, then run:
+
     latexmk -cd -xelatex -interaction=nonstopmode -halt-on-error paper/main.tex
 
-All manuscript sources, figures, template assets, the PDF, and submission metadata live in paper/. The arXiv zip at paper/rgi-followup-arxiv.zip includes main.bbl and a XeLaTeX compiler declaration. The editable bibliography is paper/references.bib.
+All manuscript sources, figures, template assets, PDF, compiler declaration, and submission metadata live under paper/. The source archive includes main.bbl and has been built in an isolated directory.
 
-The static webpage needs no application dependencies. Open docs/index.html directly, or run python3 -m http.server from the repository. GitHub Pages can serve main at the repository root using index.html and .nojekyll. The optional manual Pages workflow checks release evidence before publishing; it exposes the manuscript and evidence links together with the website.
+The included scientific producer, full-logit checker, and plotting source under experiments/common_checkpoint/ require NumPy, PyTorch/CUDA, and Matplotlib as applicable. The original producer additionally requires checkpoint/data inputs that are omitted. The advanced checker requires full logit fixtures that are omitted. Use the root standard-library checker for the compact public package; the source files document the recorded experiment, not a one-command training reproduction.
 
-## Evidence availability
+## Evidence boundary
 
-Included files contain aggregate arrival, local-work and paired-prefix analyses; figure values; bounded selection provenance; and verifier count/scope extracts. [source-provenance.json](evidence/source-provenance.json) records original and sanitized hashes. Claims identify whether each original source is included.
+The common protocols include all 54 batch traces, fixed-probe readouts, document/token scalar NPZ arrays, registration/summary records, plots, and aggregate statistics. Private hardware/path identifiers have been removed; scientific values are retained. Source and public hashes record that transformation.
 
-Raw checkpoints, full logits, producer traces, training data text and complete training scripts are not included. The checker verifies package integrity and recorded arithmetic; it does not rerun gradients or model trajectories. This is a manuscript and aggregate evidence release, not a complete training reproduction package.
+Raw training text and token spans, checkpoints, full-vocabulary logit fixtures, and parameter endpoints are omitted. The original independent checker reports 6,834 saved-evidence checks, including full-vocabulary reconstruction of final eight-token fixtures. The public checker verifies package hashes and recorded arithmetic. Neither independently replays all gradients or optimizer trajectories. Actual displacements make the response analysis retrospective. Three permutations reuse one pool and do not constitute a fresh held-out replication. This is a finite continuation from a late Pile checkpoint on FineWeb, not a reproduction or universal falsification of the original RGI paper.
 
-## License and contributions
+## License
 
-Original code and documentation use MIT; see [LICENSE](LICENSE). See [NOTICE.md](NOTICE.md) for third-party branding and citations. No blanket MIT grant is claimed for the Tsinghua or MetaCircle marks.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md). When using Codex or Claude Code, read [AGENTS.md](AGENTS.md) and preserve the evidence boundaries.
+Original code and documentation use MIT; see [LICENSE](LICENSE). [NOTICE.md](NOTICE.md) preserves third-party branding and citation scope. No blanket MIT grant is claimed for the Tsinghua or MetaCircle marks. Contributions should follow [CONTRIBUTING.md](CONTRIBUTING.md) and [AGENTS.md](AGENTS.md).

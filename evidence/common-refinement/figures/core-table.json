@@ -1,0 +1,584 @@
+{
+  "units": "nats",
+  "partial": false,
+  "records": [
+    {
+      "metric": "difficulty_std",
+      "method": "sgd_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.18634003412959965
+        },
+        {
+          "replica": 1,
+          "value": 0.1856574944519553
+        },
+        {
+          "replica": 2,
+          "value": 0.18529692301203898
+        }
+      ],
+      "minimum": 0.18529692301203898,
+      "maximum": 0.18634003412959965,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-06,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "difficulty_std",
+      "method": "momentum_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.18634003412959965
+        },
+        {
+          "replica": 1,
+          "value": 0.1856574944519553
+        },
+        {
+          "replica": 2,
+          "value": 0.18529692301203898
+        }
+      ],
+      "minimum": 0.18529692301203898,
+      "maximum": 0.18634003412959965,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-06,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "difficulty_std",
+      "method": "adam_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.18634003412959965
+        },
+        {
+          "replica": 1,
+          "value": 0.1856574944519553
+        },
+        {
+          "replica": 2,
+          "value": 0.18529692301203898
+        }
+      ],
+      "minimum": 0.18529692301203898,
+      "maximum": 0.18634003412959965,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 2.8994061505339026e-07,
+      "rate_kind": "raw"
+    },
+    {
+      "metric": "difficulty_std",
+      "method": "sgd_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.18634003412959965
+        },
+        {
+          "replica": 1,
+          "value": 0.1856574944519553
+        },
+        {
+          "replica": 2,
+          "value": 0.18529692301203898
+        }
+      ],
+      "minimum": 0.18529692301203898,
+      "maximum": 0.18634003412959965,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-05,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "difficulty_std",
+      "method": "momentum_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.18634003412959965
+        },
+        {
+          "replica": 1,
+          "value": 0.1856574944519553
+        },
+        {
+          "replica": 2,
+          "value": 0.18529692301203898
+        }
+      ],
+      "minimum": 0.18529692301203898,
+      "maximum": 0.18634003412959965,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-05,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "difficulty_std",
+      "method": "head_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.18634003412959965
+        },
+        {
+          "replica": 1,
+          "value": 0.1856574944519553
+        },
+        {
+          "replica": 2,
+          "value": 0.18529692301203898
+        }
+      ],
+      "minimum": 0.18529692301203898,
+      "maximum": 0.18634003412959965,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-06,
+      "rate_kind": "raw"
+    },
+    {
+      "metric": "parameter_work_mean",
+      "method": "sgd_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": -0.007121458320489625
+        },
+        {
+          "replica": 1,
+          "value": -0.007222051516065054
+        },
+        {
+          "replica": 2,
+          "value": -0.007018466038233572
+        }
+      ],
+      "minimum": -0.007222051516065054,
+      "maximum": -0.007018466038233572,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-06,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "parameter_work_mean",
+      "method": "momentum_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": -0.007072655395919361
+        },
+        {
+          "replica": 1,
+          "value": -0.0071508324821939325
+        },
+        {
+          "replica": 2,
+          "value": -0.007015132454508718
+        }
+      ],
+      "minimum": -0.0071508324821939325,
+      "maximum": -0.007015132454508718,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-06,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "parameter_work_mean",
+      "method": "adam_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": -0.031150688029422245
+        },
+        {
+          "replica": 1,
+          "value": -0.0313253814040054
+        },
+        {
+          "replica": 2,
+          "value": -0.03125037645927711
+        }
+      ],
+      "minimum": -0.0313253814040054,
+      "maximum": -0.031150688029422245,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 2.8994061505339026e-07,
+      "rate_kind": "raw"
+    },
+    {
+      "metric": "parameter_work_mean",
+      "method": "sgd_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": -0.022811488096816757
+        },
+        {
+          "replica": 1,
+          "value": -0.022784626116596207
+        },
+        {
+          "replica": 2,
+          "value": -0.0230518789646156
+        }
+      ],
+      "minimum": -0.0230518789646156,
+      "maximum": -0.022784626116596207,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-05,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "parameter_work_mean",
+      "method": "momentum_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": -0.023110193438257584
+        },
+        {
+          "replica": 1,
+          "value": -0.022813240954006324
+        },
+        {
+          "replica": 2,
+          "value": -0.02263443091326872
+        }
+      ],
+      "minimum": -0.023110193438257584,
+      "maximum": -0.02263443091326872,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-05,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "parameter_work_mean",
+      "method": "head_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": -0.003735152152925519
+        },
+        {
+          "replica": 1,
+          "value": -0.0037990624767496772
+        },
+        {
+          "replica": 2,
+          "value": -0.003817971672500743
+        }
+      ],
+      "minimum": -0.003817971672500743,
+      "maximum": -0.003735152152925519,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-06,
+      "rate_kind": "raw"
+    },
+    {
+      "metric": "quadratic_mean",
+      "method": "sgd_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.0036949916076344106
+        },
+        {
+          "replica": 1,
+          "value": 0.003678203580669978
+        },
+        {
+          "replica": 2,
+          "value": 0.0032900463094655743
+        }
+      ],
+      "minimum": 0.0032900463094655743,
+      "maximum": 0.0036949916076344106,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-06,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "quadratic_mean",
+      "method": "momentum_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.003477280668792794
+        },
+        {
+          "replica": 1,
+          "value": 0.0035083433114537414
+        },
+        {
+          "replica": 2,
+          "value": 0.003352940787885806
+        }
+      ],
+      "minimum": 0.003352940787885806,
+      "maximum": 0.0035083433114537414,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-06,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "quadratic_mean",
+      "method": "adam_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.015665445750306116
+        },
+        {
+          "replica": 1,
+          "value": 0.015712070712122998
+        },
+        {
+          "replica": 2,
+          "value": 0.015666280997957
+        }
+      ],
+      "minimum": 0.015665445750306116,
+      "maximum": 0.015712070712122998,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 2.8994061505339026e-07,
+      "rate_kind": "raw"
+    },
+    {
+      "metric": "quadratic_mean",
+      "method": "sgd_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.015395559194382645
+        },
+        {
+          "replica": 1,
+          "value": 0.015400378230273641
+        },
+        {
+          "replica": 2,
+          "value": 0.015453132464918053
+        }
+      ],
+      "minimum": 0.015395559194382645,
+      "maximum": 0.015453132464918053,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-05,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "quadratic_mean",
+      "method": "momentum_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.015306682156647947
+        },
+        {
+          "replica": 1,
+          "value": 0.01509416033606258
+        },
+        {
+          "replica": 2,
+          "value": 0.015029666377429082
+        }
+      ],
+      "minimum": 0.015029666377429082,
+      "maximum": 0.015306682156647947,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-05,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "quadratic_mean",
+      "method": "head_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.001404996532622289
+        },
+        {
+          "replica": 1,
+          "value": 0.0014492222802879981
+        },
+        {
+          "replica": 2,
+          "value": 0.0014571796862933547
+        }
+      ],
+      "minimum": 0.001404996532622289,
+      "maximum": 0.0014571796862933547,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-06,
+      "rate_kind": "raw"
+    },
+    {
+      "metric": "epsilon_rms",
+      "method": "sgd_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.0025148917551673492
+        },
+        {
+          "replica": 1,
+          "value": 0.002445443189765595
+        },
+        {
+          "replica": 2,
+          "value": 0.0018670586548999615
+        }
+      ],
+      "minimum": 0.0018670586548999615,
+      "maximum": 0.0025148917551673492,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-06,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "epsilon_rms",
+      "method": "momentum_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.002138255965274323
+        },
+        {
+          "replica": 1,
+          "value": 0.002059052567349837
+        },
+        {
+          "replica": 2,
+          "value": 0.0019089804304643957
+        }
+      ],
+      "minimum": 0.0019089804304643957,
+      "maximum": 0.002138255965274323,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-06,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "epsilon_rms",
+      "method": "adam_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.004201305536660959
+        },
+        {
+          "replica": 1,
+          "value": 0.004130280046043905
+        },
+        {
+          "replica": 2,
+          "value": 0.004141600230038764
+        }
+      ],
+      "minimum": 0.004130280046043905,
+      "maximum": 0.004201305536660959,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 2.8994061505339026e-07,
+      "rate_kind": "raw"
+    },
+    {
+      "metric": "epsilon_rms",
+      "method": "sgd_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.006653116240674264
+        },
+        {
+          "replica": 1,
+          "value": 0.006537254762309035
+        },
+        {
+          "replica": 2,
+          "value": 0.006429818608794722
+        }
+      ],
+      "minimum": 0.006429818608794722,
+      "maximum": 0.006653116240674264,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-05,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "epsilon_rms",
+      "method": "momentum_high",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 0.006986505587766642
+        },
+        {
+          "replica": 1,
+          "value": 0.006700631512481708
+        },
+        {
+          "replica": 2,
+          "value": 0.006533226701688659
+        }
+      ],
+      "minimum": 0.006533226701688659,
+      "maximum": 0.006986505587766642,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-05,
+      "rate_kind": "effective h"
+    },
+    {
+      "metric": "epsilon_rms",
+      "method": "head_low",
+      "replicas": [
+        {
+          "replica": 0,
+          "value": 6.22451136219122e-05
+        },
+        {
+          "replica": 1,
+          "value": 6.438564133254305e-05
+        },
+        {
+          "replica": 2,
+          "value": 6.815302611180935e-05
+        }
+      ],
+      "minimum": 6.22451136219122e-05,
+      "maximum": 6.815302611180935e-05,
+      "completed_replicas": 3,
+      "expected_replicas": 3,
+      "registered_rate": 3e-06,
+      "rate_kind": "raw"
+    }
+  ],
+  "protocol": "Rate-refinement protocol (adaptive)",
+  "scope": "Full 512-update arriving-batch means; ranges across paired permutations of one reused pool."
+}

@@ -16,16 +16,15 @@ Stella Biderman, Hailey Schoelkopf, Quentin Anthony, Herbie Bradley, Kyle
   and scaling, 2023.
 \newblock URL \url{https://arxiv.org/abs/2304.01373}.
 
-\bibitem[Hinton et~al.(2015)Hinton, Vinyals, and
-  Dean]{hinton2015distillingknowledgeneuralnetwork}
-Geoffrey Hinton, Oriol Vinyals, and Jeff Dean.
-\newblock Distilling the knowledge in a neural network, 2015.
-\newblock URL \url{https://arxiv.org/abs/1503.02531}.
-
 \bibitem[Kingma and Ba(2017)]{kingma2017adammethodstochasticoptimization}
 Diederik~P. Kingma and Jimmy Ba.
 \newblock Adam: A method for stochastic optimization, 2017.
 \newblock URL \url{https://arxiv.org/abs/1412.6980}.
+
+\bibitem[Lee and Lee(2026)]{lee2026journeyedgestability}
+Jaerin Lee and Kyoung~Mu Lee.
+\newblock A journey to the edge of stability, 2026.
+\newblock URL \url{https://arxiv.org/abs/2609.32290}.
 
 \bibitem[Penedo et~al.(2024)Penedo, Kydlíček, allal, Lozhkov, Mitchell,
   Raffel, Werra, and Wolf]{penedo2024finewebdatasetsdecantingweb}

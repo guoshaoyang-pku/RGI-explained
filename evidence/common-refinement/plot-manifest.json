@@ -1,0 +1,160 @@
+{
+  "source_sha256": "e4054c5f2b3a3e8b65bb1a4de58c6bb723830a2052835c0948beb2673dfbeccf",
+  "plan_sha256": "b98a3f88519c4cb18d4ed77b96c1382387c99bc20203e9a0523e2fdeff893b08",
+  "inputs": [
+    {
+      "path": "plan.json",
+      "sha256": "b98a3f88519c4cb18d4ed77b96c1382387c99bc20203e9a0523e2fdeff893b08"
+    },
+    {
+      "path": "calibration.json",
+      "sha256": "d6d5bd91be8d3ac7e5a0618386407dcb23cd65c01e4766fb4e8e02cefbf3776f"
+    },
+    {
+      "path": "r0-sgd_low/trace.json",
+      "sha256": "1dd9bd2020587c820ea74d66fba82938583ad15736014e10889cd60c2b9e4ba6"
+    },
+    {
+      "path": "r0-sgd_low/fixed-probe.json",
+      "sha256": "535027bb79d0c1ccb633d95c18037172cf407ab201aca70b99eec0187a3f0015"
+    },
+    {
+      "path": "r0-momentum_low/trace.json",
+      "sha256": "1dc33ab3ce858ddaabb9ebb08aa249a2ccf9f5a5ffd6b006e5e60124253b5c46"
+    },
+    {
+      "path": "r0-momentum_low/fixed-probe.json",
+      "sha256": "8ac0bc663229a44684686328929c0d2867876939c4dd025c59d20d99edb35a7a"
+    },
+    {
+      "path": "r0-adam_low/trace.json",
+      "sha256": "bfa6c6b2ef157aaf166b66f4f9bdd41c24f9f421cf0e4237368165d38bb999e0"
+    },
+    {
+      "path": "r0-adam_low/fixed-probe.json",
+      "sha256": "63de1fc79d942cd97abcfd9fadea91119bbaef3047a457e8f04df05f7cc4e033"
+    },
+    {
+      "path": "r0-sgd_high/trace.json",
+      "sha256": "e7f7f2b207736434c18e251626d5c276051e071d795505fb4410386fa9e61b3e"
+    },
+    {
+      "path": "r0-sgd_high/fixed-probe.json",
+      "sha256": "80eaa3fc594861bd04e8075ab584f5205d8ee9c04dc06108f770e26af7f8029f"
+    },
+    {
+      "path": "r0-momentum_high/trace.json",
+      "sha256": "7bba9170a160d5c2dc805a78a2335dad56da6445f308596df08c344188f2acc7"
+    },
+    {
+      "path": "r0-momentum_high/fixed-probe.json",
+      "sha256": "b9faaa1d4d05837191f27d67f40cb65a4aca7966d05c5365dda605306f1d34b1"
+    },
+    {
+      "path": "r0-head_low/trace.json",
+      "sha256": "bde4965275fc2a703618034f374ad2d69f2c1717b91cdf908d9a03f80af2932e"
+    },
+    {
+      "path": "r0-head_low/fixed-probe.json",
+      "sha256": "9314911b3045a3b3c50c04c7e6f0447f86418b1265a9c9552c6f33fd946ada04"
+    }
+  ],
+  "stats_sha256": "1c5dd4542706758c5c0681219a59fe1aae9c2a5a3e4d9434e94212ed52898cae",
+  "verification_sha256": "cc58a7161e6ec456fc838e54c0b338eafdecfeb9ddf2097728ffa3f182f6680b",
+  "partial": false,
+  "plotted_replica": 0,
+  "methods": [
+    "sgd_low",
+    "momentum_low",
+    "adam_low",
+    "sgd_high",
+    "momentum_high",
+    "head_low"
+  ],
+  "protocol": "Rate-refinement protocol (adaptive)",
+  "rates": {
+    "sgd_low": 3e-06,
+    "momentum_low": 3e-06,
+    "sgd_high": 3e-05,
+    "momentum_high": 3e-05,
+    "head_low": 3e-06
+  },
+  "adam_raw_rate": 2.8994061505339026e-07,
+  "batch_block_size": 64,
+  "smoothing": "None; raw traces and prespecified nonoverlapping block means.",
+  "figures": [
+    {
+      "path": "core-table.csv",
+      "sha256": "2bb0cdab220a868bfa8b618ab4f5f2c7bbfbd0ce22363d284ddcb4d921c9325c"
+    },
+    {
+      "path": "core-table.json",
+      "sha256": "158667a73fb23c2cf69be37ea8a2c391508ec099e2f05ed222f172615a4f1a44"
+    },
+    {
+      "path": "core-table.tex",
+      "sha256": "876162b2a8936959a441be365a549fc188122190289c6ec17bb83ae3d63274f3"
+    },
+    {
+      "path": "four-terms-arriving-low-settings.pdf",
+      "sha256": "7370d40cd9571a944f2c5318b67bb85a6e27019e3f6bca72c81e64f1e62d5a96"
+    },
+    {
+      "path": "four-terms-arriving-low-settings.png",
+      "sha256": "ac0faf378c1792b2e98741057118d55ac04b930265bc411a647d1eecb45180cc"
+    },
+    {
+      "path": "four-terms-arriving-low-settings.svg",
+      "sha256": "6fd1a37dfe2b33e3f21c3219c26a543764acc106b04b1602f909746911781cf2"
+    },
+    {
+      "path": "four-terms-arriving.pdf",
+      "sha256": "98d32c613e7183071823f6efabcb76967e8c0ba591c490041cdd0b86ece2bc63"
+    },
+    {
+      "path": "four-terms-arriving.png",
+      "sha256": "ed15e5f987a43b0744992c453e978c227b233ae4df7271cc4a6caae1e163c178"
+    },
+    {
+      "path": "four-terms-arriving.svg",
+      "sha256": "188cbc4c3506f9134e71e2c451c80a80638e45050e8e5f4fcdd5aea12052a858"
+    },
+    {
+      "path": "four-terms-fixed-probe-low-settings.pdf",
+      "sha256": "4121ad000d241c9202b5d44f4f16cbe90870ec596768fdd63166569fdf1ed0d7"
+    },
+    {
+      "path": "four-terms-fixed-probe-low-settings.png",
+      "sha256": "2eec48b37814f3151b08681b2e23767d2d98effabf69bff67e2b1e4694a97e5c"
+    },
+    {
+      "path": "four-terms-fixed-probe-low-settings.svg",
+      "sha256": "5b61fe9358cd16e0099f71d1f749749f9617711ddf28d836c2d2db2ca928954c"
+    },
+    {
+      "path": "four-terms-fixed-probe.pdf",
+      "sha256": "69b97faac8c08afaac9a9ef46fd418b1847bc163cf35e51c1c9b66efe4cdb77b"
+    },
+    {
+      "path": "four-terms-fixed-probe.png",
+      "sha256": "47ed3c50a57cc35042e715acf1c75eecb4a13f4fa27ccb276694bad294d1d7e1"
+    },
+    {
+      "path": "four-terms-fixed-probe.svg",
+      "sha256": "d7b7736fe943ce2d239f57225680f61518c2ea51285a8f293e70953a7ea995f8"
+    },
+    {
+      "path": "paired-response.pdf",
+      "sha256": "90fa6d056c2c76d91351d6c9032960189db1af05945c1bc458282fc9562301d8"
+    },
+    {
+      "path": "paired-response.png",
+      "sha256": "5bf59240f2efa61bdec9f80e1f8e9da8723f3a0d6fad88e9ff2da15686411d03"
+    },
+    {
+      "path": "paired-response.svg",
+      "sha256": "c79216866946c66f6876b216a10053a75a9f0d2346bb14b1c498bcbe7e9d5ae4"
+    }
+  ],
+  "scope": "Observed realized response, with independent vertical scales; no fitted time warp."
+}

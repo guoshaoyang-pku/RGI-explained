@@ -29,9 +29,9 @@
   \small $^*$Core author \quad $^\dagger$Corresponding author
 }
 \date{}
-\paperdate{October 6, 2026}
+\paperdate{October 8, 2026}
 \papertype{Meta Circle Research}
-\projecturl{}
+\projecturl{https://guoshaoyang-pku.github.io/RGI-explained/}
 
 \begin{document}
 \maketitle
@@ -45,10 +45,8 @@
 \input{sections/02_relation_scope}
 \input{sections/03_decomposition}
 \input{sections/04_experimental_protocol}
-\input{sections/05_frozen_difficulty}
-\input{sections/06_local_response}
-\input{sections/07_known_teacher}
-\input{sections/08_support_gate}
+\input{sections/11_common_start_results}
+\input{sections/10_alignment_theory}
 \input{sections/09_limitations_conclusion}
 
 \bibliographystyle{plainnat}
@@ -56,4 +54,8 @@
 
 \appendix
 \input{sections/appendix}
+\section{Historical distinct-start diagnostics}
+The earlier study used optimizer-specific continuation starts and a common step-32,000 scoring reference.  It is retained as historical evidence and does not replace the common late-checkpoint experiment.  Its main scales were \(\operatorname{std}(D)=0.1843\)--\(0.1937\), mean \(A=-0.004011\)--\(-0.003552\) (SGD) and \(-0.003290\)--\(-0.003272\) (Adam), mean \(Q_2=0.001744\)--\(0.001992\) and \(0.000622\)--\(0.000634\), and \(\RMS(\varepsilon)=0.000191\)--\(0.000286\) and \(0.0000754\)--\(0.0000838\) nats.  These small-remainder values are not transferred to the later common checkpoint or newly calibrated rates.
+\input{sections/07_known_teacher}
+\input{sections/08_support_gate}
 \end{document}

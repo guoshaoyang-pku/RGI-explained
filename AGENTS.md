@@ -1,32 +1,37 @@
-# RGI follow-up
+# RGI-explained
 
 ## Commands
 
     ./setup.sh
     python3 verify_evidence.py
+    python3 -m http.server 8000
     latexmk -cd -xelatex -interaction=nonstopmode -halt-on-error paper/main.tex
+
+The basic verifier uses the Python standard library. XeLaTeX/latexmk are optional paper-build prerequisites. Scientific producer/checker/plot sources require their original NumPy, PyTorch/CUDA, or Matplotlib environment and omitted data/weights/logit fixtures.
 
 ## Files
 
-- paper/main.tex and paper/sections/: manuscript.
-- paper/references.bib and paper/main.bbl: bibliography.
-- paper/figures/: manuscript figure.
-- paper/main.pdf and paper/rgi-followup-arxiv.zip: manuscript PDF and arXiv source package.
-- paper/: compiler declaration, submission metadata, and MetaCircle template assets.
-- evidence/: bounded aggregates, provenance, claims and verifier scope.
-- docs/reports/: Chinese report and self-contained panel.
-- docs/index.html: bilingual visual abstract and explanation.
+- paper/main.tex and paper/sections/: MetaCircle manuscript; Shaoyang Guo sole core author, Ziming Liu corresponding only.
+- paper/figures/: four-term plots and measured tables.
+- paper/main.pdf, paper/rgi-followup-arxiv.zip, and paper/source-manifest.json: PDF, independently compiled source archive, and hashes.
+- evidence/common-{initial,refinement,local}/: three retained common-start rate protocols, all 54 traces and compact scalar records.
+- evidence/common-claims.json and common-source-provenance.json: current claims and transformations.
+- evidence/experiment-summary.md: current protocol and evidence availability.
+- experiments/common_checkpoint/: recorded producer, advanced checker, plotting code, and contracts.
+- docs/index.html: bilingual native-HTML visual abstract with normal-size fonts.
+- docs/reports/rgi-followup.md: current Chinese summary.
+- docs/reports/rgi-followup-panel.html and older docs/assets/visual-abstract-* exports: historical distinct-start diagnostics.
 - index.html and .nojekyll: static GitHub Pages entry.
-- docs/assets/: exported figures, exact table values, and figure generator.
-- .github/workflows/pages.yml: optional manual checked publication of the research page.
-- RELEASE_MANIFEST.json: final file hashes.
+- RELEASE_MANIFEST.json: exact intended release file hashes.
 
 ## Scientific boundaries
 
-Preserve exact W+Q arithmetic versus observed-displacement A+Q₂ approximation. Do not call a natural checkpoint reference the Bayes distribution. Three permutations share one pool. Arrival-work uses completed trajectories and does not forecast unknown future updates. Algorithm starts are already distinct.
+The main experiment starts every branch from the same official step-143000 checkpoint with reset optimizer state, shared batches, and 32-step warmup. All three protocols reuse the same pool with three paired permutations. Later rate protocols are adaptive; retain earlier failures. Historical experiments have different optimizer-specific starts and must stay labeled.
 
-Keep scalar-probe, high-pass, optimizer-difference and known-teacher failures. The data term coefficient one does not prove equal optimizer dynamics coefficients. The aggregate checker does not reproduce training.
+Preserve the exact identity M=L−D=W+Q=A+R+Q and the measured approximation A+Q₂. ε=R+(Q−Q₂), and network R can be second order. The head-only intervention is affine in updated parameters. D's coefficient one is an identity, not evidence for equal optimizer dynamics. Displacements are realized; these tests do not forecast unknown future updates.
+
+Keep the failed full-window SGD/HB response, paired-response, and strong token constant-gap tests. Endpoint parameter cosine is not whole-trajectory alignment or token-wise RGI. A fixed checkpoint is not the natural Bayes distribution. The release and original checker do not replay every gradient/training update.
 
 ## Editing
 
-Build after LaTeX edits. Check numerical claims against included aggregates. Regenerate figure data rather than editing numbers by hand. Update RELEASE_MANIFEST.json after intended release-file changes. Local audit reports and logs stay outside the committed tree.
+Build after LaTeX edits. Recompute figures/tables from included evidence rather than editing numbers by hand. Regenerate RELEASE_MANIFEST.json after all intended files settle. Keep private paths, secrets, local audit reports, and logs outside the committed tree. Use explicit staging in the shared research workspace; the public checkout is dedicated to this release.

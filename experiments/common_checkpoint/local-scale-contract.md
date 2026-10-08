@@ -1,0 +1,7 @@
+# Terminal local-scale sweep
+
+Register2026-10-08 before these jobs. Adaptive chronology is explicit: the original3e-4 and subsequent3e-6 nominal low protocols already showed large accumulated network remainders. The current512-update r0 at3e-6 has response-closure44.7%SGD/38.0%HB/20.4%Adam; small per-update Q2 alone does not ensure a small512-update parameter-map remainder.
+
+The final extension tests3e-8/3e-7 effective SGD rates, dc-matched HB, Adam calibrated on the same16 calibration documents at3e-8, and output-head SGD at3e-8. Same common official checkpoint143000,512updates,warmup32,three frozen permutations,FP64 and all gates. No changes to inputs/windows/gates, no discarded earlier runs. This is the terminal rate extension for this revision; if closure still fails report that failure rather than keep shrinking until passing. All three protocols' actual rates, core tables and failure curves will be available.
+
+At fixed512update count this sweep tests local finite-response order, not the fixed-progress low-h asymptotic regime. Report vanishing absolute responses and numerical precision. A coefficient shared across optimizers remains unproved: A's sensitivity is shared at common theta0, but actual displacements and centered paired losses differ. No strong RGI inference from raw loss correlation. Preserve prospective manuscript uncertainty until every method/permutation verified.

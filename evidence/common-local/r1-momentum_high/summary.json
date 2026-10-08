@@ -1,0 +1,15 @@
+{
+  "completed": true,
+  "method": "momentum_high",
+  "replica": 1,
+  "updates": 512,
+  "seconds": 109.62369617633522,
+  "identity_maxerror": 2.1946854056320575e-14,
+  "token_A_gradient_dot_maxerror": 4.5102810375396984e-17,
+  "displacement_norm": 0.0005848388660484569,
+  "torch": "2.9.1+cu128",
+  "max_memory_bytes": 4929595392,
+  "plan_sha256": "8ecf5d224e5ef1b45d5f408e41ad20d0b483390e46730bbd7976269ddaf10900",
+  "producer_sha256": "5cbb3351cba3d96846e90e9bde44242963085cd099fcb12e977e49f56e5f7eae",
+  "scope": "Common checkpoint, shared arrival stream, observed finite response"
+}

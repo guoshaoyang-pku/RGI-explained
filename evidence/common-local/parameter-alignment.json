@@ -1,0 +1,55 @@
+{
+  "completed": true,
+  "step": 512,
+  "common_checkpoint": 143000,
+  "rows": [
+    {
+      "replica": 0,
+      "level": "low",
+      "displacement_cosine": 0.9997479626938351,
+      "relative_distance": 0.023186992162177452,
+      "sgd_norm": 7.319685787395255e-05,
+      "momentum_norm": 7.275395916432898e-05
+    },
+    {
+      "replica": 0,
+      "level": "high",
+      "displacement_cosine": 0.9996514299534704,
+      "relative_distance": 0.026421140956921288,
+      "sgd_norm": 0.0005921586427443566,
+      "momentum_norm": 0.0005925613512489009
+    },
+    {
+      "replica": 1,
+      "level": "low",
+      "displacement_cosine": 0.9998090478630989,
+      "relative_distance": 0.020029101783464155,
+      "sgd_norm": 7.338769222940121e-05,
+      "momentum_norm": 7.30512977690242e-05
+    },
+    {
+      "replica": 1,
+      "level": "high",
+      "displacement_cosine": 0.9996890721291508,
+      "relative_distance": 0.024935685954795717,
+      "sgd_norm": 0.0005851210700618735,
+      "momentum_norm": 0.0005848388660484569
+    },
+    {
+      "replica": 2,
+      "level": "low",
+      "displacement_cosine": 0.9997057547605864,
+      "relative_distance": 0.024266610401310146,
+      "sgd_norm": 7.326265663676249e-05,
+      "momentum_norm": 7.329103007529015e-05
+    },
+    {
+      "replica": 2,
+      "level": "high",
+      "displacement_cosine": 0.9995998003788479,
+      "relative_distance": 0.028781080556808496,
+      "sgd_norm": 0.0005934057757250574,
+      "momentum_norm": 0.0005963145498101828
+    }
+  ]
+}

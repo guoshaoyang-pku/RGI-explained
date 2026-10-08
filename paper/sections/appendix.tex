@@ -1,16 +1,51 @@
 \section{Reproducibility details}
 
 \paragraph{Data and model hashes.}
-The FineWeb source is \texttt{HuggingFaceFW/fineweb}, configuration \texttt{sample-10BT}, revision prefix \texttt{9bb295dd}, shard \texttt{sample/10BT/001\_00000.parquet}.  The pool selection starts after source row 65,536 and uses selection seed 610000 and split seed 610001.  The verified tokenizer commit begins \texttt{a39f36b1}.  The public release includes a bounded selection-contract extract and artifact hashes in its evidence directory; raw document/token manifests are not included.
+The FineWeb source is \texttt{HuggingFaceFW/fineweb}, configuration \texttt{sample-10BT}, revision prefix \texttt{9bb295dd}, shard \texttt{sample/10BT/001\_00000.parquet}.  The pool selection starts after source row 65,536 and uses selection seed 610000 and split seed 610001.  The verified tokenizer commit begins \texttt{a39f36b1}.  Full hashes and input manifests are in \url{analysis/rgi_extension_20261006/new-provenance.json} and the accompanying evidence manifest in the research workspace.
 
 \paragraph{Evaluation units.}
 Natural batches contain 8 documents and 223 scored next-token targets per document (query positions 32 through 254).  Difficulty and response statistics are computed from document-level means; token positions within a document are not treated as independent documents.  The known-teacher continuation uses 33 natural seed tokens followed by 63 sampled tokens and evaluates 63 targets per generated document.
 
 \paragraph{Verification scope.}
-The extension, logit-work, and arrival verifiers report 23,220, 4,159, and 341 passed checks, respectively, with maximum reported arithmetic errors of \(8.88\times10^{-15}\), \(3.17\times10^{-14}\), and \(3.56\times10^{-15}\).  These checks cover trace parity, hashes, document aggregation, exact identities, and saved full-vocabulary fixtures.  They do not independently recompute the full network gradients, the optimizer trajectory, or every saved logit from raw checkpoints.  The arrival and work analyses are therefore numerical audits of recorded runs, not independent training replications.
+Each of the three common-start protocols completed all 18 runs and passed 2,278 independent checks, for 6,834 total.  The respective maximum numerical errors are \(3.35\times10^{-13}\), \(9.59\times10^{-14}\), and \(2.39\times10^{-14}\).  NumPy reconstructs the final eight-token full-vocabulary fixtures independently, and checks zero initial terms, paired document difficulty, fixed-probe difficulty, schedules, hashes, response identities, and JVP mean parity.  All 54 fixtures were harvested with hash verification.  The checker does not independently replay network gradients or training.  A separate CPU FP64 real-model pulse agrees between gradient-dot and JVP work to \(6.25\times10^{-16}\), providing numerical engineering evidence rather than an independent full training replication.
+
+The original protocol ran on A100 with PyTorch 2.7.0; the two rate extensions ran on H200 with PyTorch 2.9.1.  Comparisons are paired within each protocol.  Checkpoint canonical tensor bytes match across hosts; small cross-host operation differences are not assumed absent.
 
 \paragraph{Additional diagnostics.}
 The registered 64-step block analysis uses signed covariance shares; these shares are attribution coefficients and may exceed one or be negative because terms cancel.  High-pass SGD failures and the optimizer-difference failure are retained in the main text rather than averaged away.  The three permutations reuse one data pool and are not independent datasets.
 
 \paragraph{Code and artifacts.}
-The arXiv source package contains the main manuscript, the MetaCircle style assets, the numerical-theory figure, and the compiled bibliography.  The public release additionally contains machine-readable aggregate analyses, chart values, and provenance hashes. It excludes raw checkpoints, full logits, producer traces, and training-data text; it is not a complete training reproduction package.
+The arXiv source package includes the central table, four-term curves, retained failed rate protocols, MetaCircle assets, and compiled bibliography.  The public project provides compact numerical evidence, protocol contracts, independent checker and plotting code.  The release manifest identifies which raw weights, corpus spans, and full logit fixtures are omitted; a saved-evidence audit is distinct from rerunning training.
+
+\section{Retained four-term curves outside the terminal scale}
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth]{common-intermediate-arriving.pdf}
+\caption{Intermediate adaptive protocol, $h=3\times10^{-6}/3\times10^{-5}$.  The same shared checkpoint and batch sequence are used.  Complete four-term curves retain the full-model network remainder and the passing affine head-only control.}
+\end{figure}
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth]{common-original-arriving.pdf}
+\caption{Original protocol, $h=3\times10^{-4}/1.2\times10^{-3}$.  The high-SGD variance and softmax approximation error are retained, not clipped or removed.  The figure exhibits an approximation boundary; it does not establish an edge-of-stability regime.}
+\end{figure}
+\begin{table}[p]
+\centering
+\caption{All six terminal settings, complete numerical ranges in nats.}
+\small
+\setlength{\tabcolsep}{6pt}
+\input{figures/common-local-full-table.tex}
+\end{table}
+\begin{table}[p]
+\centering
+\caption{All six intermediate adaptive settings, complete ranges in nats.}
+\small
+\setlength{\tabcolsep}{6pt}
+\input{figures/common-intermediate-full-table.tex}
+\end{table}
+\begin{table}[p]
+\centering
+\caption{All six original settings, complete ranges in nats.}
+\small
+\setlength{\tabcolsep}{6pt}
+\input{figures/common-original-full-table.tex}
+\end{table}

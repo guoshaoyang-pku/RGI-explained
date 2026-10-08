@@ -1,0 +1,15 @@
+% Generated from independently verified batch records; every value is in nats.
+\begin{tabular}{lrrrrrr}
+\hline
+Term and statistic & SGD$_{\rm low}$ & HB$_{\rm low}$ & Adam & SGD$_{\rm high}$ & HB$_{\rm high}$ & Head only \\
+\hline
+Batch difficulty $D$: std. & 0.1853--0.18634 & 0.1853--0.18634 & 0.1853--0.18634 & 0.1853--0.18634 & 0.1853--0.18634 & 0.1853--0.18634 \\
+Linear response $A$: mean & -0.0072221---0.0070185 & -0.0071508---0.0070151 & -0.031325---0.031151 & -0.023052---0.022785 & -0.02311---0.022634 & -0.003818---0.0037352 \\
+Logit variance $Q_2$: mean & 0.00329--0.003695 & 0.0033529--0.0035083 & 0.015665--0.015712 & 0.015396--0.015453 & 0.01503--0.015307 & 0.001405--0.0014572 \\
+Remaining response $\varepsilon$: RMS & 0.0018671--0.0025149 & 0.001909--0.0021383 & 0.0041303--0.0042013 & 0.0064298--0.0066531 & 0.0065332--0.0069865 & 6.2245e-05--6.8153e-05 \\
+\hline
+\end{tabular}
+% Ranges span the three paired permutations of one reused data pool; they are not confidence intervals.
+% Rate-refinement protocol (adaptive). Method low/high names are relative rates, not established stability regimes.
+% Rates: SGD (smaller rate): effective h=3e-06, Heavy Ball (smaller rate): effective h=3e-06, Adam (calibrated): raw η=2.9e-07, SGD (larger rate): effective h=3e-05, Heavy Ball (larger rate): effective h=3e-05, Head only: raw η=3e-06
+
