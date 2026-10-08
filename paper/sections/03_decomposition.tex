@@ -7,6 +7,7 @@ The frozen difficulty is
   D(B)=\operatorname{mean}_{(x,y)\in B}\left[-\log p_0(y\mid x)\right].
   \label{eq:difficulty}
 \end{equation}
+If the natural conditional distribution were known as \(q(\cdot\mid x)\), its expected frozen loss would be \(H(q)+\KL(q\Vert p_0)\).  Thus measured \(D\) contains sampled target difficulty and checkpoint mismatch; it is not an independently identified entropy term.  It is exactly shared when the frozen predictor and scored batch are shared.
 The exact change in cross-entropy has a useful logit-space identity,
 \begin{align}
   L_t(B)-D(B)&=W(B)+Q(B),\\
@@ -22,6 +23,7 @@ To connect the loss change to parameter motion, recompute the batch gradient at 
   \qquad R(B)=W(B)-A(B).
   \label{eq:work}
 \end{equation}
+For the observed updates \(u_s=\theta_{s+1}-\theta_s\), this is also the exact accumulated projection \(A_t=g_B(\theta_0)^\top\sum_{s<t}u_s\).  Under SGD, \(u_s=-h_s g_{B_s}(\theta_s)\), so each historical batch contributes through its gradient alignment with the current batch's frozen gradient.  Other training settings change the update history through memory, preconditioning, or parameter restrictions.  This is a measured response to realized history, not an independent causal influence estimate for each training sample.
 The exact change can then be written \(L_t-D=A+R+Q\).  The residual \(R\) includes the nonlinearity of the parameter-to-logit map along the observed displacement, as well as any replay or numerical error; we do not identify it with a single unmeasured Hessian term.
 
 The second-order logit approximation to the convex log-partition term is

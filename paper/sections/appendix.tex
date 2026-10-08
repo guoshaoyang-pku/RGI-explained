@@ -14,6 +14,8 @@ The original protocol ran on A100 with PyTorch 2.7.0; the two rate extensions ra
 \paragraph{Additional diagnostics.}
 The registered 64-step block analysis uses signed covariance shares; these shares are attribution coefficients and may exceed one or be negative because terms cancel.  High-pass SGD failures and the optimizer-difference failure are retained in the main text rather than averaged away.  The three permutations reuse one data pool and are not independent datasets.
 
+The revised arriving figures use equal-width 0--300 and 300--310 columns.  Their 20-step nonoverlapping means are a presentation choice; the registered 64-step scientific calculations and all reported gates are unchanged.  The detail column contains eleven actual arriving-batch observations.  Fixed-probe plots retain only their eleven registered readouts; no fixed-probe data exist inside steps 300--310.  An independent scale audit recomputes the display windows, paired gaps, and larger/smaller $Q_2$ ratios across all permutations.
+
 \paragraph{Code and artifacts.}
 The arXiv source package includes the central table, four-term curves, retained failed rate protocols, MetaCircle assets, and compiled bibliography.  The public project provides compact numerical evidence, protocol contracts, independent checker and plotting code.  The release manifest identifies which raw weights, corpus spans, and full logit fixtures are omitted; a saved-evidence audit is distinct from rerunning training.
 
@@ -21,12 +23,12 @@ The arXiv source package includes the central table, four-term curves, retained 
 \begin{figure}[p]
 \centering
 \includegraphics[width=\linewidth]{common-intermediate-arriving.pdf}
-\caption{Intermediate adaptive protocol, $h=3\times10^{-6}/3\times10^{-5}$.  The same shared checkpoint and batch sequence are used.  Complete four-term curves retain the full-model network remainder and the passing affine head-only control.}
+\caption{Intermediate adaptive protocol, $h=3\times10^{-6}/3\times10^{-5}$.  The same shared checkpoint and batch sequence are used.  Equal-width 0--300 overview and 300--310 individual-step columns use the presentation conventions of Fig.~\ref{fig:four-arrival}.  The curves retain the full-model network remainder and the passing affine head-only control.}
 \end{figure}
 \begin{figure}[p]
 \centering
 \includegraphics[width=\linewidth]{common-original-arriving.pdf}
-\caption{Original protocol, $h=3\times10^{-4}/1.2\times10^{-3}$.  The high-SGD variance and softmax approximation error are retained, not clipped or removed.  The figure exhibits an approximation boundary; it does not establish an edge-of-stability regime.}
+\caption{Original protocol, $h=3\times10^{-4}/1.2\times10^{-3}$.  The two equal-width windows follow Fig.~\ref{fig:four-arrival}.  The high-SGD variance and softmax approximation error are retained without clipping.  The figure exhibits an approximation boundary; it does not establish an edge-of-stability regime.}
 \end{figure}
 \begin{table}[p]
 \centering

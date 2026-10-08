@@ -1,7 +1,7 @@
 {
-  "pages": 13,
-  "figures": 5,
-  "abstract_characters": 1479,
+  "pages": 15,
+  "figures": 6,
+  "abstract_characters": 895,
   "files": [
     {
       "path": "00README.json",
@@ -13,7 +13,7 @@
     },
     {
       "path": "figures/common-intermediate-arriving.pdf",
-      "sha256": "98d32c613e7183071823f6efabcb76967e8c0ba591c490041cdd0b86ece2bc63"
+      "sha256": "7b56229b618ea94fd669014b6ef54f15ab9035d5cff5faf2e84fd343347b57b7"
     },
     {
       "path": "figures/common-intermediate-full-table.tex",
@@ -21,11 +21,11 @@
     },
     {
       "path": "figures/common-local-arriving.pdf",
-      "sha256": "313aee321428f43e6d431c9405a01969b4698319ad1ae2b3292573b68aedf409"
+      "sha256": "d439b110f6e333487d653ad92359ff18b07b624578c28d122e46f385927a022f"
     },
     {
       "path": "figures/common-local-fixed.pdf",
-      "sha256": "4b9f8e6285cb70ca3b6d93bcae4ba5be5e2ef054197c3f0c1bfcca34943d4ac9"
+      "sha256": "4c8b305577a0439bf19a83229bcc291fb0cb3234310a4c941f41230d57e2c607"
     },
     {
       "path": "figures/common-local-full-table.tex",
@@ -33,11 +33,15 @@
     },
     {
       "path": "figures/common-local-paired.pdf",
-      "sha256": "2e6e361d7fb3201fb26e5af3fa163c09952faff719664f0e343ac0648927cc74"
+      "sha256": "d571deda217579f28c6fc94e0dd5091c91c32df6b365de2f5021409ce61bffd7"
+    },
+    {
+      "path": "figures/common-loss-structure.pdf",
+      "sha256": "78141a1c83923791fdf4d4fca964ea757f06c402247df0b2773f932cdbf67f0a"
     },
     {
       "path": "figures/common-original-arriving.pdf",
-      "sha256": "25c809cbc63fa93a30108703cd3a01f1de4c08cba80a2c50e8dd9ea9434ec29b"
+      "sha256": "76038ab224e52470797e7b942eecc5060c85cba87e694343dfd8b8fea75377ca"
     },
     {
       "path": "figures/common-original-full-table.tex",
@@ -49,7 +53,7 @@
     },
     {
       "path": "main.tex",
-      "sha256": "5c8cf2e8fb80299894b202a706952f87ae650cc8230aa0fe6b3ae79602cf1c82"
+      "sha256": "2d3a59180f8b1cdb4aab4be3efb061976b1a1eac124d0c6c2635e9ef5ebf35f2"
     },
     {
       "path": "metacircle.sty",
@@ -65,7 +69,7 @@
     },
     {
       "path": "sections/01_introduction.tex",
-      "sha256": "abf37104e40dd0c92ecd43d081e1d678fda37c4641341fcdb5f45271a1e0321a"
+      "sha256": "4a2e13f9e3a5a02edf26d7ff663761cf30929e14990ec67916c838ef2e23fc18"
     },
     {
       "path": "sections/02_relation_scope.tex",
@@ -73,7 +77,7 @@
     },
     {
       "path": "sections/03_decomposition.tex",
-      "sha256": "ca4e7b10e5b7bceb25ca30d042446a45792561e1a5c92cd1c25df9b6884b9930"
+      "sha256": "bc63680290a5d1434e6e812fdf04dae61af211961381d7956cf3373a5be23b2a"
     },
     {
       "path": "sections/04_experimental_protocol.tex",
@@ -97,23 +101,23 @@
     },
     {
       "path": "sections/11_common_start_results.tex",
-      "sha256": "03fc17de708be23940a76c7f155041b24116ef80d2975294b7ce25c354d524e5"
+      "sha256": "31a10f28dfd60363e7a0f67d90ad097c6526c701e5d88c16ae6a1ab8d4f0aa59"
     },
     {
       "path": "sections/abstract.tex",
-      "sha256": "07a5826be2bb6d40e239d166c067d2ba4c39a61789782c0e662a46577664d57b"
+      "sha256": "ea766ac7de13809d4be9ae368f32dcd9be368fa432ff9bd645e20295b7433c5a"
     },
     {
       "path": "sections/appendix.tex",
-      "sha256": "1198975f6ce2834549d2c209092f694a66e80e41f1ced75ee2f2000b9892a52f"
+      "sha256": "12195a501d63c3ed750b72d186fc916f0553c0ee3d71500e533b1a563bb5c039"
     },
     {
       "path": "tsinghua_badge_color_official.pdf",
       "sha256": "2de4a9827c52f0b20440bc3faceac0d6014a311ed9bc39e24f26cdb572684ee5"
     }
   ],
-  "archive_sha256": "f99042700e10e1c5bd0fa4d4c02a0c630cf3052f01a387f59d468fb17c8ea03c",
+  "archive_sha256": "77fab31d8d5d089b1c67b2d154bddf48738cdfac0b2ad1f35140f99393f47bf3",
   "scope": "Source-only XeLaTeX package; no raw fonts, build logs, private weights, training text, or PDF output in zip.",
   "standalone_returncode": 0,
-  "standalone_pages": 13
+  "standalone_pages": 15
 }

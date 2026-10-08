@@ -1,6 +1,6 @@
 # RGI-explained
 
-**Beyond Relative Generalization Invariance: Shared Difficulty and Local Learning Response in Language Model Training**
+**Explanation of RGI: Shared Batch Difficulty and Setting-Dependent Gaps**
 
 Shaoyang Guo is the sole core author. Ziming Liu is the corresponding author.
 
@@ -19,7 +19,13 @@ $$L_t(B)=D(B)+A_t(B)+Q_{2,t}(B)+\varepsilon_t(B).$$
 | **Q₂ · Logit variance cost** | Half the full-vocabulary variance of the observed logit displacement under frozen probabilities. |
 | **ε · Measured remainder** | L − D − A − Q₂, split into network nonlinearity R and softmax error Q − Q₂. |
 
-The homepage encodes the visual abstract directly as selectable HTML with normal-size text. The four measured curves show arriving batches and a separate fixed probe; frozen D changes only when the scored batch changes.
+The homepage encodes the visual abstract directly as selectable HTML with normal-size text. A front figure shows the measured shared-loss fluctuation and setting response on the same eleven intermediate-protocol batches.
+
+![Shared loss scale and setting response](docs/assets/common-loss-structure.svg)
+
+At steps 300–310 of registered permutation zero, frozen D has std 0.229 nats (10⁻¹ scale). Mean checkpoint-relative responses span −0.00309 to −0.02236 nats, with several average setting contrasts at the 10⁻³–10⁻² scale. The response also varies by batch; these are measured average offsets. The terminal protocol below has smaller responses.
+
+The four-term figure uses two equal-width columns: an overview of steps 0–300 with raw observations and 20-step presentation means, and eleven raw observations at steps 300–310. Colors and marker shapes distinguish all six settings; every method curve is solid. The registered 64-step scientific analysis remains unchanged. Frozen D changes only when the scored batch changes; the fixed-probe companion uses its original observed readouts.
 
 ![Four measured terms from a common checkpoint](docs/assets/common-local-arriving.svg)
 
@@ -31,6 +37,8 @@ The terminal protocol uses smaller SGD/normalized-HB effective h = 3 × 10⁻⁸
 | A · signed mean | −1.7783 to −1.7613 × 10⁻⁴ | −1.7593 to −1.7481 × 10⁻⁴ | −6.5959 to −6.5632 × 10⁻⁴ | −9.4748 to −9.3932 × 10⁻⁵ |
 | Q₂ · mean | 1.0801–1.2629 × 10⁻⁵ | 1.0746–1.2552 × 10⁻⁵ | 1.1175–1.1333 × 10⁻⁵ | 1.4350–1.4546 × 10⁻⁶ |
 | ε · RMS | 2.4217–3.4880 × 10⁻⁵ | 2.4265–3.5303 × 10⁻⁵ | 2.6141–2.8720 × 10⁻⁶ | 2.7625–2.8632 × 10⁻⁹ |
+
+The tenfold larger SGD / HB effective rates produce 30.52–35.72× terminal full-window mean Q₂, corresponding to 5.52–5.98× weighted RMS centered logit displacement. Q₂ scales quadratically with a fixed logit displacement; accumulated gradient paths do not preserve a simple squared-learning-rate ratio. A labeled smaller-setting inset keeps the low curves visible.
 
 The exact response is M = L − D = W + Q = A + R + Q. Thus ε = R + (Q − Q₂). ε generally includes second-order network curvature; it is not generically a cubic remainder. The head-only control makes logits affine in the updated parameters and removes R to numerical precision.
 

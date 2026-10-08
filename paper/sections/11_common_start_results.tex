@@ -15,7 +15,7 @@ Table~\ref{tab:core} is the central result.  It separates the shared batch scale
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{common-local-arriving.pdf}
-\caption{Four terms on the common arriving-batch stream, with permutation zero fixed before results.  The shared frozen $D$ is drawn once.  Thin raw traces and prespecified 64-step block means are retained; all panels use nats with independent vertical scales.  Shading marks the 32-update warmup.  $A,Q_2,\varepsilon$ begin at zero; $D$ varies because the arriving batch changes.  Full six-setting curves are shown, including the tenfold larger rates.}
+\caption{Four measured terms on the same arriving-batch stream, with permutation zero fixed before results.  Equal-width columns show steps 0--300 (left) and every observation at steps 300--310 (right).  Left: light raw traces and nonoverlapping 20-step presentation means; the actual step-zero values are shown separately.  Right: eleven raw points per setting, distinguished by color and marker.  All setting curves are solid; line style does not encode learning rate or an alternative estimate.  Shared $D$ is drawn once.  Each row has its own vertical scale in nats; shading marks the 32-update warmup.  $A,Q_2,\varepsilon$ begin at zero.  Full six-setting curves include the tenfold larger rates.  Presentation means do not change the registered 64-step analysis or its statistics.}
 \label{fig:four-arrival}
 \end{figure}
 
@@ -62,6 +62,9 @@ Larger effective rate & $1.2\!\times\!10^{-3}$ & $3\!\times\!10^{-5}$ & $3\!\tim
 
 The original large-rate settings also expose the probability-curvature boundary.  High SGD has mean $Q_2=11.33$--$13.10$ nats and a softmax-remainder RMS of 15.72--19.27 nats.  Calibrated Adam has a softmax-remainder RMS of 0.3140--0.3154 nats.  In these cases $Q_2$ is not an accurate substitute for the exact nonnegative $Q$.  This does not violate Eq.~\eqref{eq:exact}; it falsifies the useful quadratic approximation in that displacement regime.
 
+\paragraph{Why the larger-rate variance curves stand out.}
+$Q_2$ is quadratic in the observed centered logit displacement: multiplying $\Delta z$ by $c$ at fixed $p_0$ multiplies $Q_2$ by $c^2$.  In the terminal protocol, the tenfold effective-rate increase produces a full-window mean $Q_2$ ratio of 30.52--35.35 for SGD and 30.58--35.72 for HB, corresponding to weighted RMS centered logit ratios of 5.52--5.98.  At steps 300--310 the $Q_2$ ratios span 29.22--38.96.  The first post-update arrival gives approximately 100, as the local squared-rate scaling predicts; subsequent gradient feedback changes the accumulated path.  Thus the two larger-rate traces compress the smaller traces on a common linear axis.  The labeled smaller-setting inset preserves their actual scale without shifting curves.  These displacement ratios do not measure proximity to a stability boundary.
+
 \paragraph{Parameter alignment does not establish a constant token gap.}
 At the terminal smaller rate, SGD/HB endpoint displacement cosine is 0.999706--0.999809 and relative distance 2.00--2.43\%.  At the intermediate smaller rate the cosine is 0.99107--0.99500; at the original smaller rate it is 0.73536--0.75361.  This supports better finite-time alignment as the registered rate decreases, at a fixed update count.  It is an endpoint displacement comparison, not a claim that every point on the trajectory coincides.
 
@@ -70,6 +73,6 @@ Even at the terminal smaller rate, paired arrival response closure fails at 22.1
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{common-local-paired.pdf}
-\caption{Paired response and measured remaining discrepancy after the exactly shared $D$ cancels.  Raw values and prespecified block means are retained.  This scale reveals sample-conditioned differences that a raw-loss plot can hide.}
+\caption{Paired response and measured remaining discrepancy after the exactly shared $D$ cancels.  Here solid curves are measured $\Delta L$ and dashed curves are $\Delta A+\Delta Q_2$ for the same paired batches.  Their difference is $\Delta\varepsilon$, displayed separately.  Thin raw values and prespecified 64-step block means are retained.  This scale reveals sample-conditioned differences that a raw-loss plot can hide.}
 \label{fig:paired-response}
 \end{figure}

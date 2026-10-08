@@ -8,18 +8,23 @@ from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 from matplotlib.ticker import MaxNLocator
 import numpy as np
 
 
 METHODS = {
-    'sgd_low': ('SGD (smaller rate)', '#0072B2', '-'),
-    'momentum_low': ('Heavy Ball (smaller rate)', '#D55E00', '-'),
-    'adam_low': ('Adam (calibrated)', '#009E73', '-'),
-    'sgd_high': ('SGD (larger rate)', '#0072B2', '--'),
-    'momentum_high': ('Heavy Ball (larger rate)', '#D55E00', '--'),
-    'head_low': ('Head only', '#CC79A7', '-.'),
+    'sgd_low': ('SGD · smaller rate', '#0072B2', 'o'),
+    'momentum_low': ('Heavy Ball · smaller', '#E69F00', '^'),
+    'adam_low': ('Adam · calibrated', '#009E73', 'D'),
+    'sgd_high': ('SGD · larger rate', '#56B4E9', 's'),
+    'momentum_high': ('Heavy Ball · larger', '#D55E00', 'v'),
+    'head_low': ('Head only', '#CC79A7', 'X'),
 }
+LOW_METHODS = ['sgd_low', 'momentum_low', 'adam_low', 'head_low']
+OVERVIEW_STOP = 300
+ZOOM_STOP = 310
+PRESENTATION_BLOCK_SIZE = 20
 PANELS = [
     ('difficulty', r'(a) Shared frozen difficulty $D$', r'$D$ (nats)'),
     ('parameter_work', r'(b) Linear response $A$', r'$A$ (nats)'),
@@ -45,8 +50,8 @@ def arrays(rows):
 
 def configure():
     plt.rcParams.update({
-        'font.family': 'DejaVu Sans', 'font.size': 10, 'axes.titlesize': 11,
-        'axes.labelsize': 10, 'legend.fontsize': 9, 'axes.spines.top': False,
+        'font.family': 'DejaVu Sans', 'font.size': 9.2, 'axes.titlesize': 10,
+        'axes.labelsize': 9.2, 'legend.fontsize': 9, 'axes.spines.top': False,
         'axes.spines.right': False, 'pdf.fonttype': 42, 'svg.fonttype': 'none',
         'savefig.dpi': 300, 'axes.formatter.useoffset': False,
     })
@@ -83,7 +88,6 @@ def axes_style(axes, plan, terms=True):
 def save(fig, destination, name, status):
     if status:
         fig.suptitle(status, color='#8C4513', fontsize=11, y=1.045)
-    fig.tight_layout(rect=(0, .13, 1, .81))
     for extension in ['pdf', 'svg', 'png']:
         fig.savefig(destination / f'{name}.{extension}', bbox_inches='tight')
     plt.close(fig)
@@ -95,68 +99,136 @@ def blockmeans(x, y):
     return x.reshape(-1, 64).mean(-1), y.reshape(-1, 64).mean(-1)
 
 
-def four_panels(traces, plan, calibration, destination, name, status, fixed=False, replica=0, subset=''):
-    fig, axes = plt.subplots(2, 2, figsize=(11.8, 7.6))
-    axes_style(axes, plan)
+def method_style(method, marker=True):
+    _, color, symbol = METHODS[method]
+    return dict(color=color, ls='-', lw=1.3,
+                marker=symbol if marker else None, ms=4.6, mew=1.0,
+                markerfacecolor='none' if method.startswith('momentum') else color,
+                markeredgecolor=color)
+
+
+def validate_shared(traces, name, fixed):
     shared = next(iter(traces.values()))
-    for key, values in traces.items():
+    for method, values in traces.items():
         if not np.array_equal(shared['step'], values['step']):
-            raise ValueError(f'{name}: mismatched measurement steps for {key}.')
+            raise ValueError(f'{name}: mismatched measurement steps for {method}.')
         if not np.allclose(shared['difficulty'], values['difficulty'], rtol=0, atol=2e-10):
-            raise ValueError(f'{name}: frozen difficulty is not shared for {key}.')
+            raise ValueError(f'{name}: frozen difficulty is not shared for {method}.')
+        for field, _, _ in PANELS[1:]:
+            if values[field][0] != 0 or values['step'][0] != 0:
+                raise ValueError(f'{name}: {method}/{field} must be measured from zero.')
     if fixed and not np.allclose(shared['difficulty'], shared['difficulty'][0], rtol=0, atol=2e-10):
         raise ValueError('Fixed-probe frozen difficulty must be constant.')
+    return shared
+
+
+def arriving_panels(traces, plan, calibration, destination, name, status):
+    shared = validate_shared(traces, name, fixed=False)
+    x = shared['step']
+    overview = (x >= 0) & (x <= OVERVIEW_STOP)
+    coarse = (x >= 0) & (x < OVERVIEW_STOP)
+    zoom = (x >= OVERVIEW_STOP) & (x <= ZOOM_STOP)
+    if not np.array_equal(x[coarse], np.arange(OVERVIEW_STOP)):
+        raise ValueError('Coarse presentation requires observed steps 0–299.')
+    if not np.array_equal(x[zoom], np.arange(OVERVIEW_STOP, ZOOM_STOP+1)):
+        raise ValueError('Zoom requires all eleven observed steps 300–310.')
+    coarse_x = x[coarse].reshape(-1, PRESENTATION_BLOCK_SIZE).mean(-1)
+    fig, axes = plt.subplots(4, 2, figsize=(6.8, 7.85), gridspec_kw={'width_ratios': [1, 1]})
+    fig.subplots_adjust(left=.10, right=.978, bottom=.065, top=.835, hspace=.59, wspace=.39)
+    handles = []
+    for row, (field, title, ylabel) in enumerate(PANELS):
+        left, right = axes[row]
+        short_title = title[4:]
+        left.set(title=title, ylabel=ylabel, xlim=(0, OVERVIEW_STOP),
+                 xticks=[0, 60, 120, 180, 240, 300])
+        right.set(title=short_title, ylabel=ylabel, xlim=(OVERVIEW_STOP, ZOOM_STOP),
+                  xticks=np.arange(OVERVIEW_STOP, ZOOM_STOP+1, 2))
+        if row == 0:
+            left.set_title('0–300: coarse overview\n'+title, pad=8)
+            right.set_title('300–310: every step\n'+short_title, pad=8)
+        left.axvspan(0, plan['warmup'], color='#777777', alpha=.09, lw=0, zorder=0)
+        for ax in [left, right]:
+            if row:
+                ax.axhline(0, color='#777777', lw=.6, zorder=0)
+            ax.yaxis.set_major_locator(MaxNLocator(4))
+            ax.ticklabel_format(axis='y', style='sci', scilimits=(-3, 3))
+            ax.grid(axis='y', alpha=.16, lw=.5)
+        if field == 'difficulty':
+            left.plot(x[overview], shared[field][overview], color='#222222', alpha=.23, lw=.55)
+            coarse_y = shared[field][coarse].reshape(-1, PRESENTATION_BLOCK_SIZE).mean(-1)
+            left.plot(coarse_x, coarse_y, color='#222222', marker='o', ms=3.5, lw=1.35)
+            right.plot(x[zoom], shared[field][zoom], color='#222222', marker='o', ms=4, lw=1.35)
+            continue
+        for method, values in traces.items():
+            y = values[field]
+            style = method_style(method)
+            left.plot(x[overview], y[overview], color=style['color'], alpha=.18, lw=.55)
+            left.plot([0], [0], **style, zorder=4)
+            coarse_y = y[coarse].reshape(-1, PRESENTATION_BLOCK_SIZE).mean(-1)
+            line, = left.plot(coarse_x, coarse_y, label=method_label(method, plan, calibration), **style)
+            right.plot(x[zoom], y[zoom], **style)
+            if field == 'parameter_work':
+                handles.append(line)
+        if field == 'quadratic' and len(traces) > len(LOW_METHODS):
+            low_traces = {method: values for method, values in traces.items() if method in LOW_METHODS}
+            low_peak = max(values[field][zoom].max() for values in low_traces.values())
+            all_peak = max(values[field][zoom].max() for values in traces.values())
+            if all_peak > 5*low_peak:
+                inset = right.inset_axes([.23, .18, .70, .34])
+                for method, values in low_traces.items():
+                    style = method_style(method)
+                    style.update(ms=3.1, lw=.9, mew=.7)
+                    inset.plot(x[zoom], values[field][zoom], **style)
+                inset.set(title='Smaller / calibrated', xlim=(OVERVIEW_STOP, ZOOM_STOP),
+                          ylim=(0, 1.15*low_peak), xticks=[])
+                inset.title.set_fontsize(9)
+                inset.tick_params(labelsize=9, pad=1, length=2)
+                inset.yaxis.set_major_locator(MaxNLocator(3))
+                inset.ticklabel_format(axis='y', style='sci', scilimits=(-3, 3))
+                inset.yaxis.get_offset_text().set_fontsize(9)
+                inset.grid(axis='y', alpha=.15, lw=.5)
+                inset.patch.set_alpha(.95)
+    for ax in axes[-1]:
+        ax.set_xlabel('Continuation updates')
+    fig.legend(handles=handles, loc='upper center', bbox_to_anchor=(.5, 1.002),
+               ncol=3, frameon=False, columnspacing=1.1, handlelength=1.8)
+    save(fig, destination, name, status)
+
+
+def four_panels(traces, plan, calibration, destination, name, status, fixed=False, replica=0, subset=''):
+    if not fixed:
+        arriving_panels(traces, plan, calibration, destination, name, status)
+        return
+    fig, axes = plt.subplots(2, 2, figsize=(6.8, 4.65))
+    axes_style(axes, plan)
+    shared = validate_shared(traces, name, fixed=True)
     legend_handles = []
     for ax, (field, title, ylabel) in zip(axes.flat, PANELS):
         ax.set(title=title, ylabel=ylabel)
         x = shared['step']
         if field == 'difficulty':
-            if fixed:
-                ax.plot(x, shared[field], color='#222222', marker='o', ms=4, lw=1.7)
-            else:
-                ax.plot(x, shared[field], color='#222222', alpha=.22, lw=.65)
-                bx, by = blockmeans(x, shared[field])
-                ax.plot(bx, by, color='#222222', marker='o', ms=4, lw=1.7)
+            ax.plot(x, shared[field], color='#222222', marker='o', ms=4, lw=1.7)
             continue
         for method, values in traces.items():
-            _, color, linestyle = METHODS[method]
             label = method_label(method, plan, calibration)
             y = values[field]
-            if y[0] != 0 or values['step'][0] != 0:
-                raise ValueError(f'{name}: {method}/{field} must be measured from zero.')
-            if fixed:
-                line, = ax.plot(x, y, color=color, ls=linestyle, marker='o', ms=3.8,
-                                lw=1.65, label=label)
-            else:
-                ax.plot(x, y, color=color, ls=linestyle, alpha=.22, lw=.65)
-                ax.plot(x[0], y[0], color=color, marker='o', ms=3.5)
-                bx, by = blockmeans(x, y)
-                line, = ax.plot(bx, by, color=color, ls=linestyle, marker='o', ms=3.5,
-                                lw=1.65, label=label)
+            line, = ax.plot(x, y, label=label, **method_style(method))
             if field == 'parameter_work':
                 legend_handles.append(line)
     fig.legend(handles=legend_handles, loc='upper center', bbox_to_anchor=(.5, .99),
-               ncol=3, frameon=False, columnspacing=1.8)
-    caption = ('Dots: fixed held-out 32-document readouts; frozen D is horizontal.' if fixed else
-               'Light lines: all observed arriving batches. Solid/dashed lines with dots: nonoverlapping 64-step means.')
-    scope = protocol_label(plan)+f'; permutation {replica+1} of {len(plan["permutation_seeds"])}.'
-    if subset:
-        scope += ' '+subset
-    fig.text(.5, .025, caption+'\n'+scope+'\n'
-             'Heavy Ball raw η = 0.1h; Adam rate matches one reset-step Q₂, not its whole trajectory.\n'
-             'Grey: 32-update warmup. Shared batch order; separate vertical scales; all nats. Rate labels do not imply stability regimes.',
-             ha='center', va='center', fontsize=8.5)
+               ncol=3, frameon=False, columnspacing=1.1, handlelength=1.8)
+    fig.tight_layout(rect=(0, 0, 1, .79))
     save(fig, destination, name, status)
 
 
 def paired_plot(traces, plan, calibration, destination, status):
     pairs = [('sgd_low', 'momentum_low', f'SGD − Heavy Ball\neffective h={plan["rates"]["sgd_low"]:.3g}', '#0072B2'),
              ('sgd_high', 'momentum_high', f'SGD − Heavy Ball\neffective h={plan["rates"]["sgd_high"]:.3g}', '#D55E00'),
-             ('adam_low', 'head_low', f'Adam − Head only (different settings)\nraw η={calibration["adam_rate"]:.3g} / {plan["rates"]["head_low"]:.3g}', '#009E73')]
+             ('adam_low', 'head_low', f'Adam − Head only\nraw η={calibration["adam_rate"]:.3g} / {plan["rates"]["head_low"]:.3g}', '#009E73')]
     pairs = [pair for pair in pairs if pair[0] in traces and pair[1] in traces]
     if not pairs:
         return
-    fig, axes = plt.subplots(1, 2, figsize=(11.8, 4.1))
+    fig, axes = plt.subplots(1, 2, figsize=(6.8, 3.05))
     axes_style(axes, plan, terms=False)
     for left, right, label, color in pairs:
         a, b = traces[left], traces[right]
@@ -176,13 +248,14 @@ def paired_plot(traces, plan, calibration, destination, status):
         axes[1].plot(bx, remainder_mean, color=color, marker='o', ms=3.5, lw=1.65)
     for ax in axes:
         ax.axhline(0, color='#777777', lw=.7)
-    axes[0].set(title='(a) Paired measured response and reconstruction', ylabel='Difference (nats)')
+    axes[0].set(title='(a) Measured and reconstructed', ylabel='Difference (nats)')
     axes[1].set(title=r'(b) Paired remaining response $\Delta\varepsilon$', ylabel='Difference (nats)')
     fig.legend(*axes[0].get_legend_handles_labels(), loc='upper center', bbox_to_anchor=(.5, .99),
                ncol=3, frameon=False, columnspacing=1.)
-    fig.text(.5, .025, 'Light lines: observed values. Dots: 64-step means. Panel (a): solid ΔL; dashed ΔA + ΔQ₂.\n'
-             'Common difficulty cancels. Original shared step axis; no fitted time alignment.\n'+protocol_label(plan)+'.',
-             ha='center', va='center', fontsize=8.5)
+    axes[0].legend(handles=[Line2D([], [], color='#222222', lw=1.5, label=r'Measured $\Delta L$'),
+                            Line2D([], [], color='#222222', lw=1.5, ls='--', label=r'$\Delta A+\Delta Q_2$')],
+                   loc='lower left', frameon=False, handlelength=1.8)
+    fig.tight_layout(rect=(0, 0, 1, .79))
     save(fig, destination, 'paired-response', status)
 
 
@@ -292,7 +365,7 @@ def main(args):
     destination.mkdir(exist_ok=True)
     four_panels(traces, plan, calibration, destination, 'four-terms-arriving', status, replica=replica)
     four_panels(probes, plan, calibration, destination, 'four-terms-fixed-probe', status, fixed=True, replica=replica)
-    low_methods = ['sgd_low', 'momentum_low', 'adam_low', 'head_low']
+    low_methods = LOW_METHODS
     low_traces = {method: values for method, values in traces.items() if method in low_methods}
     low_probes = {method: values for method, values in probes.items() if method in low_methods}
     if len(low_traces) > 1:
@@ -311,7 +384,22 @@ def main(args):
                     verification_sha256=hashlib.sha256(verification_bytes).hexdigest(),
                     partial=partial, plotted_replica=replica, methods=list(traces),
                     protocol=protocol_label(plan), rates=plan['rates'], adam_raw_rate=calibration['adam_rate'],
-                    batch_block_size=64, smoothing='None; raw traces and prespecified nonoverlapping block means.',
+                    batch_block_size=64,
+                    smoothing=('No fitted smoothing. Arriving overview: 20-step presentation means; '
+                               'paired plot: unchanged registered 64-step means; zoom/fixed probe: raw values.'),
+                    presentation=dict(
+                        arriving_layout='Four rows × two equal-width columns',
+                        overview_raw_steps=[0, OVERVIEW_STOP],
+                        overview_mean_steps=[0, OVERVIEW_STOP-1],
+                        overview_nonoverlapping_mean_size=PRESENTATION_BLOCK_SIZE,
+                        overview_means_are_presentation_only=True,
+                        origin='Actual step-zero markers are separate from the first block mean at step 9.5.',
+                        zoom_inclusive_steps=[OVERVIEW_STOP, ZOOM_STOP],
+                        zoom_observations=ZOOM_STOP-OVERVIEW_STOP+1,
+                        setting_lines='Solid; distinct Okabe–Ito colors and marker shapes, no jitter or rescaling.',
+                        variance_inset='Smaller/calibrated settings only when the full linear scale compresses them.',
+                        paired_lines='Solid measured ΔL; dashed ΔA + ΔQ2; neither encodes a setting rate.',
+                        embedded_prose_caption=False),
                     figures=[dict(path=path.name, sha256=sha(path)) for path in sorted(destination.iterdir())
                              if path.suffix in ['.pdf', '.svg', '.png', '.tex', '.csv', '.json']
                              and path.name != 'plot-manifest.json'],

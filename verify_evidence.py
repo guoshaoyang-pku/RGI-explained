@@ -249,6 +249,18 @@ def verify_common(require):
                 require(digest == originals[path], protocol + ' page original source digest/' + path)
         for path, digest in webpage_sources[protocol]['figures'].items():
             require(hashlib.sha256((root / 'figures' / path).read_bytes()).hexdigest() == digest, protocol + ' page figure digest/' + path)
+        alignment = load_json(root / 'parameter-alignment.json')
+        require(alignment['completed'] and alignment['step'] == 512 and alignment['common_checkpoint'] == 143000, protocol + ' endpoint alignment metadata')
+        require(sorted((row['replica'], row['level']) for row in alignment['rows']) == list(itertools.product(range(3), ['high', 'low'])), protocol + ' endpoint alignment pairs')
+        for row in alignment['rows']:
+            label = protocol + f"/r{row['replica']}-{row['level']}"
+            first = load_json(root / f"r{row['replica']}-sgd_{row['level']}" / 'summary.json')
+            second = load_json(root / f"r{row['replica']}-momentum_{row['level']}" / 'summary.json')
+            compare(row['sgd_norm'], first['displacement_norm'], label + ' SGD endpoint norm')
+            compare(row['momentum_norm'], second['displacement_norm'], label + ' momentum endpoint norm')
+            require(-1 <= row['displacement_cosine'] <= 1 and row['relative_distance'] >= 0, label + ' alignment range')
+            norm_ratio = row['momentum_norm'] / row['sgd_norm']
+            compare(row['relative_distance'] ** 2, 1 + norm_ratio ** 2 - 2 * norm_ratio * row['displacement_cosine'], label + ' endpoint cosine-distance identity')
         if protocol == 'local':
             table_match = re.search(r'<table class="numbers">(.*?)</table>', webpage, re.S)
             require(table_match is not None, 'native homepage numerical table')
@@ -286,6 +298,75 @@ def verify_common(require):
     require(provenance['preserved_failed_protocols'], 'failed adaptive protocols preserved')
     require('Sole core author' in webpage and 'Corresponding author' in webpage and 'table class="definitions"' in webpage, 'native visual abstract and author roles')
     return completed
+
+
+def verify_concept(require):
+    manifest_path = ROOT / 'paper/figures/common-loss-structure-manifest.json'
+    require(manifest_path.is_file(), 'concept figure manifest present')
+    manifest = load_json(manifest_path)
+    require(manifest['protocol'] == 'intermediate adaptive protocol' and manifest['replica'] == 0,
+            'concept registered intermediate permutation zero')
+    require(manifest['window'] == [300, 310] and manifest['observations'] == 11
+            and manifest['aggregation'] is None, 'concept eleven raw observations')
+    root = ROOT / 'evidence/common-refinement'
+    plot_manifest = load_json(root / 'plot-manifest.json')
+    original_inputs = {item['path']: item['sha256'] for item in plot_manifest['inputs']}
+    plan = load_json(root / 'plan.json')
+    methods = plan['methods']
+    paths = {f'r0-{method}/trace.json' for method in methods}
+    require(set(manifest['sources']) == paths and set(manifest['mean_responses']) == set(methods),
+            'concept six registered settings')
+    originals = {item['artifact']: item['original_sha256']
+                 for item in load_json(ROOT / 'evidence/common-source-provenance.json')['records']
+                 if item['protocol'] == 'refinement'}
+    for artifact in ['plan', 'verification']:
+        require(manifest[artifact + '_sha256'] == originals[artifact + '.json'],
+                'concept original ' + artifact + ' digest')
+    if 'generator_sha256' in manifest:
+        require(hashlib.sha256((ROOT / 'experiments/common_checkpoint/concept_plot.py').read_bytes()).hexdigest()
+                == manifest['generator_sha256'], 'concept generator digest')
+    baseline, responses = None, {}
+    for method in methods:
+        path = f'r0-{method}/trace.json'
+        require(manifest['sources'][path] == original_inputs[path],
+                'concept original source digest/' + method)
+        selected = [row for row in load_json(root / path) if 300 <= row['step'] <= 310]
+        require([row['step'] for row in selected] == list(range(300, 311)),
+                'concept exact displayed steps/' + method)
+        difficulty = [row['difficulty'] for row in selected]
+        if baseline is None:
+            baseline = difficulty
+        require(difficulty == baseline, 'concept exact shared difficulty/' + method)
+        responses[method] = mean([row['loss'] - row['difficulty'] for row in selected])
+        require(math.isclose(responses[method], manifest['mean_responses'][method],
+                             rel_tol=2e-12, abs_tol=2e-14), 'concept measured response/' + method)
+    deviation = std(baseline)
+    require(math.isclose(deviation, manifest['difficulty_std'], rel_tol=2e-12, abs_tol=2e-14),
+            'concept measured difficulty standard deviation')
+    require(manifest['figure_type'] == 'measured data; not an idealized constant-offset schematic'
+            and 'no constant token-gap claim' in manifest['scope'], 'concept stated evidence scope')
+    outputs = {item['path']: item['sha256'] for item in manifest['outputs']}
+    require(len(outputs) == len(manifest['outputs']) == 3
+            and set(outputs) == {f'common-loss-structure.{suffix}' for suffix in ['pdf', 'svg', 'png']},
+            'concept three figure formats')
+    for path, digest in outputs.items():
+        require(hashlib.sha256((ROOT / 'paper/figures' / path).read_bytes()).hexdigest() == digest,
+                'concept published figure digest/' + path)
+    require(hashlib.sha256((ROOT / 'docs/assets/common-loss-structure.svg').read_bytes()).hexdigest()
+            == outputs['common-loss-structure.svg'], 'concept native homepage figure digest')
+    webpage = (ROOT / 'docs/index.html').read_text()
+    match = re.search(r'<script type="application/json" id="loss-structure-provenance">(.*?)</script>', webpage, re.S)
+    require(match is not None, 'concept homepage provenance')
+    require(json.loads(match.group(1)) == manifest, 'concept homepage and figure provenance agree')
+    require('src="assets/common-loss-structure.svg"' in webpage, 'concept homepage figure reference')
+    introduction = (ROOT / 'paper/sections/01_introduction.tex').read_text()
+    figure = next((block for block in re.findall(r'\\begin\{figure\}(.*?)\\end\{figure\}', introduction, re.S)
+                   if 'common-loss-structure.pdf' in block), None)
+    require(figure is not None, 'concept introduction figure and caption')
+    for value in [f'{deviation:.3f}', f'{min(responses.values()):.5f}', f'{max(responses.values()):.5f}']:
+        require(value in figure, 'concept caption rounded measured value/' + value)
+    require('checkpoint-relative responses' in figure and 'not a constant token-wise gap' in figure,
+            'concept caption response definition and scope')
 
 
 def main():
@@ -372,6 +453,7 @@ def main():
     require(arrivals['algorithm_aggregate']['sgd']['far']['blockmean64']['comparisons']['A_plus_Q2']['ninety_percent_pass_count'] == 1,
             'SGD far-block variance limitation retained')
     common_runs = verify_common(require)
+    verify_concept(require)
     print(f'PASS: {checks} release integrity and recorded-arithmetic checks; {common_runs} common-checkpoint runs.')
     print('Scope: public trace, document, and token arithmetic was independently recomputed. '
           'No gradients, full-vocabulary logits, optimizer trajectory, or training were replayed. '

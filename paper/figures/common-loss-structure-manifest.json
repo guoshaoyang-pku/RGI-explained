@@ -1,0 +1,46 @@
+{
+  "protocol": "intermediate adaptive protocol",
+  "replica": 0,
+  "window": [
+    300,
+    310
+  ],
+  "observations": 11,
+  "aggregation": null,
+  "sources": {
+    "r0-sgd_low/trace.json": "1dd9bd2020587c820ea74d66fba82938583ad15736014e10889cd60c2b9e4ba6",
+    "r0-momentum_low/trace.json": "1dc33ab3ce858ddaabb9ebb08aa249a2ccf9f5a5ffd6b006e5e60124253b5c46",
+    "r0-adam_low/trace.json": "bfa6c6b2ef157aaf166b66f4f9bdd41c24f9f421cf0e4237368165d38bb999e0",
+    "r0-sgd_high/trace.json": "e7f7f2b207736434c18e251626d5c276051e071d795505fb4410386fa9e61b3e",
+    "r0-momentum_high/trace.json": "7bba9170a160d5c2dc805a78a2335dad56da6445f308596df08c344188f2acc7",
+    "r0-head_low/trace.json": "bde4965275fc2a703618034f374ad2d69f2c1717b91cdf908d9a03f80af2932e"
+  },
+  "plan_sha256": "b98a3f88519c4cb18d4ed77b96c1382387c99bc20203e9a0523e2fdeff893b08",
+  "generator_sha256": "13be1fe106bda3b6ea5dc914461b29874a7d880b651db802cdd956cf41da1682",
+  "verification_sha256": "cc58a7161e6ec456fc838e54c0b338eafdecfeb9ddf2097728ffa3f182f6680b",
+  "difficulty_std": 0.22926062166860947,
+  "mean_responses": {
+    "sgd_low": -0.005511189236173664,
+    "momentum_low": -0.005372048576932994,
+    "adam_low": -0.022358764881515315,
+    "sgd_high": -0.016088688746294502,
+    "momentum_high": -0.013873724050469,
+    "head_low": -0.003093885964143334
+  },
+  "figure_type": "measured data; not an idealized constant-offset schematic",
+  "scope": "Paired batch losses and checkpoint-relative responses; no constant token-gap claim.",
+  "outputs": [
+    {
+      "path": "common-loss-structure.pdf",
+      "sha256": "78141a1c83923791fdf4d4fca964ea757f06c402247df0b2773f932cdbf67f0a"
+    },
+    {
+      "path": "common-loss-structure.svg",
+      "sha256": "db1b009b098929ee38d52d309ae19a76a8247cdaf72ba9f579b1d71bc4664bf6"
+    },
+    {
+      "path": "common-loss-structure.png",
+      "sha256": "f25115d950b109c0a8711e45a500e75951a7d04816aaf04e93d970a0141cb791"
+    }
+  ]
+}

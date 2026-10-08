@@ -1,5 +1,5 @@
 {
-  "source_sha256": "e4054c5f2b3a3e8b65bb1a4de58c6bb723830a2052835c0948beb2673dfbeccf",
+  "source_sha256": "f7be36c26c8a0a8d1ddcb296d02a830f4bd727ac9c7118af92193cc5ff84d0c9",
   "plan_sha256": "d68cbc9f539d62d184432ddeda2314a89932d1c673b894ca12aeba913a50b660",
   "inputs": [
     {
@@ -81,7 +81,30 @@
   },
   "adam_raw_rate": 1.2685965885977084e-05,
   "batch_block_size": 64,
-  "smoothing": "None; raw traces and prespecified nonoverlapping block means.",
+  "smoothing": "No fitted smoothing. Arriving overview: 20-step presentation means; paired plot: unchanged registered 64-step means; zoom/fixed probe: raw values.",
+  "presentation": {
+    "arriving_layout": "Four rows \u00d7 two equal-width columns",
+    "overview_raw_steps": [
+      0,
+      300
+    ],
+    "overview_mean_steps": [
+      0,
+      299
+    ],
+    "overview_nonoverlapping_mean_size": 20,
+    "overview_means_are_presentation_only": true,
+    "origin": "Actual step-zero markers are separate from the first block mean at step 9.5.",
+    "zoom_inclusive_steps": [
+      300,
+      310
+    ],
+    "zoom_observations": 11,
+    "setting_lines": "Solid; distinct Okabe\u2013Ito colors and marker shapes, no jitter or rescaling.",
+    "variance_inset": "Smaller/calibrated settings only when the full linear scale compresses them.",
+    "paired_lines": "Solid measured \u0394L; dashed \u0394A + \u0394Q2; neither encodes a setting rate.",
+    "embedded_prose_caption": false
+  },
   "figures": [
     {
       "path": "core-table.csv",
@@ -93,67 +116,67 @@
     },
     {
       "path": "core-table.tex",
-      "sha256": "95fe9744175ea5e705216047dab0daf69b3ac5f696fae1638107d5ed1d64f18a"
+      "sha256": "01a1e047e2c194b6f91dc816cd61e3fa5b2d8c40fe0df59f2e4b3d540ddefa12"
     },
     {
       "path": "four-terms-arriving-low-settings.pdf",
-      "sha256": "bc3f26c993461b1e7527ef486b65837a8cb3aff75f0f0c176b9627317b6cbcea"
+      "sha256": "e151da3c70c3f6ab63c336281c3edd23f3557f0a071558b1d234e744a4eecd93"
     },
     {
       "path": "four-terms-arriving-low-settings.png",
-      "sha256": "73fe40d1495a7a86307e10a6045abc0541da171edb6b1dca78e8a170756a4194"
+      "sha256": "3e733ef6a86cc7675e768d637ac22b9079f4fa9ab1c8fa2b9fa516c8a57d79cb"
     },
     {
       "path": "four-terms-arriving-low-settings.svg",
-      "sha256": "38187a9c49434609cb22a1bcee3eac5ad70e695b7fa332cc38801062a799a4a4"
+      "sha256": "10b7ca4e8b6d4dd0d5fdbf9902c085c8805863e11e8b7acf69b0f086d90b21ac"
     },
     {
       "path": "four-terms-arriving.pdf",
-      "sha256": "25c809cbc63fa93a30108703cd3a01f1de4c08cba80a2c50e8dd9ea9434ec29b"
+      "sha256": "76038ab224e52470797e7b942eecc5060c85cba87e694343dfd8b8fea75377ca"
     },
     {
       "path": "four-terms-arriving.png",
-      "sha256": "87315c4508557cbb64c6cf1848294cf4a064b8ffa2a53ed5aeca8603b77bf440"
+      "sha256": "8efcf2f28ae28202572dd69bf4c5d64bdca1a80948fa28fa08ebf888dd50c1cb"
     },
     {
       "path": "four-terms-arriving.svg",
-      "sha256": "a419cddfe00a0a1cbc42f47410bd34d764d09ffa718811b258c14bd9a7fe96ea"
+      "sha256": "3e5ab2e51b8d458f43a224e8b8c14d861b2283fe1abc1f808e8cd53c480e274b"
     },
     {
       "path": "four-terms-fixed-probe-low-settings.pdf",
-      "sha256": "3357788dc166f8592326d18f8f1162c99d37df7a04308021cf253bc2a957d6ea"
+      "sha256": "f9789a2ffaf5d08a917d5a07ca34429fa8542c945932b9f0392436ff13ab54c7"
     },
     {
       "path": "four-terms-fixed-probe-low-settings.png",
-      "sha256": "92ad5082b3bda58b007200b44a3209353a70571501f7673c577fba3c5c209ea5"
+      "sha256": "e971ca82e264f42e40e6cd32f1d4cf6952aa026928819e5f578f8b82a44b2260"
     },
     {
       "path": "four-terms-fixed-probe-low-settings.svg",
-      "sha256": "68ed046ad4fec76766c8ef5b58f8b1f4360cd574692b5b92e462de9ad08dd765"
+      "sha256": "f7fea30cc3fcb9f6de6086c2e87e4b6b4feed9057b33c799b00d8846b677fef5"
     },
     {
       "path": "four-terms-fixed-probe.pdf",
-      "sha256": "a9897d25fdcbb9f24987381d05c5528764a0cd993201996348854c03df62c2f3"
+      "sha256": "b5f9753aa3e0bcc34d06d76475af882057c10f8c11b1804bf3f3d58cd3af25f2"
     },
     {
       "path": "four-terms-fixed-probe.png",
-      "sha256": "908c3ac81c21bdef5d9a62e9cf1d938a0b5e974ab1d542ea34ce7f313de50430"
+      "sha256": "e9e176283d6b61f4abc1f8cd3abf09f0370d040d120c82321c78aecc4b82e310"
     },
     {
       "path": "four-terms-fixed-probe.svg",
-      "sha256": "68c2011547f2528e6b26dc7a436bb2a3b4e4cc840af9201ac16736affeea57eb"
+      "sha256": "1612f2d4a3bb187b4371d4669ea9ed629fdddf6d13fd0d51f9e53cbd1dca44d6"
     },
     {
       "path": "paired-response.pdf",
-      "sha256": "bac0231e106874e9539f048f3930bef00e5636e7a193b12f6caf365d1b87291c"
+      "sha256": "fdd3288b99d692d32bbaa4569e39142904ca0db502d785c10005a34876d9c9b4"
     },
     {
       "path": "paired-response.png",
-      "sha256": "9e1b7dd5583291272bc0ae5c0a54be034ec37c8f941d5eb006cc33d034328e68"
+      "sha256": "26d62d426a073ccca7f118d27e7320b537df6e8224fb850a90593f05024be8e7"
     },
     {
       "path": "paired-response.svg",
-      "sha256": "b160e1559641da9c1f63e3e29c900fce81db3c055efb0ffebee89062b6dbef2d"
+      "sha256": "021cb272444b1bb104cdf468789463b31650543273200ae5ddc4c1c90839c3cb"
     }
   ],
   "scope": "Observed realized response, with independent vertical scales; no fitted time warp."
